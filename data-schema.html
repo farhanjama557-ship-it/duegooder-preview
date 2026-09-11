@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Data &amp; Schema · DueGooder</title>
+<link rel="stylesheet" href="/assets/app.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f1418" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z" fill="#0f1418" fill-opacity=".12"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg>
+      DueGooder
+    </a>
+    <nav class="nav-links">
+      <a href="/" data-route="/">Collection Engine</a>
+      <a href="/connectors" data-route="/connectors">Connectors</a>
+      <a href="/universities" data-route="/universities">Universities</a>
+      <a href="/data-schema" data-route="/data-schema" class="active">Data &amp; Schema</a>
+      <a href="/about" data-route="/about">About</a>
+    </nav>
+    <div class="nav-right">
+      <span class="chip-outline">KYX 2026</span>
+      <span class="chip-green">Preview</span>
+      <div class="avatar">F</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="page">
+    <div class="page-head">
+      <div>
+        <h1 class="page-title">Normalized Data Schema</h1>
+        <p class="page-sub">One consistent format for every university, regardless of platform.</p>
+      </div>
+      <div class="right"><span class="badge">Schema example</span></div>
+    </div>
+
+    <div class="ptabs">
+      <button class="ptab on">Schema</button>
+      <button class="ptab">Example Record</button>
+      <button class="ptab">Platform Mapping</button>
+      <button class="ptab">Field Definitions</button>
+    </div>
+
+    <div class="ds-grid">
+      <div>
+        <div class="code">
+          <div class="code-head"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#93a5ae" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg><b>Normalized Section (JSON)</b><span class="badge" style="background:#1c252b;color:#9fb3bd">Schema example</span><button class="code-copy" id="copyBtn">Copy</button></div>
+          <pre id="schemaCode">{
+  <span class="k">"school_id"</span>: <span class="s">"appstate"</span>,
+  <span class="k">"school_name"</span>: <span class="s">"Appalachian State University"</span>,
+  <span class="k">"term_id"</span>: <span class="s">"202608"</span>,
+  <span class="k">"term_name"</span>: <span class="s">"Fall 2026"</span>,
+  <span class="k">"department"</span>: <span class="n">null</span>,
+  <span class="k">"subject"</span>: <span class="s">"CS"</span>,
+  <span class="k">"course_number"</span>: <span class="s">"250"</span>,
+  <span class="k">"course_title"</span>: <span class="s">"Data Structures"</span>,
+  <span class="k">"section_number"</span>: <span class="s">"001"</span>,
+  <span class="k">"crn"</span>: <span class="s">"41231"</span>,
+  <span class="k">"instructor"</span>: <span class="s">"M. Wilson"</span>,
+  <span class="k">"meeting_days"</span>: [<span class="s">"MO"</span>, <span class="s">"WE"</span>],
+  <span class="k">"start_time"</span>: <span class="s">"10:00"</span>,
+  <span class="k">"end_time"</span>: <span class="s">"11:15"</span>,
+  <span class="k">"location"</span>: <span class="s">"Belk Hall 210"</span>,
+  <span class="k">"enrollment_status"</span>: <span class="s">"open"</span>,
+  <span class="k">"seats_available"</span>: <span class="n">null</span>,
+  <span class="k">"source_url"</span>: <span class="s">"https://…"</span>,
+  <span class="k">"retrieved_at"</span>: <span class="s">"2026-09-11T00:00:00Z"</span>,
+  <span class="k">"extraction_status"</span>: <span class="s">"complete"</span>
+}</pre>
+        </div>
+        <div class="card arch">
+          <span class="node">Raw platform response</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg>
+          <span class="node on">Connector</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg>
+          <span class="node out">Normalized DueGooder schema</span>
+        </div>
+      </div>
+
+      <div class="card" style="padding:16px 18px">
+        <h2 class="ctitle">How it works</h2>
+        <div class="steps-list">
+          <div class="stp"><span class="num">1</span><div><b>Collect raw data</b><small>The connector extracts data from a university's public registration system.</small></div></div>
+          <div class="stp"><span class="num">2</span><div><b>Normalize</b><small>Platform-specific fields are mapped to one consistent schema.</small></div></div>
+          <div class="stp"><span class="num">3</span><div><b>Store</b><small>Normalized sections are stored with full provenance: source URL and retrieval time.</small></div></div>
+          <div class="stp"><span class="num">4</span><div><b>Keep it updated</b><small>Re-runs match existing sections, so refreshes update rather than duplicate.</small></div></div>
+        </div>
+        <div class="note-green">
+          <b>Same schema. Every university.</b>
+          <small>The record above is an illustrative example of the structure, not collected data. Real sections arrive in Phase 3.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  (function(){
+    var b=document.getElementById('copyBtn');
+    b.addEventListener('click',function(){
+      var t=document.getElementById('schemaCode').innerText;
+      if(navigator.clipboard) navigator.clipboard.writeText(t).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy';},1400);});
+    });
+  })();
+  </script>
+</main>
+
+</body>
+</html>
