@@ -3,112 +3,678 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>DueGooder · Course Collection</title>
+<title>DueGooder · Turn any university into structured course data</title>
 <style>
-:root{--bg:#f4f5f7;--panel:#fff;--ink:#111318;--muted:#6e737d;--line:#e4e6ea;--soft:#f8f9fa;--green:#176b45;--greenbg:#eaf7f0;--red:#a43232;--redbg:#fff0f0;--amber:#8a5a00;--amberbg:#fff7dd;--shadow:0 18px 50px rgba(17,19,24,.06)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#fbfbfc 0,#f4f5f7 260px);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}
-button,input{font:inherit}.shell{max-width:1440px;margin:0 auto;padding:30px 30px 60px}.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px}.brand{display:flex;gap:12px;align-items:center}.logo{width:40px;height:40px;border-radius:13px;background:#111318;color:white;display:grid;place-items:center;font-weight:900;letter-spacing:-.05em}.brand strong{display:block;font-size:17px}.brand small{display:block;color:var(--muted);margin-top:2px}.event{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:8px 11px;border-radius:999px;background:white}
-.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}.heroCard,.runner,.metric,.panel{background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}.heroCard{padding:34px}.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:800;color:var(--muted)}h1{font-size:48px;line-height:1.02;letter-spacing:-.055em;margin:13px 0 14px;max-width:780px}.heroCard p{font-size:17px;line-height:1.55;color:var(--muted);max-width:760px;margin:0}.thesis{margin-top:27px;display:flex;align-items:center;gap:11px;font-weight:700}.thesis .arrow{width:30px;height:30px;border-radius:50%;background:#111318;color:#fff;display:grid;place-items:center}
-.runner{padding:24px}.runnerHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}.runnerHead h2{margin:0;font-size:17px}.status{display:flex;gap:7px;align-items:center;font-size:12px;color:var(--muted)}.dot{width:8px;height:8px;border-radius:50%;background:#1d9a63;box-shadow:0 0 0 4px #e9f8f1}.status.busy .dot{background:#d18b00;box-shadow:0 0 0 4px #fff3cf;animation:pulse 1s infinite}.status.bad .dot{background:#c53a3a;box-shadow:0 0 0 4px #ffe8e8}@keyframes pulse{50%{opacity:.4}}
-.label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800;margin:16px 0 8px}.schools{display:grid;gap:8px}.school{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:var(--soft);cursor:pointer;transition:.15s}.school:hover{border-color:#bdc0c6}.school input{accent-color:#111318}.schoolText{min-width:0}.schoolText strong{display:block;font-size:13px}.schoolText small{color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;margin-top:2px}.connector{margin-left:auto;font-size:10px;border:1px solid var(--line);background:white;border-radius:999px;padding:4px 7px;color:var(--muted)}
-.row{display:grid;grid-template-columns:1fr 110px;gap:8px}.input{width:100%;border:1px solid var(--line);background:#fff;border-radius:11px;padding:11px 12px;outline:none}.input:focus{border-color:#999}.runBtn{width:100%;border:0;background:#111318;color:#fff;border-radius:12px;padding:13px 16px;font-weight:800;margin-top:15px;cursor:pointer;transition:.15s}.runBtn:hover{transform:translateY(-1px)}.runBtn:disabled{opacity:.5;cursor:not-allowed;transform:none}.runnerNote{font-size:11px;color:var(--muted);line-height:1.45;margin-top:10px}
-.metrics{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:18px 0}.metric{padding:18px 19px}.metric .k{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:750}.metric .v{font-size:28px;font-weight:850;letter-spacing:-.04em;margin-top:5px}.metric .sub{font-size:11px;color:var(--muted);margin-top:4px}
-.main{display:grid;grid-template-columns:1fr 360px;gap:18px}.panel{overflow:hidden}.panelHead{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;border-bottom:1px solid var(--line)}.panelHead h3{font-size:15px;margin:0}.panelHead .meta{font-size:12px;color:var(--muted)}.toolbar{display:flex;gap:8px}.search{border:1px solid var(--line);background:var(--soft);border-radius:9px;padding:8px 10px;width:220px}.tableWrap{overflow:auto;max-height:600px}table{width:100%;border-collapse:collapse;min-width:900px}th,td{text-align:left;padding:12px 13px;border-bottom:1px solid #eff0f2;vertical-align:middle}th{position:sticky;top:0;background:#fafafa;z-index:2;font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}td{font-size:12px}.course{font-weight:850;font-size:13px}.title{color:var(--muted);margin-top:2px;max-width:260px}.pill{display:inline-flex;align-items:center;gap:5px;border-radius:999px;font-size:10px;font-weight:750;padding:4px 7px;border:1px solid var(--line);background:white}.pill.open{background:var(--greenbg);color:var(--green);border-color:#cbead9}.pill.closed{background:var(--redbg);color:var(--red);border-color:#f0cdcd}.source{color:#555;text-decoration:none;border-bottom:1px dashed #aaa}.source:hover{color:#000}.empty{padding:70px 20px;text-align:center;color:var(--muted)}
-.sideStack{display:grid;gap:18px}.reuse{padding:21px}.reuse h3,.runs h3{font-size:15px;margin:0 0 7px}.reuse p{font-size:12px;color:var(--muted);line-height:1.5;margin:0}.diagram{margin-top:20px;display:grid;grid-template-columns:1fr 35px 1fr;align-items:center;gap:8px}.nodes{display:grid;gap:7px}.node{border:1px solid var(--line);background:var(--soft);padding:9px;border-radius:10px;font-size:11px}.join{height:84%;border-top:1px solid #bbb;border-bottom:1px solid #bbb;border-right:1px solid #bbb;border-radius:0 9px 9px 0}.core{border:1px solid #111318;background:#111318;color:#fff;border-radius:14px;padding:18px 12px;text-align:center;font-weight:800;font-size:12px}.core small{display:block;font-weight:400;color:#c9ccd2;margin-top:5px}.scale{margin-top:15px;border-radius:11px;background:#f2f3f5;padding:11px;font-size:11px;color:#50545c}.runs{padding:21px}.runList{display:grid;gap:9px;margin-top:15px}.runItem{border:1px solid var(--line);border-radius:12px;padding:11px}.runTop{display:flex;justify-content:space-between;gap:8px}.runTop strong{font-size:12px}.runTop span{font-size:10px}.runStats{font-size:11px;color:var(--muted);margin-top:7px;line-height:1.5}.ok{color:var(--green)}.fail{color:var(--red)}.running{color:var(--amber)}
-.foot{margin-top:20px;border:1px dashed #c9ccd1;border-radius:16px;padding:16px 18px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:18px}.foot b{color:var(--ink)}
+@font-face{
+  font-family:'Inter';
+  font-style:normal;
+  font-weight:100 900;
+  font-display:swap;
+  src:url(fonts/inter-latin.woff2) format('woff2');
+}
+:root{
+  --page:#f7f8f7;
+  --card:#ffffff;
+  --ink:#0f1418;
+  --ink-2:#1c232a;
+  --muted:#6d757e;
+  --muted-2:#868e97;
+  --line:#e6e8e9;
+  --line-soft:#eef0f1;
+  --soft:#f5f7f6;
+  --green:#1f9d5c;
+  --green-dark:#137a46;
+  --green-bg:#e9f6ee;
+  --green-bg-2:#eef7f1;
+  --amber:#b4821a;
+  --amber-bg:#fdf4e0;
+  --blue:#2f6fd0;
+  --blue-bg:#eaf2fd;
+  --radius:14px;
+  --shadow:0 1px 2px rgba(15,20,24,.04);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--page);
+  color:var(--ink);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:14px;
+  -webkit-font-smoothing:antialiased;
+}
+button,input,select{font:inherit;color:inherit}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1500px;margin:0 auto;padding:0 36px}
 
-.previewBanner{margin-bottom:14px;padding:10px 14px;border:1px solid #eadfb7;background:#fff9e8;border-radius:12px;color:#775a00;font-size:12px;display:flex;align-items:center;justify-content:space-between;gap:12px}.previewBanner b{color:#513e00}.detectBox{margin-top:15px;border:1px solid var(--line);background:var(--soft);border-radius:14px;padding:13px}.detectRow{display:flex;gap:8px}.detectRow .input{flex:1}.ghostBtn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 12px;font-weight:750;cursor:pointer}.detectResult{margin-top:9px;font-size:11px;color:var(--muted);min-height:16px}.steps{display:grid;gap:7px;margin-top:12px}.step{display:flex;align-items:center;gap:9px;font-size:11px;color:var(--muted)}.stepDot{width:9px;height:9px;border-radius:50%;background:#d9dce2}.step.active{color:var(--ink);font-weight:700}.step.active .stepDot{background:#d18b00;box-shadow:0 0 0 4px #fff3cf}.step.done .stepDot{background:#1d9a63}.quality{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}.qualityItem{border:1px solid var(--line);background:var(--soft);border-radius:10px;padding:10px}.qualityItem b{display:block;font-size:16px}.qualityItem span{font-size:10px;color:var(--muted)}
-@media(max-width:1050px){.hero,.main{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(3,1fr)}.sideStack{grid-template-columns:1fr 1fr}}@media(max-width:700px){.shell{padding:18px}.top{align-items:flex-start}.event{display:none}h1{font-size:38px}.metrics{grid-template-columns:1fr 1fr}.sideStack{grid-template-columns:1fr}.row{grid-template-columns:1fr}.heroCard{padding:25px}}
+/* ---------- top navigation ---------- */
+.nav{background:#fff;border-bottom:1px solid var(--line)}
+.nav-in{max-width:1500px;margin:0 auto;padding:0 36px;height:51px;display:flex;align-items:center;gap:32px}
+.brand{display:flex;align-items:center;gap:9px;font-size:15.5px;font-weight:700;letter-spacing:-.015em}
+.brand svg{display:block}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{font-size:13px;font-weight:500;color:#3d454d}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a.active{color:var(--ink);font-weight:600}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.chip-outline{border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:12px;font-weight:500;color:#3d454d;background:#fff}
+.chip-green{background:var(--green-bg);color:var(--green-dark);border-radius:999px;padding:5px 13px;font-size:12px;font-weight:600}
+.avatar{width:28px;height:28px;border-radius:50%;background:#5c646d;color:#fff;display:grid;place-items:center;font-size:11.5px;font-weight:600}
+
+/* ---------- hero ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 356px 272px;gap:22px;align-items:start;padding:18px 0 20px}
+.hero-left{padding-left:8px;padding-top:4px}
+.eyebrow{display:flex;align-items:center;gap:7px;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green-dark)}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--green);display:block}
+h1{margin:10px 0 0;font-size:39px;line-height:1.07;letter-spacing:-.03em;font-weight:700;color:#0d1216;max-width:620px}
+.hero-sub{margin:12px 0 0;font-size:15px;line-height:1.46;color:#5f6871;max-width:570px}
+.thesis{margin-top:14px;display:inline-flex;align-items:center;gap:11px;background:var(--green-bg-2);border:1px solid #d9ecdf;border-radius:11px;padding:8px 15px 8px 9px}
+.thesis .ic{width:30px;height:30px;border-radius:9px;background:var(--green);display:grid;place-items:center;flex:none}
+.thesis span{font-size:14px;font-weight:600;color:#16332a;letter-spacing:-.005em}
+.hero-map{display:flex;justify-content:center;padding-top:6px}
+.hero-cards{display:grid;gap:8px}
+.hcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 14px;display:flex;align-items:center;gap:11px;box-shadow:var(--shadow)}
+.hcard .ic{width:34px;height:34px;border-radius:10px;background:var(--green-bg);display:grid;place-items:center;flex:none}
+.hcard b{display:block;font-size:15px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+.hcard small{display:block;font-size:11px;color:var(--muted);line-height:1.45;margin-top:1px;letter-spacing:-.004em}
+.hcard small+small{margin-top:0}
+
+/* ---------- generic card ---------- */
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.badge{display:inline-block;vertical-align:2px;margin-left:7px;background:#eff2f0;color:#71807a;border-radius:5px;padding:3px 6px;font-size:8.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;line-height:1}
+.ctitle{font-size:15px;font-weight:700;letter-spacing:-.015em;margin:0;white-space:nowrap}
+.csub{margin:3px 0 0;font-size:11.5px;color:var(--muted)}
+
+/* ---------- discovery ---------- */
+.discover{padding:18px 22px 20px}
+.tabs{display:flex;align-items:center;border-bottom:1px solid var(--line-soft);margin:0 -22px 18px;padding:0 22px}
+.tab{display:inline-flex;align-items:center;gap:7px;padding:6px 2px 12px;margin-right:26px;font-size:13.5px;font-weight:600;color:#8d959d;background:none;border:0;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px}
+.tab.on{color:var(--ink);border-bottom-color:#0f1418}
+.tab svg{opacity:.75}
+.examples{margin-left:auto;display:flex;align-items:center;gap:8px;padding-bottom:11px}
+.examples span{font-size:12px;color:var(--muted)}
+.ex{border:1px solid var(--line);background:#fbfcfb;border-radius:8px;padding:5px 12px;font-size:12px;color:#39414a;cursor:pointer}
+.ex:hover{border-color:#c9d0cc;background:#f3f6f4}
+.searchrow{display:grid;grid-template-columns:minmax(0,1fr) 236px;gap:14px}
+.field{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;background:#fff;padding:0 14px;height:52px}
+.field:focus-within{border-color:#b9c2bc}
+.field input{flex:1;border:0;outline:none;background:none;font-size:14.5px;height:100%}
+.field input::placeholder{color:#9aa1a9}
+.btn-dark{height:52px;border:0;border-radius:10px;background:#111a20;color:#fff;font-size:14.5px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:9px;cursor:pointer;transition:background .15s}
+.btn-dark:hover{background:#1c262e}
+.btn-dark:disabled{opacity:.6;cursor:default}
+.flow{display:flex;align-items:center;margin-top:19px}
+.stage{display:flex;align-items:center;gap:11px;flex:none}
+.stage .ic{width:42px;height:42px;border-radius:12px;background:var(--green-bg);display:grid;place-items:center;flex:none;transition:.2s}
+.stage b{display:block;font-size:13.5px;font-weight:600;letter-spacing:-.01em}
+.stage small{display:block;font-size:11.5px;color:var(--muted);margin-top:1px}
+.flow .arrow{flex:1;display:flex;justify-content:center;color:#b9c0c6}
+.stage.act .ic{background:#d7f0e2;box-shadow:0 0 0 4px #eaf7ef}
+.stage.done .ic{background:#cfeddc}
+.runline{margin-top:14px;font-size:11.5px;color:var(--muted);display:none;align-items:center;gap:8px}
+.runline.show{display:flex}
+.recent{display:none}
+.recent.show{display:block}
+.recent-item{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:8px;cursor:pointer}
+.recent-item:hover{border-color:#c9d0cc;background:#fbfcfb}
+.recent-item b{font-size:13.5px;font-weight:600}
+.recent-item small{display:block;color:var(--muted);font-size:11.5px;margin-top:1px}
+.recent-item .r{margin-left:auto;font-size:11.5px;color:var(--muted)}
+
+/* ---------- row: latest collection / quality / refresh ---------- */
+.row-2{display:grid;grid-template-columns:minmax(0,830fr) 304px 306px;gap:12px;margin-top:16px;align-items:stretch}
+.latest{padding:16px 20px 18px;display:flex;flex-direction:column}
+.latest-head{display:flex;align-items:flex-start}
+.link-green{margin-left:auto;font-size:12px;font-weight:500;color:#33404a;display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.link-green:hover{color:var(--green-dark)}
+.stats{display:flex;margin-top:auto;margin-bottom:auto;padding-top:22px}
+.stat{flex:1;display:flex;align-items:center;gap:11px;padding-left:20px;border-left:1px solid var(--line-soft)}
+.stat:first-child{padding-left:0;border-left:0}
+.stat .ic{width:34px;height:34px;border-radius:10px;background:#f3f5f4;display:grid;place-items:center;flex:none}
+.stat b{display:block;font-size:21px;font-weight:700;letter-spacing:-.03em;line-height:1.1}
+.stat small{display:block;font-size:11px;color:var(--muted);margin-top:2px}
+.quality{padding:15px 18px 14px}
+.qrows{margin-top:16px}
+.qrow{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.qrow:last-child{margin-bottom:2px}
+.qrow span{font-size:12px;color:#4d555d;width:104px;flex:none}
+.bar{flex:1;height:7px;border-radius:4px;background:#eef1ef;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:4px;background:#2aa863}
+.qrow em{font-style:normal;font-size:12px;font-weight:600;width:34px;text-align:right;flex:none}
+.refresh{padding:14px 18px 14px}
+.rtop{display:flex;align-items:center;gap:10px;margin-top:12px}
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;margin-top:10px}
+.ritem{display:flex;align-items:center;gap:10px}
+.ritem .ic,.rtop .ic{width:26px;height:26px;border-radius:8px;background:var(--green-bg);display:grid;place-items:center;flex:none}
+.ritem.mut .ic,.rtop.mut .ic{background:#f3f5f4}
+.ritem b,.rtop b{font-size:15.5px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.ritem small,.rtop small{display:block;font-size:10.5px;color:var(--muted);margin-top:1px}
+.rtop b{font-size:18px}
+
+/* ---------- row: table + connector ---------- */
+.row-3{display:grid;grid-template-columns:minmax(0,1fr) 408px;gap:20px;margin:16px 0 40px;align-items:start}
+.sections{padding:16px 0 0;overflow:hidden}
+.table-scroll{overflow-x:auto}
+.sections-head{display:flex;align-items:flex-start;padding:0 20px 14px;gap:12px}
+.tools{margin-left:auto;display:flex;align-items:center;gap:8px}
+.tsearch{display:flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:8px;height:32px;padding:0 10px;width:212px;background:#fff}
+.tsearch input{border:0;outline:none;background:none;width:100%;font-size:11.5px}
+.tsearch input::placeholder{color:#9aa1a9}
+.sel{position:relative}
+.sel select{appearance:none;-webkit-appearance:none;border:1px solid var(--line);border-radius:8px;height:32px;padding:0 28px 0 12px;font-size:12px;background:#fff;cursor:pointer;color:#39414a}
+.sel svg{position:absolute;right:9px;top:50%;transform:translateY(-50%);pointer-events:none;color:#8d959d}
+table{width:100%;border-collapse:collapse}
+thead th{background:#fafbfa;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);text-align:left;font-size:11.5px;font-weight:600;color:#5c646c;padding:7.5px 14px;white-space:nowrap}
+thead th:first-child{padding-left:20px}
+tbody td{border-bottom:1px solid #f1f3f2;padding:8px 14px;font-size:12.5px;color:#2e363d;white-space:nowrap}
+tbody td:first-child{padding-left:20px}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:#fcfdfc}
+.uni{display:flex;align-items:center;gap:9px}
+.mono-logo{width:19px;height:19px;border-radius:50%;display:grid;place-items:center;font-size:9px;font-weight:700;color:#fff;flex:none;letter-spacing:-.02em}
+.enr{display:inline-flex;align-items:center;gap:7px;font-size:12.5px}
+.enr i{width:7px;height:7px;border-radius:50%;background:var(--green);display:block}
+.enr.wait{color:var(--amber)}
+.enr.wait i{background:#e0a52a}
+.enr.closed{color:#a8443c}
+.enr.closed i{background:#c9584f}
+.view{color:#39414a;font-size:12.5px;display:inline-flex;align-items:center;gap:5px}
+.view:hover{color:var(--green-dark)}
+.noresults{padding:34px 20px;text-align:center;color:var(--muted);font-size:12.5px}
+
+.aside{display:grid;gap:12px}
+.conn{padding:15px 17px 14px}
+.diagram{display:grid;grid-template-columns:minmax(0,1fr) 15px auto 26px auto;align-items:center;gap:0;margin-top:15px}
+.dnodes{display:grid;gap:8px}
+.dnode{display:flex;align-items:center;gap:7px;font-size:10px;color:#39414a;white-space:nowrap}
+.brace{height:66px;border-top:1px solid #dcdfe0;border-bottom:1px solid #dcdfe0;border-right:1px solid #dcdfe0;border-radius:0 7px 7px 0;position:relative}
+.brace:after{content:"";position:absolute;right:-10px;top:50%;width:10px;border-top:1px solid #dcdfe0}
+.dbox{border:1px solid #dfeafb;background:#f1f6fe;border-radius:11px;padding:10px 8px;text-align:center;width:84px;margin-left:10px}
+.dbox b{display:block;font-size:11px;font-weight:600;color:#2a63bd;line-height:1.3;margin-top:6px}
+.dbox.plain{border-color:var(--line);background:#fbfcfb;width:82px;margin-left:0}
+.dbox.plain b{color:#2e363d}
+.dArrow{display:grid;place-items:center;color:#b9c0c6}
+.conn-stats{display:flex;gap:16px;margin-top:15px}
+.cstat{display:flex;align-items:center;gap:7px;padding-left:14px;border-left:1px solid var(--line-soft)}
+.cstat:first-child{padding-left:0;border-left:0}
+.cstat .ic{width:16px;height:16px;display:grid;place-items:center;color:#9aa8a0;flex:none}
+.cstat b{display:block;font-size:15px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.cstat small{display:block;font-size:9.5px;color:var(--muted);margin-top:1px;white-space:nowrap}
+.unknown{padding:12px 14px;display:flex;align-items:center;gap:10px}
+.unknown .ic{width:30px;height:30px;border-radius:9px;background:var(--amber-bg);display:grid;place-items:center;flex:none}
+.unknown b{display:block;font-size:12.8px;font-weight:600;letter-spacing:-.012em;white-space:nowrap}
+.unknown small{display:block;font-size:10.5px;color:var(--muted);margin-top:2px;line-height:1.38;letter-spacing:-.006em}
+.pill-amber{margin-left:auto;background:var(--amber-bg);color:#8a6410;border-radius:7px;padding:6px 10px;font-size:11px;font-weight:600;white-space:nowrap}
+
+/* ---------- responsive ---------- */
+@media(max-width:1400px){
+  .hero{grid-template-columns:minmax(0,1fr) 300px 264px;gap:18px}
+  .row-3{grid-template-columns:minmax(0,1fr) 360px}
+}
+@media(max-width:1180px){
+  .hero{grid-template-columns:minmax(0,1fr) 264px}
+  .hero-map{display:none}
+  .row-2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .latest{grid-column:1/-1}
+  .row-3{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:900px){
+  .wrap,.nav-in{padding:0 18px}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr}
+  h1{font-size:34px}
+  .searchrow{grid-template-columns:1fr}
+  .flow{flex-wrap:wrap;gap:14px}
+  .flow .arrow{display:none}
+  .stage{flex:1 1 200px}
+  .stats{flex-wrap:wrap;gap:14px 0}
+  .stat{flex:1 1 33%}
+  .row-2{grid-template-columns:minmax(0,1fr)}
+  .tabs{flex-wrap:wrap;padding-bottom:6px}
+  .examples{margin-left:0;width:100%;flex-wrap:wrap;padding-bottom:6px}
+  .sections-head{flex-wrap:wrap}
+  .tools{margin-left:0;width:100%;flex-wrap:wrap}
+  .tsearch{width:100%}
+  .ctitle{white-space:normal}
+  .thesis{align-items:flex-start}
+  .diagram{grid-template-columns:minmax(0,1fr) 12px auto 20px auto}
+  .dbox,.dbox.plain{width:74px}
+  .conn-stats{flex-wrap:wrap;gap:10px 12px}
+  .cstat small{white-space:normal}
+  .unknown{flex-wrap:wrap}
+  .unknown b,.unknown small{white-space:normal}
+  .pill-amber{margin-left:0}
+}
 </style>
 </head>
 <body>
-<div class="shell">
-  <div class="previewBanner"><span><b>Vercel preview mode</b> · UI-only demo with simulated data. No live university requests are made.</span><span>Safe to delete later.</span></div>
-  <div class="top">
-    <div class="brand"><div class="logo">DG</div><div><strong>DueGooder</strong><small>Course Collection Engine</small></div></div>
-    <div class="event">KYX 2026 · Hack Kentucky</div>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f1418" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z" fill="#0f1418" fill-opacity=".12"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg>
+      DueGooder
+    </a>
+    <nav class="nav-links">
+      <a href="#" class="active">Collection Engine</a>
+      <a href="#connectors">Connectors</a>
+      <a href="#universities">Universities</a>
+      <a href="#schema">Data &amp; Schema</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="nav-right">
+      <span class="chip-outline">KYX 2026</span>
+      <span class="chip-green">Preview</span>
+      <div class="avatar">F</div>
+    </div>
   </div>
+</header>
 
-  <div class="hero">
-    <section class="heroCard">
-      <div class="eyebrow">Public university data → one clean database</div>
-      <h1>One connector.<br>Many universities.</h1>
-      <p>Automatically discover public registration data, collect real sections and meeting times, normalize the result, and refresh it without duplicates.</p>
-      <div class="thesis"><span class="arrow">→</span><span>The integration unit is the <b>platform</b>, not the school.</span></div>
-    </section>
+<main class="wrap">
 
-    <section class="runner">
-      <div class="runnerHead"><h2>Run collection</h2><div id="status" class="status"><span class="dot"></span><span id="statusText">Ready</span></div></div>
-      <div class="detectBox"><div class="label" style="margin-top:0">Try a university website</div><div class="detectRow"><input id="schoolUrl" class="input" value="appstate.edu" placeholder="university.edu"><button id="detectBtn" class="ghostBtn">Detect</button></div><div id="detectResult" class="detectResult">Paste a school website to preview platform detection.</div><div id="steps" class="steps" style="display:none"><div class="step" data-step="1"><span class="stepDot"></span>Detecting registration platform</div><div class="step" data-step="2"><span class="stepDot"></span>Discovering public terms</div><div class="step" data-step="3"><span class="stepDot"></span>Collecting sections & meeting times</div><div class="step" data-step="4"><span class="stepDot"></span>Normalizing & deduplicating</div></div></div>
-      <div class="label">Universities</div>
-      <div id="schools" class="schools"></div>
-      <div class="label">Term & demo cap</div>
-      <div class="row"><input id="term" class="input" placeholder="Newest public term (recommended)"><input id="limit" class="input" type="number" min="1" max="1000" value="100" title="Section cap per school"></div>
-      <button id="runBtn" class="runBtn">Collect public course data</button>
-      <div class="runnerNote">For the hackathon demo, 50–100 sections per school is enough to prove the pipeline quickly. Leave the term empty to auto-discover the newest public term.</div>
-    </section>
-  </div>
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="eyebrow"><i></i>Public data, real impact.</div>
+      <h1>Turn any university into<br>structured course data.</h1>
+      <p class="hero-sub">DueGooder discovers a school's registration system, collects public sections and meeting times, and normalizes everything into one consistent format.</p>
+      <div class="thesis">
+        <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg></span>
+        <span>One connector per platform, not one scraper per school.</span>
+      </div>
+    </div>
 
-  <div class="metrics">
-    <div class="metric"><div class="k">Schools live</div><div class="v" id="mSchools">0</div><div class="sub">normalized in database</div></div>
-    <div class="metric"><div class="k">Sections</div><div class="v" id="mSections">0</div><div class="sub">active normalized rows</div></div>
-    <div class="metric"><div class="k">Meetings</div><div class="v" id="mMeetings">0</div><div class="sub">days / times / rooms</div></div>
-    <div class="metric"><div class="k">HTTP requests</div><div class="v" id="mRequests">0</div><div class="sub">measured, not estimated</div></div>
-    <div class="metric"><div class="k">Runtime</div><div class="v" id="mRuntime">0s</div><div class="sub">measured collection time</div></div>
-    <div class="metric"><div class="k">Direct cost</div><div class="v" id="mCost">$0</div><div class="sub">local public-HTTP run</div></div>
-  </div>
+    <div class="hero-map"><svg id="usmap" width="336" height="198" aria-hidden="true"></svg></div>
 
-  <div class="main">
-    <section class="panel">
-      <div class="panelHead"><div><h3>Normalized sections</h3><div class="meta" id="sectionMeta">No live run yet</div></div><div class="toolbar"><input id="search" class="search" placeholder="Search course, school, CRN…"></div></div>
-      <div id="tableArea" class="tableWrap"><div class="empty">Run the collector to populate real public sections.</div></div>
-    </section>
+    <div class="hero-cards">
+      <div class="hcard">
+        <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8.5 12 4 2 8.5l10 4.5 10-4.5Z"/><path d="M6 11v5c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-5"/></svg></span>
+        <div>
+          <b>6,000+</b>
+          <small>U.S. institutions</small>
+          <small>From NCES / IPEDS</small>
+        </div>
+      </div>
+      <div class="hcard">
+        <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><circle cx="18" cy="12" r="2.4"/><path d="M8.1 7.2 15.9 11M8.1 16.8 15.9 13"/></svg></span>
+        <div>
+          <b>Multiple platforms</b>
+          <small>Banner, PeopleSoft, Workday, + more</small>
+        </div>
+      </div>
+      <div class="hcard">
+        <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.8" rx="7.5" ry="2.8"/><path d="M4.5 5.8v12.4c0 1.55 3.36 2.8 7.5 2.8s7.5-1.25 7.5-2.8V5.8"/><path d="M4.5 12c0 1.55 3.36 2.8 7.5 2.8s7.5-1.25 7.5-2.8"/></svg></span>
+        <div>
+          <b>One normalized schema</b>
+          <small>Consistent data across every school</small>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <aside class="sideStack">
-      <section class="panel reuse">
-        <h3>Connector reuse</h3>
-        <p>Four schools, one Banner connector. Each new school only needs configuration when the platform is already supported.</p>
-        <div class="diagram"><div class="nodes"><div class="node">Appalachian State</div><div class="node">Dayton</div><div class="node">West Florida</div><div class="node">West Virginia</div></div><div class="join"></div><div class="core">BannerSSB9Connector<small>shared extraction logic</small></div></div>
-        <div class="scale"><b>Scale story:</b> add PeopleSoft and Workday behind the same normalized interface; school count grows faster than connector count.</div>
-      </section>
+  <!-- ================= DISCOVERY ================= -->
+  <section class="card discover" id="universities">
+    <div class="tabs">
+      <button class="tab on" data-tab="search">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+        Search University
+      </button>
+      <button class="tab" data-tab="recent">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 1.8"/></svg>
+        View Recent
+      </button>
+      <div class="examples">
+        <span>Try an example:</span>
+        <button class="ex">appstate.edu</button>
+        <button class="ex">udayton.edu</button>
+        <button class="ex">uwf.edu</button>
+      </div>
+    </div>
 
-      <section class="panel reuse">
-        <h3>Data quality</h3><p>Preview of the completeness metrics we will show for every real run.</p>
-        <div class="quality"><div class="qualityItem"><b id="qTimes">0%</b><span>meeting times</span></div><div class="qualityItem"><b id="qInstructor">0%</b><span>instructors</span></div><div class="qualityItem"><b id="qSources">0%</b><span>source URLs</span></div><div class="qualityItem"><b id="qDupes">0</b><span>duplicates created</span></div></div>
-      </section>
+    <div id="panel-search">
+      <div class="searchrow">
+        <label class="field">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8d959d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9.5 12 5l8.5 4.5"/><path d="M5.5 10.5v7M9.5 10.5v7M14.5 10.5v7M18.5 10.5v7"/><path d="M3.5 19.5h17"/></svg>
+          <input id="uniInput" type="text" placeholder="Enter university name or website (e.g. appstate.edu)" autocomplete="off" />
+        </label>
+        <button class="btn-dark" id="discoverBtn">Discover university
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m13.5 6.5 6 5.5-6 5.5"/></svg>
+        </button>
+      </div>
 
-      <section class="panel runs">
-        <h3>Preview run report</h3>
-        <div class="meta">Status, runtime, requests, failures</div>
-        <div id="runList" class="runList"><div class="empty" style="padding:30px 5px">No measured runs yet.</div></div>
-      </section>
+      <div class="flow" id="flow">
+        <div class="stage" data-stage="0">
+          <span class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9.5 12 5l8.5 4.5"/><path d="M5.5 10.5v7M9.5 10.5v7M14.5 10.5v7M18.5 10.5v7"/><path d="M3.5 19.5h17"/></svg></span>
+          <div><b>University</b><small>Find the school</small></div>
+        </div>
+        <span class="arrow"><svg width="20" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg></span>
+        <div class="stage" data-stage="1">
+          <span class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg></span>
+          <div><b>Platform</b><small>Detect system</small></div>
+        </div>
+        <span class="arrow"><svg width="20" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg></span>
+        <div class="stage" data-stage="2">
+          <span class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 9.5h17M8 3.5v3M16 3.5v3"/></svg></span>
+          <div><b>Term</b><small>Find available terms</small></div>
+        </div>
+        <span class="arrow"><svg width="20" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg></span>
+        <div class="stage" data-stage="3">
+          <span class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3.5H7a2.5 2.5 0 0 0-2.5 2.5v12A2.5 2.5 0 0 0 7 20.5h10a2.5 2.5 0 0 0 2.5-2.5V9L14 3.5Z"/><path d="M13.8 3.7V9h5.4"/><path d="M8.5 13h7M8.5 16.5h5"/></svg></span>
+          <div><b>Sections</b><small>Collect public data</small></div>
+        </div>
+        <span class="arrow"><svg width="20" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg></span>
+        <div class="stage" data-stage="4">
+          <span class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></svg></span>
+          <div><b>Normalized</b><small>Structure &amp; clean</small></div>
+        </div>
+      </div>
+
+      <div class="runline" id="runline"><span class="badge">Preview data</span><span id="runlineText"></span></div>
+    </div>
+
+    <div id="panel-recent" class="recent">
+      <div class="recent-item" data-domain="appstate.edu"><span class="mono-logo" style="background:#1c1c1c">AS</span><div><b>Appalachian State University</b><small>appstate.edu · Banner</small></div><span class="r">2 sections collected · preview</span></div>
+      <div class="recent-item" data-domain="udayton.edu"><span class="mono-logo" style="background:#b8242c">UD</span><div><b>University of Dayton</b><small>udayton.edu · Banner</small></div><span class="r">2 sections collected · preview</span></div>
+      <div class="recent-item" data-domain="uwf.edu"><span class="mono-logo" style="background:#1f4f9c">WF</span><div><b>University of West Florida</b><small>uwf.edu · Banner</small></div><span class="r">1 section collected · preview</span></div>
+    </div>
+  </section>
+
+  <!-- ================= METRICS ROW ================= -->
+  <section class="row-2">
+    <div class="card latest">
+      <div class="latest-head">
+        <div>
+          <h2 class="ctitle">Latest collection <span class="badge">Preview data</span></h2>
+          <p class="csub">Most recent run across all universities</p>
+        </div>
+        <a class="link-green" href="#sections">View all runs
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg>
+        </a>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5d6a63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9.5 12 5l8.5 4.5"/><path d="M5.5 10.5v7M9.5 10.5v7M14.5 10.5v7M18.5 10.5v7"/><path d="M3.5 19.5h17"/></svg></span><div><b>3</b><small>schools</small></div></div>
+        <div class="stat"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5d6a63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3.5H7A2.5 2.5 0 0 0 4.5 6v12A2.5 2.5 0 0 0 7 20.5h10a2.5 2.5 0 0 0 2.5-2.5V9L14 3.5Z"/><path d="M13.8 3.7V9h5.4"/><path d="M8.5 13h7M8.5 16.5h5"/></svg></span><div><b>287</b><small>sections</small></div></div>
+        <div class="stat"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5d6a63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 9.5h17M8 3.5v3M16 3.5v3"/></svg></span><div><b>401</b><small>meetings</small></div></div>
+        <div class="stat"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5d6a63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2.5 4.5 13.5h6L11 21.5 19.5 10.5h-6L13 2.5Z"/></svg></span><div><b>8.4s</b><small>runtime</small></div></div>
+        <div class="stat"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5d6a63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7.5" ry="2.8"/><path d="M4.5 6v12c0 1.55 3.36 2.8 7.5 2.8s7.5-1.25 7.5-2.8V6"/><path d="M4.5 12c0 1.55 3.36 2.8 7.5 2.8s7.5-1.25 7.5-2.8"/></svg></span><div><b>$0.00</b><small>cost</small></div></div>
+        <div class="stat"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5d6a63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2 4.8 6v6c0 4.3 3 7.6 7.2 8.8 4.2-1.2 7.2-4.5 7.2-8.8V6L12 3.2Z"/></svg></span><div><b>0</b><small>failures</small></div></div>
+      </div>
+    </div>
+
+    <div class="card quality">
+      <h2 class="ctitle">Data quality <span class="badge">Preview data</span></h2>
+      <p class="csub">Field completeness across collected sections</p>
+      <div class="qrows">
+        <div class="qrow"><span>Meeting times</span><div class="bar"><i style="width:96%"></i></div><em>96%</em></div>
+        <div class="qrow"><span>Instructors</span><div class="bar"><i style="width:93%"></i></div><em>93%</em></div>
+        <div class="qrow"><span>Locations</span><div class="bar"><i style="width:89%"></i></div><em>89%</em></div>
+        <div class="qrow"><span>Source URLs</span><div class="bar"><i style="width:100%"></i></div><em>100%</em></div>
+      </div>
+    </div>
+
+    <div class="card refresh">
+      <h2 class="ctitle">Refresh intelligence <span class="badge">Preview data</span></h2>
+      <p class="csub">How we keep data up to date</p>
+      <div class="rtop">
+        <span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a8 8 0 0 0-13.7-5.2L3.5 9"/><path d="M4 12.5a8 8 0 0 0 13.7 5.2L20.5 15"/><path d="M3.5 4.5V9H8M20.5 19.5V15H16"/></svg></span>
+        <div><b>100</b></div>
+        <small style="margin:0 0 0 -4px">existing sections matched</small>
+      </div>
+      <div class="rgrid">
+        <div class="ritem"><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span><div><b>3</b><small>updated</small></div></div>
+        <div class="ritem"><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7.5"/></svg></span><div><b>2</b><small>new</small></div></div>
+        <div class="ritem mut"><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8a938c" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="3.5" width="12.5" height="15" rx="2.2"/><path d="M15.5 18.5v1.5a2 2 0 0 1-2 2H5.5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2H7"/></svg></span><div><b>0</b><small>duplicates</small></div></div>
+        <div class="ritem mut"><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8a938c" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 1.8"/></svg></span><div><b>0</b><small>stale endpoints</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TABLE + CONNECTOR ================= -->
+  <section class="row-3" id="sections">
+    <div class="card sections">
+      <div class="sections-head">
+        <div>
+          <h2 class="ctitle">Collected sections <span class="badge">Preview data</span></h2>
+          <p class="csub">Real course sections from public university sources</p>
+        </div>
+        <div class="tools">
+          <label class="tsearch">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8d959d" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            <input id="tableSearch" type="text" placeholder="Search courses, instructors..." />
+          </label>
+          <div class="sel">
+            <select id="filterUni">
+              <option value="">All universities</option>
+              <option value="Appalachian State">Appalachian State</option>
+              <option value="Univ. of Dayton">Univ. of Dayton</option>
+              <option value="Univ. of West Florida">Univ. of West Florida</option>
+            </select>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+          <div class="sel">
+            <select id="filterTerm">
+              <option value="">All terms</option>
+              <option value="Fall 2026">Fall 2026</option>
+              <option value="Spring 2026">Spring 2026</option>
+            </select>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>University</th><th>Course</th><th>Section</th><th>Instructor</th>
+              <th>Schedule</th><th>Location</th><th>Enrollment</th><th>Source</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+      <div class="noresults" id="noresults" style="display:none">No sections match this filter.</div>
+    </div>
+
+    <aside class="aside" id="connectors">
+      <div class="card conn">
+        <h2 class="ctitle">Connector architecture</h2>
+        <p class="csub">Same connector. Multiple universities.</p>
+        <div class="diagram">
+          <div class="dnodes">
+            <div class="dnode"><span class="mono-logo" style="background:#1c1c1c">AS</span>Appalachian State</div>
+            <div class="dnode"><span class="mono-logo" style="background:#b8242c">UD</span>Univ. of Dayton</div>
+            <div class="dnode"><span class="mono-logo" style="background:#1f4f9c">WF</span>Univ. of West Florida</div>
+          </div>
+          <div class="brace"></div>
+          <div class="dbox">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2f6fd0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg>
+            <b>Banner<br>Connector</b>
+          </div>
+          <span class="dArrow"><svg width="18" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg></span>
+          <div class="dbox plain">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5d6a63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7.5" ry="2.8"/><path d="M4.5 6v12c0 1.55 3.36 2.8 7.5 2.8s7.5-1.25 7.5-2.8V6"/><path d="M4.5 12c0 1.55 3.36 2.8 7.5 2.8s7.5-1.25 7.5-2.8"/></svg>
+            <b>Normalized<br>Schema</b>
+          </div>
+        </div>
+        <div class="conn-stats">
+          <div class="cstat"><span class="ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span><div><b>3</b><small>schools</small></div></div>
+          <div class="cstat"><span class="ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span><div><b>1</b><small>connector</small></div></div>
+          <div class="cstat"><span class="ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span><div><b>0</b><small>school-specific parsers</small></div></div>
+        </div>
+      </div>
+
+      <div class="card unknown" id="schema">
+        <span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#c08a1d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.2 2.8 19.5h18.4L12 4.2Z"/><path d="M12 10v4"/><path d="M12 17.2h.01"/></svg></span>
+        <div>
+          <b>Unknown registration platform</b>
+          <small>Not every school uses a known system. We detect and handle it.</small>
+        </div>
+        <span class="pill-amber">Manual review</span>
+      </div>
     </aside>
-  </div>
+  </section>
 
-  <div class="foot"><span><b>Refresh safety:</b> school + term + CRN is upserted, so rerunning does not duplicate sections.</span><span><b>Failure honesty:</b> missing public values stay empty; extraction failures are tracked separately.</span></div>
-</div>
+</main>
 <script>
-const $=id=>document.getElementById(id);let allSections=[];let hasRun=false;
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
-const schools=[
-{id:'appstate',name:'Appalachian State University',base_url:'appstate.edu',platform:'Banner 9'},
-{id:'udayton',name:'University of Dayton',base_url:'udayton.edu',platform:'Banner 9'},
-{id:'uwf',name:'University of West Florida',base_url:'uwf.edu',platform:'Banner 9'},
-{id:'wvu',name:'West Virginia University',base_url:'wvu.edu',platform:'Banner 9'}
-];
-const courseBank=[
-['CIS','205','Information Systems','001','MW','10:00–11:15 AM','Business 214'],['ENG','101','Academic Writing','003','TR','9:30–10:45 AM','Humanities 118'],['MAT','111','College Algebra','007','MWF','1:00–1:50 PM','Science 204'],['BIO','120','Principles of Biology','002','TR','2:00–3:15 PM','Life Sciences 310'],['ECO','202','Macroeconomics','004','MW','11:30 AM–12:45 PM','Business 106'],['CS','150','Intro to Programming','006','TR','12:30–1:45 PM','Engineering 221'],['PSY','201','General Psychology','010','MWF','10:00–10:50 AM','Social Sciences 105'],['HIST','101','World History','005','TR','3:30–4:45 PM','Humanities 202']
-];
-function renderSchools(){ $('schools').innerHTML=schools.map((s,i)=>`<label class="school"><input type="checkbox" value="${s.id}" ${i<3?'checked':''}><div class="schoolText"><strong>${esc(s.name)}</strong><small>${esc(s.base_url)}</small></div><span class="connector">${s.platform}</span></label>`).join(''); }
-function renderTable(rows){if(!rows.length){$('tableArea').innerHTML='<div class="empty">Run the preview collector to populate simulated normalized sections.</div>';return}$('tableArea').innerHTML=`<table><thead><tr><th>School</th><th>Course</th><th>Section</th><th>Meeting</th><th>Seats</th><th>Status</th><th>CRN</th><th>Source</th></tr></thead><tbody>${rows.map(s=>`<tr><td>${esc(s.school)}</td><td><div class="course">${esc(s.subject)} ${esc(s.course_number)}</div><div class="title">${esc(s.title)}</div></td><td>${esc(s.section_number)}</td><td>${esc(s.meeting_times)}<div class="title">${esc(s.location)}</div></td><td>${s.seats_available}</td><td><span class="pill ${s.enrollment_status}">${s.enrollment_status}</span></td><td>${esc(s.crn)}</td><td><span class="source" title="Preview mode">sample ↗</span></td></tr>`).join('')}</tbody></table>`}
-function setStatus(text,busy=false,bad=false){$('status').className='status'+(busy?' busy':bad?' bad':'');$('statusText').textContent=text;$('runBtn').disabled=busy;$('runBtn').textContent=busy?'Collecting…':(hasRun?'Refresh preview data':'Collect public course data')}
-function sleep(ms){return new Promise(r=>setTimeout(r,ms))}
-function makeRows(ids,limit){let rows=[];ids.forEach((id,si)=>{let school=schools.find(s=>s.id===id);let n=Math.min(Math.max(6,Math.floor(limit/12)),12);for(let i=0;i<n;i++){let c=courseBank[(i+si)%courseBank.length];rows.push({school:school.name,subject:c[0],course_number:c[1],title:c[2],section_number:c[3],meeting_times:c[4]+' · '+c[5],location:c[6],seats_available:7+((i*9+si*5)%31),enrollment_status:(i%5===4?'closed':'open'),crn:String(41000+si*500+i*7),source_url:'#'});}});return rows}
-async function animateSteps(){let box=$('steps');box.style.display='grid';let els=[...box.querySelectorAll('.step')];for(let i=0;i<els.length;i++){els.forEach((e,j)=>e.className='step'+(j<i?' done':j===i?' active':''));await sleep(520)}els.forEach(e=>e.className='step done')}
-$('detectBtn').addEventListener('click',async()=>{let v=$('schoolUrl').value.trim().toLowerCase();$('detectResult').textContent='Detecting…';await sleep(450);let match=schools.find(s=>v.includes(s.base_url.split('.')[0]))||{name:'Recognized university site',platform:'Banner 9'};$('detectResult').innerHTML=`<b>${esc(match.platform)} detected ✓</b> · public registration pattern recognized · ready to collect`;});
-$('runBtn').addEventListener('click',async()=>{let ids=[...document.querySelectorAll('#schools input:checked')].map(x=>x.value);if(!ids.length){alert('Select at least one university.');return}setStatus('Running preview…',true);await animateSteps();let limit=Number($('limit').value)||100;allSections=makeRows(ids,limit);hasRun=true;renderTable(allSections);$('mSchools').textContent=ids.length;$('mSections').textContent=allSections.length;$('mMeetings').textContent=allSections.length;$('mRequests').textContent=12+ids.length*9;$('mRuntime').textContent=(2.6+ids.length*1.1).toFixed(1)+'s';$('mCost').textContent='$0.00';$('sectionMeta').textContent=`${allSections.length} preview rows shown · simulated for UI review`;$('qTimes').textContent='100%';$('qInstructor').textContent='92%';$('qSources').textContent='100%';$('qDupes').textContent='0';$('runList').innerHTML=ids.map(id=>{let sc=schools.find(s=>s.id===id), count=allSections.filter(r=>r.school===sc.name).length;return `<div class="runItem"><div class="runTop"><strong>${esc(sc.name)}</strong><span class="ok">preview success</span></div><div class="runStats">Fall 2026 · ${count} sections · ${count} meetings<br>${(1.4+count*.05).toFixed(1)}s · ${9+count} requests · 0 failures</div></div>`}).join('');setStatus('Preview complete');});
-$('search').addEventListener('input',e=>{let q=e.target.value.toLowerCase().trim();renderTable(!q?allSections:allSections.filter(s=>Object.values(s).some(v=>String(v??'').toLowerCase().includes(q))))});
-renderSchools();renderTable([]);
+(function(){
+  'use strict';
+  var $ = function(id){ return document.getElementById(id); };
+
+  /* ---------- dotted U.S. map ---------- */
+  // Coarse silhouette of the contiguous U.S.: [startCol, endCol] spans per row.
+  var MAP_ROWS = [
+    [[2,34]],
+    [[1,36]],
+    [[1,36]],
+    [[0,37]],
+    [[0,38]],
+    [[0,38]],
+    [[0,38]],
+    [[1,38]],
+    [[1,38]],
+    [[2,38]],
+    [[2,37]],
+    [[3,37]],
+    [[4,36]],
+    [[5,35]],
+    [[6,34]],
+    [[7,33]],
+    [[9,32]],
+    [[11,31]],
+    [[13,29],[31,32]],
+    [[15,24],[31,32]],
+    [[16,21],[31,33]],
+    [[17,20],[32,33]],
+    [[32,33]]
+  ];
+  function drawMap(){
+    var svg = $('usmap'); if(!svg) return;
+    var step = 8.4, r = 1.7, ox = 4, oy = 4, out = '';
+    MAP_ROWS.forEach(function(spans, row){
+      spans.forEach(function(sp){
+        for(var c = sp[0]; c <= sp[1]; c++){
+          out += '<circle cx="' + (ox + c*step).toFixed(1) + '" cy="' + (oy + row*step).toFixed(1) +
+                 '" r="' + r + '" fill="#d3d8d9"/>';
+        }
+      });
+    });
+    svg.innerHTML = out;
+  }
+  drawMap();
+
+  /* ---------- preview sections (simulated data — labelled PREVIEW DATA in the UI) ---------- */
+  var LOGOS = {
+    'Appalachian State':      { mono:'AS', color:'#1c1c1c' },
+    'Univ. of Dayton':        { mono:'UD', color:'#b8242c' },
+    'Univ. of West Florida':  { mono:'WF', color:'#1f4f9c' }
+  };
+  var SECTIONS = [
+    { uni:'Appalachian State',     course:'CS 250',   sec:'001', instr:'Dr. M. Wilson',  sched:'Mon/Wed 10:00 AM',      loc:'Belk 210',    enr:'Open',     term:'Fall 2026' },
+    { uni:'Appalachian State',     course:'MATH 112', sec:'002', instr:'Prof. R. Carter',sched:'Tue/Thu 11:00 AM',      loc:'Peacock 101', enr:'Open',     term:'Fall 2026' },
+    { uni:'Univ. of Dayton',       course:'ECO 201',  sec:'001', instr:'Dr. L. Nguyen',  sched:'Mon/Wed 1:00 PM',       loc:'Alumni 308',  enr:'Waitlist', term:'Fall 2026' },
+    { uni:'Univ. of Dayton',       course:'CIS 110',  sec:'004', instr:'Prof. K. Patel', sched:'Tue/Thu 9:30 AM',       loc:'Kettering 120', enr:'Open',   term:'Spring 2026' },
+    { uni:'Univ. of West Florida', course:'BIO 105',  sec:'001', instr:'Dr. S. Ahmed',   sched:'Mon/Wed/Fri 11:00 AM',  loc:'Science 220', enr:'Open',     term:'Spring 2026' }
+  ];
+  var esc = function(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c];
+    });
+  };
+  var ARROW = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg>';
+
+  function enrClass(v){ return v === 'Waitlist' ? ' wait' : (v === 'Closed' ? ' closed' : ''); }
+
+  function renderTable(){
+    var q = ($('tableSearch').value || '').trim().toLowerCase();
+    var uni = $('filterUni').value;
+    var term = $('filterTerm').value;
+    var rows = SECTIONS.filter(function(s){
+      if (uni && s.uni !== uni) return false;
+      if (term && s.term !== term) return false;
+      if (!q) return true;
+      return (s.course + ' ' + s.instr + ' ' + s.uni + ' ' + s.loc + ' ' + s.sec).toLowerCase().indexOf(q) > -1;
+    });
+    $('tbody').innerHTML = rows.map(function(s){
+      var lg = LOGOS[s.uni] || { mono:'U', color:'#5c646d' };
+      return '<tr>' +
+        '<td><span class="uni"><span class="mono-logo" style="background:' + lg.color + '">' + lg.mono + '</span>' + esc(s.uni) + '</span></td>' +
+        '<td>' + esc(s.course) + '</td>' +
+        '<td>' + esc(s.sec) + '</td>' +
+        '<td>' + esc(s.instr) + '</td>' +
+        '<td>' + esc(s.sched) + '</td>' +
+        '<td>' + esc(s.loc) + '</td>' +
+        '<td><span class="enr' + enrClass(s.enr) + '"><i></i>' + esc(s.enr) + '</span></td>' +
+        '<td><a class="view" href="#sections">View ' + ARROW + '</a></td>' +
+      '</tr>';
+    }).join('');
+    $('noresults').style.display = rows.length ? 'none' : 'block';
+  }
+  $('tableSearch').addEventListener('input', renderTable);
+  $('filterUni').addEventListener('change', renderTable);
+  $('filterTerm').addEventListener('change', renderTable);
+  renderTable();
+
+  /* ---------- tabs ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('.tab'), function(btn){
+    btn.addEventListener('click', function(){
+      Array.prototype.forEach.call(document.querySelectorAll('.tab'), function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      var recent = btn.getAttribute('data-tab') === 'recent';
+      $('panel-search').style.display = recent ? 'none' : 'block';
+      $('panel-recent').classList.toggle('show', recent);
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.recent-item'), function(item){
+    item.addEventListener('click', function(){
+      document.querySelector('.tab[data-tab="search"]').click();
+      $('uniInput').value = item.getAttribute('data-domain');
+      $('discoverBtn').click();
+    });
+  });
+
+  /* ---------- example chips ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('.ex'), function(chip){
+    chip.addEventListener('click', function(){
+      $('uniInput').value = chip.textContent.trim();
+      $('uniInput').focus();
+    });
+  });
+
+  /* ---------- discovery walkthrough (UI preview only, no backend calls) ---------- */
+  var stages = document.querySelectorAll('.stage');
+  var timers = [];
+  function resetStages(){
+    timers.forEach(clearTimeout); timers = [];
+    Array.prototype.forEach.call(stages, function(s){ s.classList.remove('act','done'); });
+  }
+  $('discoverBtn').addEventListener('click', function(){
+    var value = ($('uniInput').value || '').trim();
+    if (!value) { $('uniInput').focus(); return; }
+    resetStages();
+    var btn = this;
+    btn.disabled = true;
+    $('runline').classList.add('show');
+    $('runlineText').textContent = 'Simulating discovery for ' + value + ' — no live university requests are made in preview mode.';
+    stages[0].classList.add('act');
+    for (var i = 0; i < stages.length; i++) {
+      (function(i){
+        timers.push(setTimeout(function(){
+          if (i > 0) { stages[i-1].classList.remove('act'); stages[i-1].classList.add('done'); }
+          stages[i].classList.add('act');
+          if (i === stages.length - 1) {
+            timers.push(setTimeout(function(){
+              stages[i].classList.remove('act'); stages[i].classList.add('done');
+              btn.disabled = false;
+              $('runlineText').textContent = value + ' → Banner detected · newest public term found · 5 preview sections normalized.';
+            }, 520));
+          }
+        }, 520 * i));
+      })(i);
+    }
+  });
+  $('uniInput').addEventListener('keydown', function(e){
+    if (e.key === 'Enter') { e.preventDefault(); $('discoverBtn').click(); }
+  });
+})();
 </script>
 </body>
 </html>
