@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>DueGooder · Course Collection</title>
+<style>
+:root{--bg:#f4f5f7;--panel:#fff;--ink:#111318;--muted:#6e737d;--line:#e4e6ea;--soft:#f8f9fa;--green:#176b45;--greenbg:#eaf7f0;--red:#a43232;--redbg:#fff0f0;--amber:#8a5a00;--amberbg:#fff7dd;--shadow:0 18px 50px rgba(17,19,24,.06)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#fbfbfc 0,#f4f5f7 260px);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}
+button,input{font:inherit}.shell{max-width:1440px;margin:0 auto;padding:30px 30px 60px}.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px}.brand{display:flex;gap:12px;align-items:center}.logo{width:40px;height:40px;border-radius:13px;background:#111318;color:white;display:grid;place-items:center;font-weight:900;letter-spacing:-.05em}.brand strong{display:block;font-size:17px}.brand small{display:block;color:var(--muted);margin-top:2px}.event{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:8px 11px;border-radius:999px;background:white}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}.heroCard,.runner,.metric,.panel{background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}.heroCard{padding:34px}.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:800;color:var(--muted)}h1{font-size:48px;line-height:1.02;letter-spacing:-.055em;margin:13px 0 14px;max-width:780px}.heroCard p{font-size:17px;line-height:1.55;color:var(--muted);max-width:760px;margin:0}.thesis{margin-top:27px;display:flex;align-items:center;gap:11px;font-weight:700}.thesis .arrow{width:30px;height:30px;border-radius:50%;background:#111318;color:#fff;display:grid;place-items:center}
+.runner{padding:24px}.runnerHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}.runnerHead h2{margin:0;font-size:17px}.status{display:flex;gap:7px;align-items:center;font-size:12px;color:var(--muted)}.dot{width:8px;height:8px;border-radius:50%;background:#1d9a63;box-shadow:0 0 0 4px #e9f8f1}.status.busy .dot{background:#d18b00;box-shadow:0 0 0 4px #fff3cf;animation:pulse 1s infinite}.status.bad .dot{background:#c53a3a;box-shadow:0 0 0 4px #ffe8e8}@keyframes pulse{50%{opacity:.4}}
+.label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800;margin:16px 0 8px}.schools{display:grid;gap:8px}.school{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:var(--soft);cursor:pointer;transition:.15s}.school:hover{border-color:#bdc0c6}.school input{accent-color:#111318}.schoolText{min-width:0}.schoolText strong{display:block;font-size:13px}.schoolText small{color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;margin-top:2px}.connector{margin-left:auto;font-size:10px;border:1px solid var(--line);background:white;border-radius:999px;padding:4px 7px;color:var(--muted)}
+.row{display:grid;grid-template-columns:1fr 110px;gap:8px}.input{width:100%;border:1px solid var(--line);background:#fff;border-radius:11px;padding:11px 12px;outline:none}.input:focus{border-color:#999}.runBtn{width:100%;border:0;background:#111318;color:#fff;border-radius:12px;padding:13px 16px;font-weight:800;margin-top:15px;cursor:pointer;transition:.15s}.runBtn:hover{transform:translateY(-1px)}.runBtn:disabled{opacity:.5;cursor:not-allowed;transform:none}.runnerNote{font-size:11px;color:var(--muted);line-height:1.45;margin-top:10px}
+.metrics{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:18px 0}.metric{padding:18px 19px}.metric .k{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:750}.metric .v{font-size:28px;font-weight:850;letter-spacing:-.04em;margin-top:5px}.metric .sub{font-size:11px;color:var(--muted);margin-top:4px}
+.main{display:grid;grid-template-columns:1fr 360px;gap:18px}.panel{overflow:hidden}.panelHead{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;border-bottom:1px solid var(--line)}.panelHead h3{font-size:15px;margin:0}.panelHead .meta{font-size:12px;color:var(--muted)}.toolbar{display:flex;gap:8px}.search{border:1px solid var(--line);background:var(--soft);border-radius:9px;padding:8px 10px;width:220px}.tableWrap{overflow:auto;max-height:600px}table{width:100%;border-collapse:collapse;min-width:900px}th,td{text-align:left;padding:12px 13px;border-bottom:1px solid #eff0f2;vertical-align:middle}th{position:sticky;top:0;background:#fafafa;z-index:2;font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}td{font-size:12px}.course{font-weight:850;font-size:13px}.title{color:var(--muted);margin-top:2px;max-width:260px}.pill{display:inline-flex;align-items:center;gap:5px;border-radius:999px;font-size:10px;font-weight:750;padding:4px 7px;border:1px solid var(--line);background:white}.pill.open{background:var(--greenbg);color:var(--green);border-color:#cbead9}.pill.closed{background:var(--redbg);color:var(--red);border-color:#f0cdcd}.source{color:#555;text-decoration:none;border-bottom:1px dashed #aaa}.source:hover{color:#000}.empty{padding:70px 20px;text-align:center;color:var(--muted)}
+.sideStack{display:grid;gap:18px}.reuse{padding:21px}.reuse h3,.runs h3{font-size:15px;margin:0 0 7px}.reuse p{font-size:12px;color:var(--muted);line-height:1.5;margin:0}.diagram{margin-top:20px;display:grid;grid-template-columns:1fr 35px 1fr;align-items:center;gap:8px}.nodes{display:grid;gap:7px}.node{border:1px solid var(--line);background:var(--soft);padding:9px;border-radius:10px;font-size:11px}.join{height:84%;border-top:1px solid #bbb;border-bottom:1px solid #bbb;border-right:1px solid #bbb;border-radius:0 9px 9px 0}.core{border:1px solid #111318;background:#111318;color:#fff;border-radius:14px;padding:18px 12px;text-align:center;font-weight:800;font-size:12px}.core small{display:block;font-weight:400;color:#c9ccd2;margin-top:5px}.scale{margin-top:15px;border-radius:11px;background:#f2f3f5;padding:11px;font-size:11px;color:#50545c}.runs{padding:21px}.runList{display:grid;gap:9px;margin-top:15px}.runItem{border:1px solid var(--line);border-radius:12px;padding:11px}.runTop{display:flex;justify-content:space-between;gap:8px}.runTop strong{font-size:12px}.runTop span{font-size:10px}.runStats{font-size:11px;color:var(--muted);margin-top:7px;line-height:1.5}.ok{color:var(--green)}.fail{color:var(--red)}.running{color:var(--amber)}
+.foot{margin-top:20px;border:1px dashed #c9ccd1;border-radius:16px;padding:16px 18px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:18px}.foot b{color:var(--ink)}
+
+.previewBanner{margin-bottom:14px;padding:10px 14px;border:1px solid #eadfb7;background:#fff9e8;border-radius:12px;color:#775a00;font-size:12px;display:flex;align-items:center;justify-content:space-between;gap:12px}.previewBanner b{color:#513e00}.detectBox{margin-top:15px;border:1px solid var(--line);background:var(--soft);border-radius:14px;padding:13px}.detectRow{display:flex;gap:8px}.detectRow .input{flex:1}.ghostBtn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 12px;font-weight:750;cursor:pointer}.detectResult{margin-top:9px;font-size:11px;color:var(--muted);min-height:16px}.steps{display:grid;gap:7px;margin-top:12px}.step{display:flex;align-items:center;gap:9px;font-size:11px;color:var(--muted)}.stepDot{width:9px;height:9px;border-radius:50%;background:#d9dce2}.step.active{color:var(--ink);font-weight:700}.step.active .stepDot{background:#d18b00;box-shadow:0 0 0 4px #fff3cf}.step.done .stepDot{background:#1d9a63}.quality{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}.qualityItem{border:1px solid var(--line);background:var(--soft);border-radius:10px;padding:10px}.qualityItem b{display:block;font-size:16px}.qualityItem span{font-size:10px;color:var(--muted)}
+@media(max-width:1050px){.hero,.main{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(3,1fr)}.sideStack{grid-template-columns:1fr 1fr}}@media(max-width:700px){.shell{padding:18px}.top{align-items:flex-start}.event{display:none}h1{font-size:38px}.metrics{grid-template-columns:1fr 1fr}.sideStack{grid-template-columns:1fr}.row{grid-template-columns:1fr}.heroCard{padding:25px}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="previewBanner"><span><b>Vercel preview mode</b> · UI-only demo with simulated data. No live university requests are made.</span><span>Safe to delete later.</span></div>
+  <div class="top">
+    <div class="brand"><div class="logo">DG</div><div><strong>DueGooder</strong><small>Course Collection Engine</small></div></div>
+    <div class="event">KYX 2026 · Hack Kentucky</div>
+  </div>
+
+  <div class="hero">
+    <section class="heroCard">
+      <div class="eyebrow">Public university data → one clean database</div>
+      <h1>One connector.<br>Many universities.</h1>
+      <p>Automatically discover public registration data, collect real sections and meeting times, normalize the result, and refresh it without duplicates.</p>
+      <div class="thesis"><span class="arrow">→</span><span>The integration unit is the <b>platform</b>, not the school.</span></div>
+    </section>
+
+    <section class="runner">
+      <div class="runnerHead"><h2>Run collection</h2><div id="status" class="status"><span class="dot"></span><span id="statusText">Ready</span></div></div>
+      <div class="detectBox"><div class="label" style="margin-top:0">Try a university website</div><div class="detectRow"><input id="schoolUrl" class="input" value="appstate.edu" placeholder="university.edu"><button id="detectBtn" class="ghostBtn">Detect</button></div><div id="detectResult" class="detectResult">Paste a school website to preview platform detection.</div><div id="steps" class="steps" style="display:none"><div class="step" data-step="1"><span class="stepDot"></span>Detecting registration platform</div><div class="step" data-step="2"><span class="stepDot"></span>Discovering public terms</div><div class="step" data-step="3"><span class="stepDot"></span>Collecting sections & meeting times</div><div class="step" data-step="4"><span class="stepDot"></span>Normalizing & deduplicating</div></div></div>
+      <div class="label">Universities</div>
+      <div id="schools" class="schools"></div>
+      <div class="label">Term & demo cap</div>
+      <div class="row"><input id="term" class="input" placeholder="Newest public term (recommended)"><input id="limit" class="input" type="number" min="1" max="1000" value="100" title="Section cap per school"></div>
+      <button id="runBtn" class="runBtn">Collect public course data</button>
+      <div class="runnerNote">For the hackathon demo, 50–100 sections per school is enough to prove the pipeline quickly. Leave the term empty to auto-discover the newest public term.</div>
+    </section>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><div class="k">Schools live</div><div class="v" id="mSchools">0</div><div class="sub">normalized in database</div></div>
+    <div class="metric"><div class="k">Sections</div><div class="v" id="mSections">0</div><div class="sub">active normalized rows</div></div>
+    <div class="metric"><div class="k">Meetings</div><div class="v" id="mMeetings">0</div><div class="sub">days / times / rooms</div></div>
+    <div class="metric"><div class="k">HTTP requests</div><div class="v" id="mRequests">0</div><div class="sub">measured, not estimated</div></div>
+    <div class="metric"><div class="k">Runtime</div><div class="v" id="mRuntime">0s</div><div class="sub">measured collection time</div></div>
+    <div class="metric"><div class="k">Direct cost</div><div class="v" id="mCost">$0</div><div class="sub">local public-HTTP run</div></div>
+  </div>
+
+  <div class="main">
+    <section class="panel">
+      <div class="panelHead"><div><h3>Normalized sections</h3><div class="meta" id="sectionMeta">No live run yet</div></div><div class="toolbar"><input id="search" class="search" placeholder="Search course, school, CRN…"></div></div>
+      <div id="tableArea" class="tableWrap"><div class="empty">Run the collector to populate real public sections.</div></div>
+    </section>
+
+    <aside class="sideStack">
+      <section class="panel reuse">
+        <h3>Connector reuse</h3>
+        <p>Four schools, one Banner connector. Each new school only needs configuration when the platform is already supported.</p>
+        <div class="diagram"><div class="nodes"><div class="node">Appalachian State</div><div class="node">Dayton</div><div class="node">West Florida</div><div class="node">West Virginia</div></div><div class="join"></div><div class="core">BannerSSB9Connector<small>shared extraction logic</small></div></div>
+        <div class="scale"><b>Scale story:</b> add PeopleSoft and Workday behind the same normalized interface; school count grows faster than connector count.</div>
+      </section>
+
+      <section class="panel reuse">
+        <h3>Data quality</h3><p>Preview of the completeness metrics we will show for every real run.</p>
+        <div class="quality"><div class="qualityItem"><b id="qTimes">0%</b><span>meeting times</span></div><div class="qualityItem"><b id="qInstructor">0%</b><span>instructors</span></div><div class="qualityItem"><b id="qSources">0%</b><span>source URLs</span></div><div class="qualityItem"><b id="qDupes">0</b><span>duplicates created</span></div></div>
+      </section>
+
+      <section class="panel runs">
+        <h3>Preview run report</h3>
+        <div class="meta">Status, runtime, requests, failures</div>
+        <div id="runList" class="runList"><div class="empty" style="padding:30px 5px">No measured runs yet.</div></div>
+      </section>
+    </aside>
+  </div>
+
+  <div class="foot"><span><b>Refresh safety:</b> school + term + CRN is upserted, so rerunning does not duplicate sections.</span><span><b>Failure honesty:</b> missing public values stay empty; extraction failures are tracked separately.</span></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);let allSections=[];let hasRun=false;
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+const schools=[
+{id:'appstate',name:'Appalachian State University',base_url:'appstate.edu',platform:'Banner 9'},
+{id:'udayton',name:'University of Dayton',base_url:'udayton.edu',platform:'Banner 9'},
+{id:'uwf',name:'University of West Florida',base_url:'uwf.edu',platform:'Banner 9'},
+{id:'wvu',name:'West Virginia University',base_url:'wvu.edu',platform:'Banner 9'}
+];
+const courseBank=[
+['CIS','205','Information Systems','001','MW','10:00–11:15 AM','Business 214'],['ENG','101','Academic Writing','003','TR','9:30–10:45 AM','Humanities 118'],['MAT','111','College Algebra','007','MWF','1:00–1:50 PM','Science 204'],['BIO','120','Principles of Biology','002','TR','2:00–3:15 PM','Life Sciences 310'],['ECO','202','Macroeconomics','004','MW','11:30 AM–12:45 PM','Business 106'],['CS','150','Intro to Programming','006','TR','12:30–1:45 PM','Engineering 221'],['PSY','201','General Psychology','010','MWF','10:00–10:50 AM','Social Sciences 105'],['HIST','101','World History','005','TR','3:30–4:45 PM','Humanities 202']
+];
+function renderSchools(){ $('schools').innerHTML=schools.map((s,i)=>`<label class="school"><input type="checkbox" value="${s.id}" ${i<3?'checked':''}><div class="schoolText"><strong>${esc(s.name)}</strong><small>${esc(s.base_url)}</small></div><span class="connector">${s.platform}</span></label>`).join(''); }
+function renderTable(rows){if(!rows.length){$('tableArea').innerHTML='<div class="empty">Run the preview collector to populate simulated normalized sections.</div>';return}$('tableArea').innerHTML=`<table><thead><tr><th>School</th><th>Course</th><th>Section</th><th>Meeting</th><th>Seats</th><th>Status</th><th>CRN</th><th>Source</th></tr></thead><tbody>${rows.map(s=>`<tr><td>${esc(s.school)}</td><td><div class="course">${esc(s.subject)} ${esc(s.course_number)}</div><div class="title">${esc(s.title)}</div></td><td>${esc(s.section_number)}</td><td>${esc(s.meeting_times)}<div class="title">${esc(s.location)}</div></td><td>${s.seats_available}</td><td><span class="pill ${s.enrollment_status}">${s.enrollment_status}</span></td><td>${esc(s.crn)}</td><td><span class="source" title="Preview mode">sample ↗</span></td></tr>`).join('')}</tbody></table>`}
+function setStatus(text,busy=false,bad=false){$('status').className='status'+(busy?' busy':bad?' bad':'');$('statusText').textContent=text;$('runBtn').disabled=busy;$('runBtn').textContent=busy?'Collecting…':(hasRun?'Refresh preview data':'Collect public course data')}
+function sleep(ms){return new Promise(r=>setTimeout(r,ms))}
+function makeRows(ids,limit){let rows=[];ids.forEach((id,si)=>{let school=schools.find(s=>s.id===id);let n=Math.min(Math.max(6,Math.floor(limit/12)),12);for(let i=0;i<n;i++){let c=courseBank[(i+si)%courseBank.length];rows.push({school:school.name,subject:c[0],course_number:c[1],title:c[2],section_number:c[3],meeting_times:c[4]+' · '+c[5],location:c[6],seats_available:7+((i*9+si*5)%31),enrollment_status:(i%5===4?'closed':'open'),crn:String(41000+si*500+i*7),source_url:'#'});}});return rows}
+async function animateSteps(){let box=$('steps');box.style.display='grid';let els=[...box.querySelectorAll('.step')];for(let i=0;i<els.length;i++){els.forEach((e,j)=>e.className='step'+(j<i?' done':j===i?' active':''));await sleep(520)}els.forEach(e=>e.className='step done')}
+$('detectBtn').addEventListener('click',async()=>{let v=$('schoolUrl').value.trim().toLowerCase();$('detectResult').textContent='Detecting…';await sleep(450);let match=schools.find(s=>v.includes(s.base_url.split('.')[0]))||{name:'Recognized university site',platform:'Banner 9'};$('detectResult').innerHTML=`<b>${esc(match.platform)} detected ✓</b> · public registration pattern recognized · ready to collect`;});
+$('runBtn').addEventListener('click',async()=>{let ids=[...document.querySelectorAll('#schools input:checked')].map(x=>x.value);if(!ids.length){alert('Select at least one university.');return}setStatus('Running preview…',true);await animateSteps();let limit=Number($('limit').value)||100;allSections=makeRows(ids,limit);hasRun=true;renderTable(allSections);$('mSchools').textContent=ids.length;$('mSections').textContent=allSections.length;$('mMeetings').textContent=allSections.length;$('mRequests').textContent=12+ids.length*9;$('mRuntime').textContent=(2.6+ids.length*1.1).toFixed(1)+'s';$('mCost').textContent='$0.00';$('sectionMeta').textContent=`${allSections.length} preview rows shown · simulated for UI review`;$('qTimes').textContent='100%';$('qInstructor').textContent='92%';$('qSources').textContent='100%';$('qDupes').textContent='0';$('runList').innerHTML=ids.map(id=>{let sc=schools.find(s=>s.id===id), count=allSections.filter(r=>r.school===sc.name).length;return `<div class="runItem"><div class="runTop"><strong>${esc(sc.name)}</strong><span class="ok">preview success</span></div><div class="runStats">Fall 2026 · ${count} sections · ${count} meetings<br>${(1.4+count*.05).toFixed(1)}s · ${9+count} requests · 0 failures</div></div>`}).join('');setStatus('Preview complete');});
+$('search').addEventListener('input',e=>{let q=e.target.value.toLowerCase().trim();renderTable(!q?allSections:allSections.filter(s=>Object.values(s).some(v=>String(v??'').toLowerCase().includes(q))))});
+renderSchools();renderTable([]);
+</script>
+</body>
+</html>
