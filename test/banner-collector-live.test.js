@@ -6,8 +6,11 @@ const { collectBanner } = require('../lib/collectors/banner');
 
 const LIVE = process.env.DG_LIVE === '1';
 const skip = LIVE ? false : 'live network tests are opt-in: run npm run test:live';
+const SUCCESSFUL_TRIO = ['uwf.edu', 'udayton.edu', 'ung.edu'];
 
-for (const school of configs) {
+for (const domain of SUCCESSFUL_TRIO) {
+  const school = configs.find(config => config.domain === domain);
+  assert.ok(school, `missing Banner configuration for ${domain}`);
   test(`live collection: ${school.domain} returns real sections and timed meetings`, { skip, timeout: 180000 }, async () => {
     const result = await collectBanner(school, { term: 'latest', timeoutMs: 30000 });
     console.log(`  ${school.domain}: ${result.sections.length} sections, ${result.meetings.length} meetings, ${result.metrics.http_requests} requests`);

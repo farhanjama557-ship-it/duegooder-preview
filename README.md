@@ -53,7 +53,7 @@ npm test                  # library tests (schema, detector, search, importer) -
 npm run import:institutions   # download + normalize the official IPEDS directory
 npm run detect -- appstate.edu udayton.edu uwf.edu     # run the real Banner detector
 npm run collect:banner                    # collect latest public term for verified Banner schools
-npm run collect:banner -- --schools uwf.edu,udayton.edu,eiu.edu --repeat 2
+npm run collect:banner -- --schools uwf.edu,udayton.edu,ung.edu --repeat 2
 npm run detect -- --from-directory --limit 25          # detect across the imported directory
 npm run build:web-data    # regenerate schema.json / detectors.json from the code
 npm run build             # import + build:web-data (this is what Vercel runs)
@@ -109,9 +109,18 @@ flat UI/schema. `meetings.json` is the lossless one-to-many store for all publis
 meeting patterns. Every section and meeting carries its source URL, retrieval timestamp
 and extraction status; response-level provenance is also retained.
 
-Verified connector configurations currently include University of West Florida,
-University of Dayton and Eastern Illinois University. Appalachian State is intentionally
-absent: its frozen `no_match` is never promoted or forced by Phase 3.
+The successful live-verification targets are University of West Florida, University of
+Dayton and University of North Georgia. UNG uses only the same declarative registration
+URL configuration and shared parser; it is not considered successful until the opt-in
+live suite and repeated collection pass on the verification Mac.
+
+Eastern Illinois University remains configured because its Banner classification is
+genuine, but it is not part of the green trio. Its current public Banner host fails at
+`banner.eiu.edu/robots.txt` from the Mac verification network and is reported as
+`request_failed`. This is retained as evidence that endpoint failures stay distinct from
+`no_match`; the collector does not bypass robots or network safety to force a success.
+Appalachian State is intentionally absent: its frozen `no_match` is never promoted or
+forced by Phase 3.
 
 ## Banner detection
 
@@ -203,7 +212,8 @@ Phase 3 complete:
 git checkout codex/phase3-banner-collector
 git pull --ff-only origin codex/phase3-banner-collector
 npm test
-npm run collect:banner -- --schools uwf.edu,udayton.edu,eiu.edu --repeat 2 --timeout 30000
+npm run test:live
+npm run collect:banner -- --schools uwf.edu,udayton.edu,ung.edu --repeat 2
 ```
 
 ## Layout

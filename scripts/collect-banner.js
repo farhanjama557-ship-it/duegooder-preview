@@ -5,7 +5,7 @@
  *
  * Usage:
  *   npm run collect:banner
- *   npm run collect:banner -- --schools uwf.edu,udayton.edu,eiu.edu --repeat 2
+ *   npm run collect:banner -- --schools uwf.edu,udayton.edu,ung.edu --repeat 2
  *   npm run collect:banner -- --term 202680 --schools udayton.edu
  */
 const path = require('path');
