@@ -36,51 +36,10 @@
         <h1 class="page-title">Integration Connectors</h1>
         <p class="page-sub">One connector per platform. Reused across many universities.</p>
       </div>
-      <div class="right"><span class="badge">Preview data</span></div>
+      <div class="right"><span class="badge">Detection only</span></div>
     </div>
 
-    <div class="cn-grid">
-      <div class="card cn-card">
-        <div class="cn-top"><span class="cn-logo"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5d6a63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg></span><span class="cn-name">Banner</span><span class="tag tag-green">Detector available</span></div>
-        <p class="cn-desc">Widely used by U.S. universities.</p>
-        <div class="cn-metrics">
-          <div><b class="muted-val">&mdash;</b><small>universities</small></div>
-          <div><b class="muted-val">&mdash;</b><small>sections</small></div>
-          <div><b class="muted-val">&mdash;</b><small>success rate</small></div>
-        </div>
-        <a class="btn-ghost cn-act" href="/connectors/banner">View detector &rarr;</a>
-      </div>
-      <div class="card cn-card">
-        <div class="cn-top"><span class="cn-logo"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5d6a63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg></span><span class="cn-name">PeopleSoft</span><span class="tag tag-gray">Planned</span></div>
-        <p class="cn-desc">Common at large institutions.</p>
-        <div class="cn-metrics">
-          <div><b class="muted-val">&mdash;</b><small>universities</small></div>
-          <div><b class="muted-val">&mdash;</b><small>sections</small></div>
-          <div><b class="muted-val">&mdash;</b><small>success rate</small></div>
-        </div>
-        <button class="btn-ghost cn-act" disabled style="opacity:.55;cursor:default">Not implemented</button>
-      </div>
-      <div class="card cn-card">
-        <div class="cn-top"><span class="cn-logo"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5d6a63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg></span><span class="cn-name">Workday</span><span class="tag tag-gray">Planned</span></div>
-        <p class="cn-desc">Growing in higher education.</p>
-        <div class="cn-metrics">
-          <div><b class="muted-val">&mdash;</b><small>universities</small></div>
-          <div><b class="muted-val">&mdash;</b><small>sections</small></div>
-          <div><b class="muted-val">&mdash;</b><small>success rate</small></div>
-        </div>
-        <button class="btn-ghost cn-act" disabled style="opacity:.55;cursor:default">Not implemented</button>
-      </div>
-      <div class="card cn-card">
-        <div class="cn-top"><span class="cn-logo"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5d6a63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg></span><span class="cn-name">Custom</span><span class="tag tag-amber">Manual review</span></div>
-        <p class="cn-desc">For unsupported or bespoke systems.</p>
-        <div class="cn-metrics">
-          <div><b class="muted-val">&mdash;</b><small>universities</small></div>
-          <div><b class="muted-val">&mdash;</b><small>sections</small></div>
-          <div><b class="muted-val">&mdash;</b><small>success rate</small></div>
-        </div>
-        <button class="btn-ghost cn-act" data-notwired-title="Request support" data-notwired="Custom registration systems are handled by manual review. There is no request form yet — this is a UI shell, and requests will be wired up once the backend exists.">Request support</button>
-      </div>
-    </div>
+    <div class="cn-grid" id="cnCards"></div>
 
     <div class="cn-detail">
       <div class="card" style="padding:16px 18px 18px">
@@ -141,6 +100,9 @@
     </div>
   </section>
 </main>
+<script src="/assets/dg-status.js"></script>
+<script src="/assets/dg-data.js"></script>
 <script src="/assets/ui.js"></script>
+<script src="/assets/dg-pages.js"></script>
 </body>
 </html>

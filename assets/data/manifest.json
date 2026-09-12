@@ -1,0 +1,26 @@
+{
+ "status": "not_imported",
+ "source": "NCES IPEDS Directory information (HD)",
+ "source_url_pattern": "https://nces.ed.gov/ipeds/datacenter/data/HD<YEAR>.zip",
+ "attempts": [
+  {
+   "url": "https://nces.ed.gov/ipeds/datacenter/data/HD2024.zip",
+   "ok": false
+  },
+  {
+   "url": "https://nces.ed.gov/ipeds/datacenter/data/HD2023.zip",
+   "ok": false
+  },
+  {
+   "url": "https://nces.ed.gov/ipeds/datacenter/data/HD2022.zip",
+   "ok": false
+  },
+  {
+   "url": "https://nces.ed.gov/ipeds/datacenter/data/HD2021.zip",
+   "ok": false
+  }
+ ],
+ "error": "no official source could be downloaded from this environment",
+ "institution_count": 0,
+ "generated_at": "2026-09-12T00:54:27.504Z"
+}
