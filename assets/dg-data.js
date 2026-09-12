@@ -9,6 +9,9 @@
  *   runs.json          scripts/detect.js               (one record per execution)
  *   schema.json        scripts/build-web-data.js       (from lib/schema.js)
  *   detectors.json     scripts/build-web-data.js       (from lib/detectors/)
+ *   sections.json      scripts/collect-banner.js       (canonical section records)
+ *   meetings.json      scripts/collect-banner.js       (all meeting patterns)
+ *   collections.json   scripts/collect-banner.js       (measured collection runs)
  *
  * When a file is absent the page shows an honest empty state. Nothing here
  * invents data.
@@ -41,13 +44,32 @@
     runs: function () {
       return load('runs').then(function (d) { return d && Array.isArray(d.runs) ? d : { runs: [], summary: null }; });
     },
+    sections: function () {
+      return load('sections').then(function (d) { return d && Array.isArray(d.sections) ? d.sections : []; });
+    },
+    meetings: function () {
+      return load('meetings').then(function (d) { return d && Array.isArray(d.meetings) ? d.meetings : []; });
+    },
+    terms: function () {
+      return load('terms').then(function (d) { return d && Array.isArray(d.terms) ? d.terms : []; });
+    },
+    subjects: function () {
+      return load('subjects').then(function (d) { return d && Array.isArray(d.subjects) ? d.subjects : []; });
+    },
+    collections: function () {
+      return load('collections').then(function (d) { return d && Array.isArray(d.runs) ? d : { latest: null, runs: [] }; });
+    },
+    provenance: function () {
+      return load('provenance').then(function (d) { return d && Array.isArray(d.sources) ? d.sources : []; });
+    },
     schema: function () { return load('schema'); },
     detectors: function () { return load('detectors'); },
 
     /** Status for an institution given the detection store. Mirrors lib/status.js. */
-    statusFor: function (institution, detectionMap) {
+    statusFor: function (institution, detectionMap, collectionMap) {
       var det = detectionMap ? detectionMap[institution.domain] : null;
-      return window.DGStatus.statusFor(det || null);
+      var collection = collectionMap ? collectionMap[institution.domain] : null;
+      return window.DGStatus.statusFor(det || null, { collectionVerified: !!collection && collection.status === 'complete' });
     },
     statusLabel: function (key) { return window.DGStatus.LABEL[key] || key; },
 

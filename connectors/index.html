@@ -36,7 +36,7 @@
         <h1 class="page-title">Integration Connectors</h1>
         <p class="page-sub">One connector per platform. Reused across many universities.</p>
       </div>
-      <div class="right"><span class="badge">Detection only</span></div>
+      <div class="right"><span class="badge">Detection + collection</span></div>
     </div>
 
     <div class="cn-grid" id="cnCards"></div>
@@ -44,9 +44,9 @@
     <div class="cn-detail">
       <div class="card" style="padding:16px 18px 18px">
         <div style="display:flex;align-items:center;gap:9px">
-          <h2 class="ctitle">Banner Connector</h2><span class="tag tag-green">Detector available</span>
+          <h2 class="ctitle">Banner Connector</h2><span class="tag tag-green">Collector live</span>
         </div>
-        <p class="csub">Detection only. Section collection is not implemented yet.</p>
+        <p class="csub">Reusable Banner 9 detection and public section collection.</p>
         <div class="ptabs">
           <a class="ptab on" href="/connectors/banner">Overview</a>
           <a class="ptab" href="/connectors/banner/supported-universities">Supported Universities</a>
@@ -56,7 +56,7 @@
         <div class="cn-body">
           <div>
             <h3 class="h-sm">Description</h3>
-            <p>Targets Banner 9 self-service registration (StudentRegistrationSsb). The detector looks for public fingerprints on a university's own registration pages; it does not collect course sections yet.</p>
+            <p>Targets public Banner 9 self-service registration (StudentRegistrationSsb), with session-aware term, subject, section and meeting collection.</p>
             <h3 class="h-sm" style="margin-top:16px">Fingerprints the detector looks for</h3>
             <ul class="eplist">
               <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></svg><code>StudentRegistrationSsb</code></li>
@@ -67,16 +67,16 @@
           </div>
           <div>
             <div class="panel-soft">
-              <h3 class="h-sm" style="margin:0">Performance <span class="badge">Not measured</span></h3>
+              <h3 class="h-sm" style="margin:0">Performance <span class="badge">Latest real run</span></h3>
               <div class="perf">
-                <div><b class="muted-val">&mdash;</b><small>success rate</small></div>
-                <div><b class="muted-val">&mdash;</b><small>avg. runtime</small></div>
-                <div><b class="muted-val">&mdash;</b><small>sections</small></div>
+                <div><b id="cnSuccess">&mdash;</b><small>schools complete</small></div>
+                <div><b id="cnRuntime">&mdash;</b><small>runtime</small></div>
+                <div><b id="cnSections">&mdash;</b><small>sections</small></div>
               </div>
             </div>
             <div class="panel-soft" style="margin-top:12px">
               <h3 class="h-sm" style="margin:0 0 6px">Universities using this connector</h3>
-              <p class="empty-soft">No universities verified yet. Verification requires a real end-to-end collection run.</p>
+              <p class="empty-soft" id="cnUniversities">No successful collections stored yet.</p>
             </div>
           </div>
         </div>
@@ -85,7 +85,7 @@
       <div class="card" style="padding:16px 18px">
         <h2 class="ctitle">Connector roadmap</h2>
         <div class="roadmap" style="margin-top:15px">
-          <div class="rm done"><span class="dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></svg></span><div><b>Banner</b><small>Detector available &middot; collection not built</small></div></div>
+          <div class="rm done"><span class="dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></svg></span><div><b>Banner</b><small>Detection + reusable collection live</small></div></div>
           <div class="rm"><span class="dot"></span><div><b>PeopleSoft</b><small>Planned</small></div></div>
           <div class="rm"><span class="dot"></span><div><b>Workday</b><small>Planned</small></div></div>
           <div class="rm"><span class="dot"></span><div><b>Ellucian Colleague</b><small>Planned</small></div></div>

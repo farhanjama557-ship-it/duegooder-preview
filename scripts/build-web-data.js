@@ -51,7 +51,13 @@ fs.writeFileSync(path.join(OUT, 'detectors.json'), JSON.stringify({
 const EMPTY = {
   'institutions.json': [],
   'detections.json': { generated_at: null, detector: 'banner', detections: [] },
-  'runs.json': { generated_at: null, summary: null, runs: [] }
+  'runs.json': { generated_at: null, summary: null, runs: [] },
+  'sections.json': { generated_at: null, identity: null, sections: [] },
+  'meetings.json': { generated_at: null, identity: null, meetings: [] },
+  'terms.json': { generated_at: null, terms: [] },
+  'subjects.json': { generated_at: null, subjects: [] },
+  'provenance.json': { generated_at: null, sources: [] },
+  'collections.json': { generated_at: null, latest: null, runs: [] }
 };
 for (const [name, value] of Object.entries(EMPTY)) {
   const file = path.join(OUT, name);

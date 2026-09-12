@@ -15,8 +15,9 @@
     var cls = { supported: 'tag-green', live: 'tag-green', discovering: 'tag-gray', manual_review: 'tag-amber' }[key] || 'tag-gray';
     return '<span class="tag ' + cls + '">' + esc(D.statusLabel(key)) + '</span>';
   }
-  function instRow(inst, detMap) {
-    var status = D.statusFor(inst, detMap);
+  function instRow(inst, detMap, collectionMap) {
+    var collection = collectionMap[inst.domain] || null;
+    var status = D.statusFor(inst, detMap, collectionMap);
     var platform = D.platformFor(inst, detMap);
     return '<tr>' +
       '<td><span class="uni"><span class="mono-logo" style="background:' + D.color(inst.domain) + '">' + esc(D.mono(inst.name)) + '</span>' + esc(inst.name) + '</span></td>' +
@@ -24,12 +25,13 @@
       '<td>' + esc(inst.state) + '</td>' +
       '<td>' + (platform ? esc(platform) : '<span class="muted-val">Unknown</span>') + '</td>' +
       '<td>' + statusPill(status) + '</td>' +
-      '<td class="muted-val">—</td>' +
+      '<td class="muted-val">' + (collection ? esc((collection.finished_at || '').slice(0, 10)) : '—') + '</td>' +
       '<td><button class="linkish" data-inst="' + esc(inst.unitid) + '">View ' + ARROW + '</button></td>' +
       '</tr>';
   }
-  function showInstitution(inst, detMap) {
+  function showInstitution(inst, detMap, collectionMap) {
     var det = detMap[inst.domain] || null;
+    var collection = collectionMap[inst.domain] || null;
     var rows = [
       ['Institution', esc(inst.name)],
       ['UNITID', '<span class="mono-cell">' + esc(inst.unitid) + '</span>'],
@@ -38,8 +40,9 @@
       ['Website', '<span class="mono-cell">' + esc(inst.website || inst.domain) + '</span>'],
       ['Domain', esc(inst.domain)],
       ['Platform', det && det.result === 'detected' ? esc(det.platform) : '<span class="muted-val">Not classified</span>'],
-      ['Status', statusPill(S.statusFor(det))],
-      ['Last collection', '<span class="muted-val">— (section collection is Phase 3)</span>']
+      ['Status', statusPill(S.statusFor(det, { collectionVerified: !!collection && collection.status === 'complete' }))],
+      ['Last collection', collection ? esc(collection.finished_at || '—') + ' · ' +
+        esc(collection.sections) + ' sections · ' + esc(collection.meetings) + ' meetings' : '<span class="muted-val">—</span>']
     ];
     if (det) {
       rows.push(['Detector result', esc(det.result)]);
@@ -55,7 +58,7 @@
   }
 
   /* ================= homepage ================= */
-  function initHome(institutions, detMap, manifest) {
+  function initHome(institutions, detMap, manifest, collectionMap) {
     var input = $('uniInput'); if (!input) return;
 
     if ($('dgInstCount')) {
@@ -116,13 +119,20 @@
       for (var i = 0; i < stages.length; i++) setStage(i, null);
       $('runline').classList.add('show');
       var det = detMap[inst.domain] || null;
+      var collection = collectionMap[inst.domain] || null;
       setStage(0, 'done');
       $('runlineBadge').textContent = 'IPEDS record';
-      if (det && det.result === 'detected') {
+      if (collection && collection.status === 'complete') {
+        setStage(1, 'done'); setStage(2, 'done'); setStage(3, 'done'); setStage(4, 'done');
+        $('runlineBadge').textContent = 'Live collection';
+        $('runlineText').innerHTML = esc(inst.name) + ' · <b>Banner</b> · ' + esc(collection.sections) +
+          ' sections and ' + esc(collection.meetings) + ' meetings collected from public sources in ' +
+          (collection.runtime_ms / 1000).toFixed(1) + 's.';
+      } else if (det && det.result === 'detected') {
         setStage(1, 'done');
         $('runlineText').innerHTML = esc(inst.name) + ' · ' + esc(inst.city) + ', ' + esc(inst.state) +
           ' — <b>' + esc(det.platform) + '</b> detected (' + D.pct(det.confidence) + ' confidence, ' + esc(det.confidence_band) + '). ' +
-          'Terms and sections are Phase 3.';
+          'No successful collection is stored yet.';
       } else if (det) {
         setStage(1, 'act');
         $('runlineText').innerHTML = esc(inst.name) + ' · ' + esc(inst.city) + ', ' + esc(inst.state) +
@@ -155,7 +165,7 @@
   }
 
   /* ================= universities page ================= */
-  function initUniversitiesPage(institutions, detMap, manifest) {
+  function initUniversitiesPage(institutions, detMap, manifest, collectionMap) {
     var body = $('uBody'); if (!body) return;
     var PER = 25, page = 1;
 
@@ -194,7 +204,7 @@
           if (pf === 'unknown') { if (det && det.result === 'detected') return false; }
           else if (!(det && det.result === 'detected' && det.platform === pf)) return false;
         }
-        if (sc && S.statusFor(det || null) !== sc) return false;
+        if (sc && S.statusFor(det || null, { collectionVerified: !!collectionMap[i.domain] && collectionMap[i.domain].status === 'complete' }) !== sc) return false;
         return true;
       });
     }
@@ -203,7 +213,7 @@
       var pages = Math.ceil(rows.length / PER) || 1;
       if (page > pages) page = pages;
       // only one page of rows is ever in the DOM
-      body.innerHTML = rows.slice((page - 1) * PER, page * PER).map(function (i) { return instRow(i, detMap); }).join('');
+      body.innerHTML = rows.slice((page - 1) * PER, page * PER).map(function (i) { return instRow(i, detMap, collectionMap); }).join('');
       $('uEmpty').style.display = rows.length ? 'none' : 'block';
       if (!rows.length) $('uEmpty').textContent = 'No institutions match this filter.';
       var from = rows.length ? (page - 1) * PER + 1 : 0;
@@ -213,7 +223,7 @@
       Array.prototype.forEach.call(body.querySelectorAll('button[data-inst]'), function (b) {
         b.addEventListener('click', function () {
           var inst = institutions.filter(function (x) { return x.unitid === b.getAttribute('data-inst'); })[0];
-          if (inst) showInstitution(inst, detMap);
+          if (inst) showInstitution(inst, detMap, collectionMap);
         });
       });
     }
@@ -244,29 +254,39 @@
   }
 
   /* ================= connectors page ================= */
-  function initConnectors(detectors, detections, runs) {
+  function initConnectors(detectors, detections, runs, collections) {
     if (!$('cnCards') || !detectors) return;
     var detected = detections.filter(function (d) { return d.result === 'detected'; });
     var TAG = { detector_available: ['Detector available', 'tag-green'], planned: ['Planned', 'tag-gray'], manual_review: ['Manual review', 'tag-amber'] };
     $('cnCards').innerHTML = detectors.registry.map(function (p) {
       var t = TAG[p.status] || ['Planned', 'tag-gray'];
       var isBanner = p.platform === 'banner';
-      var universities = isBanner ? String(detected.length) : '<span class="muted-val">—</span>';
-      var probed = isBanner ? String(detections.length) : '<span class="muted-val">—</span>';
-      var runsCount = isBanner ? String((runs.runs || []).length) : '<span class="muted-val">—</span>';
+      var latest = collections.latest;
+      var universities = isBanner && latest ? String(latest.metrics.schools_complete) : (isBanner ? '0' : '<span class="muted-val">—</span>');
+      var probed = isBanner && latest ? String(latest.metrics.sections) : (isBanner ? '0' : '<span class="muted-val">—</span>');
+      var runsCount = isBanner ? String((collections.runs || []).length) : '<span class="muted-val">—</span>';
       return '<div class="card cn-card">' +
         '<div class="cn-top"><span class="cn-logo">' + LAYERS + '</span><span class="cn-name">' + esc(p.label.split(' (')[0]) + '</span>' +
-        '<span class="tag ' + t[1] + '">' + t[0] + '</span></div>' +
-        '<p class="cn-desc">' + esc(p.label) + (p.implemented ? '. Detection implemented; section collection is Phase 3.' : '. Detector not implemented.') + '</p>' +
+        '<span class="tag ' + t[1] + '">' + (isBanner && latest ? 'Collector live' : t[0]) + '</span></div>' +
+        '<p class="cn-desc">' + esc(p.label) + (p.implemented ? '. Detection and reusable Banner 9 section collection implemented.' : '. Detector not implemented.') + '</p>' +
         '<div class="cn-metrics">' +
-        '<div><b>' + universities + '</b><small>detected</small></div>' +
-        '<div><b>' + probed + '</b><small>probed</small></div>' +
-        '<div><b>' + runsCount + '</b><small>runs</small></div></div>' +
+        '<div><b>' + universities + '</b><small>collected schools</small></div>' +
+        '<div><b>' + probed + '</b><small>sections</small></div>' +
+        '<div><b>' + runsCount + '</b><small>collection runs</small></div></div>' +
         (p.implemented
           ? '<a class="btn-ghost cn-act" href="/connectors/banner">View detector &rarr;</a>'
           : '<button class="btn-ghost cn-act" disabled style="opacity:.55;cursor:default">Not implemented</button>') +
         '</div>';
     }).join('');
+    if ($('cnSections') && collections.latest) {
+      var cm = collections.latest.metrics || {}, cs = collections.latest.schools || [];
+      $('cnSuccess').textContent = Number(cm.schools_complete || 0) + '/' + Number(cm.schools_processed || 0);
+      $('cnRuntime').textContent = Number(cm.runtime_ms || 0) >= 60000
+        ? (Number(cm.runtime_ms) / 60000).toFixed(1) + 'm' : (Number(cm.runtime_ms || 0) / 1000).toFixed(1) + 's';
+      $('cnSections').textContent = Number(cm.sections || 0).toLocaleString('en-US');
+      $('cnUniversities').textContent = cs.filter(function (s) { return s.status === 'complete'; })
+        .map(function (s) { return s.school_name + ' (' + Number(s.sections || 0).toLocaleString('en-US') + ' sections)'; }).join(' · ');
+    }
   }
   var LAYERS = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5d6a63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg>';
 
@@ -300,12 +320,16 @@
   }
 
   /* ---------- boot ---------- */
-  Promise.all([D.institutions(), D.detectionMap(), D.manifest(), D.detectors(), D.detections(), D.runs(), D.schema()])
+  Promise.all([D.institutions(), D.detectionMap(), D.manifest(), D.detectors(), D.detections(), D.runs(), D.schema(), D.collections()])
     .then(function (r) {
-      var institutions = r[0], detMap = r[1], manifest = r[2], detectors = r[3], detections = r[4], runs = r[5], schema = r[6];
-      initHome(institutions, detMap, manifest);
-      initUniversitiesPage(institutions, detMap, manifest);
-      initConnectors(detectors, detections, runs);
+      var institutions = r[0], detMap = r[1], manifest = r[2], detectors = r[3], detections = r[4], runs = r[5], schema = r[6], collections = r[7];
+      var collectionMap = {};
+      (collections.latest && collections.latest.schools || []).forEach(function (s) {
+        collectionMap[s.domain] = Object.assign({ finished_at: collections.latest.finished_at }, s);
+      });
+      initHome(institutions, detMap, manifest, collectionMap);
+      initUniversitiesPage(institutions, detMap, manifest, collectionMap);
+      initConnectors(detectors, detections, runs, collections);
       initSchemaPages(schema);
       document.documentElement.setAttribute('data-dg-ready', '1');
     });

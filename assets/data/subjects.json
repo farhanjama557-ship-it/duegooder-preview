@@ -1,0 +1,2426 @@
+{
+ "generated_at": "2026-09-12T02:15:35.930Z",
+ "subjects": [
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "ACC",
+   "description": "Accounting",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "AEE",
+   "description": "Aerospace Engineering",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "AES",
+   "description": "Air Force Aerospace Studies",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "ANT",
+   "description": "Anthropology",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "VAR",
+   "description": "Art & Design",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "VAE",
+   "description": "Art & Design-Art Education",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "VAH",
+   "description": "Art & Design-Art History",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "VAF",
+   "description": "Art & Design-Fine Arts",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "VAD",
+   "description": "Art & Design-Graphic Desgn",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "VAP",
+   "description": "Art & Design-Photography",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "BIE",
+   "description": "Bioengineering",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "BIO",
+   "description": "Biology",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "BIZ",
+   "description": "Business",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "BAN",
+   "description": "Business Analytics",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "CME",
+   "description": "Chemical Engineering",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "CHM",
+   "description": "Chemistry",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "CHI",
+   "description": "Chinese",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "CEE",
+   "description": "Civil & Environmental Engr",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "COP",
+   "description": "Co-Op Education",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "CMM",
+   "description": "Communication",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "COM",
+   "description": "Communication - Graduate",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "CPS",
+   "description": "Computer Science",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "EDC",
+   "description": "Counselor Education",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "CJS",
+   "description": "Criminal Justice Studies",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "DST",
+   "description": "Disability Studies",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "ECO",
+   "description": "Economics",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "EDU",
+   "description": "Education - Doctoral Studies",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "EDA",
+   "description": "Educational Leadership",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "ECE",
+   "description": "Electrical & Computer Engr",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "EOP",
+   "description": "Electro-Optics",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "ECT",
+   "description": "Electronic Computer Tech",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "EGR",
+   "description": "Engineering",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "ENM",
+   "description": "Engineering Management & Systm",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "EGM",
+   "description": "Engineering Mechanics",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "SET",
+   "description": "Engineering Technology",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "ENG",
+   "description": "English",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "EXC",
+   "description": "Exchange Program",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "EXP",
+   "description": "Experiential Programs",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "FLM",
+   "description": "Film Studies",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "FIN",
+   "description": "Finance",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "FRN",
+   "description": "French",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "GEO",
+   "description": "Geology",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "GIS",
+   "description": "Geology & Environmental Geosci",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "GER",
+   "description": "German",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "GLC",
+   "description": "Global Languages & Cultures",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "MFG",
+   "description": "Global Manufact Sys Egr Tech",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "HSS",
+   "description": "Health & Sport Science",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "HST",
+   "description": "History",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "HRS",
+   "description": "Human Rights Studies",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "HUM",
+   "description": "Humanities",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "IET",
+   "description": "Industrial Engineering Tech",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "SCI",
+   "description": "Integrated Natural Science",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "IEP",
+   "description": "Intensive English Program",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "ASI",
+   "description": "Interdisciplinary-A&S",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "INB",
+   "description": "International Business",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "ITA",
+   "description": "Italian",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "LAW",
+   "description": "Law",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "MGT",
+   "description": "Management",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "MIS",
+   "description": "Management Info Systems",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "MKT",
+   "description": "Marketing",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "MPA",
+   "description": "Master in Public Adm",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "MBA",
+   "description": "Master of Business Admin",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "MAT",
+   "description": "Materials Engineering",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "MTH",
+   "description": "Mathematics",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "MEE",
+   "description": "Mechanical Engineering",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "MCT",
+   "description": "Mechanical Engineering Tech",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "MIL",
+   "description": "Military Science",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "UDI",
+   "description": "Mini Courses",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "MUS",
+   "description": "Music",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "NSG",
+   "description": "Nursing",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "OAR",
+   "description": "Office of Academic Research",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "OPS",
+   "description": "Operations Management",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "PHL",
+   "description": "Philosophy",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "DPT",
+   "description": "Physical Therapy",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "PAS",
+   "description": "Physician Assistant",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "PHY",
+   "description": "Physics",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "POL",
+   "description": "Political Science",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "PLW",
+   "description": "Pre-Law",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "MED",
+   "description": "Pre-Medicine",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "PSY",
+   "description": "Psychology",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "RCE",
+   "description": "Race and Ethnic Studies",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "REL",
+   "description": "Religious Studies",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "RCL",
+   "description": "Renewable Clean Energy",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "RES",
+   "description": "Research",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "CSR",
+   "description": "Services",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "SCC",
+   "description": "Sinclair CC Consortium",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "SWK",
+   "description": "Social Work",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "SOC",
+   "description": "Sociology",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "SPN",
+   "description": "Spanish",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "ABD",
+   "description": "Study Abroad",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "SEE",
+   "description": "Sustainability,Energy&Environ",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "SYE",
+   "description": "Systems Engineering",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "SEM",
+   "description": "Systems Engineering & Mgt",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "EDT",
+   "description": "Teacher Education",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "THR",
+   "description": "Theatre, Dance, Perf Tech",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "UDS",
+   "description": "UD Sinclair Academy",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "UDG",
+   "description": "UDayton Global",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "udayton",
+   "term_id": "202680",
+   "code": "WGS",
+   "description": "Women & Gender Studies",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:13:48.402Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "ACG",
+   "description": "ACG - Accounting: General",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "ADV",
+   "description": "ADV - Advertising",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "AFH",
+   "description": "AFH - African History",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "AFR",
+   "description": "AFR- Aerospace Studies",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "AMH",
+   "description": "AMH - American History",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "AML",
+   "description": "AML - American Literature",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "AMS",
+   "description": "AMS - American Studies",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "ANG",
+   "description": "ANG - Anthropology: Graduate",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "ANT",
+   "description": "ANT-Anthropology",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "APK",
+   "description": "APK-Applied Kinesiology",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "ARH",
+   "description": "ARH-Art History",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "ART",
+   "description": "ART- Art",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "ASH",
+   "description": "ASH-Asian History",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "AST",
+   "description": "AST-Astronomy",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "ATR",
+   "description": "ATR- Athletic Training",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "BCH",
+   "description": "BCH-Biochem (Biophysics)",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "BCN",
+   "description": "BCN-Building Construction",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "BSC",
+   "description": "BSC-Biological Sciences",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "BUL",
+   "description": "BUL-Business Law",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CAI",
+   "description": "CAI - Artif. Intelligen",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CAP",
+   "description": "CAP-Computer Applications",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CCJ",
+   "description": "CCJ-Crimin & Criminal Justice",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CDA",
+   "description": "CDA-Computer Design/Archit",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CEG",
+   "description": "CEG - Civil Geotech Engineer",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CEN",
+   "description": "CEN-Computer Engineering",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CES",
+   "description": "CES - Civil Engineering Struct",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CET",
+   "description": "CET-Computer Engineering Tech",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CGN",
+   "description": "CGN- Civil Engineering",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CGS",
+   "description": "CGS-Computer General Studies",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CHM",
+   "description": "CHM-Chemistry",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CIS",
+   "description": "CIS-Compt Sci & Inform Systs",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CJC",
+   "description": "CJC-Corrections",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CJE",
+   "description": "CJE-Law Enforcement",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CJL",
+   "description": "CJL-Law and Process",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CLP",
+   "description": "CLP-Clinical Psychology",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CNT",
+   "description": "CNT-Computer Networks",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "COM",
+   "description": "COM-Communication",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "COP",
+   "description": "COP-Computer Programming",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "COT",
+   "description": "COT-Computer Science",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CPO",
+   "description": "CPO-Comparative Politics",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CRW",
+   "description": "CRW-Creative Writing",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CTS",
+   "description": "CTS-Computer Tech & Skills",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CWR",
+   "description": "CWR - Civil Water Resources",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "CYP",
+   "description": "CYP-Community Psychology",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "DAA",
+   "description": "DAA-Dance: Emphs on Activity",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "DEP",
+   "description": "DEP-Development Psychology",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "DIG",
+   "description": "DIG-Digital Media",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "DSC",
+   "description": "DSC-Domestic Security",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "EAB",
+   "description": "EAB-Exper Analy of Behavior",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "ECO",
+   "description": "ECO-Economics",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "ECP",
+   "description": "ECP-Economic Problems & Policy",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "EDA",
+   "description": "EDA-Educational Administration",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "EDF",
+   "description": "EDF-Edu: Found & Policy Study",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "EDG",
+   "description": "EDG-Education: General",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "EDH",
+   "description": "EDH-Education: Higher",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "EEE",
+   "description": "EEE-Electrical & Electron Eng",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "EEL",
+   "description": "EEL-Engineering: Electrical",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "EEX",
+   "description": "EEX-Educ:Excep Child-Core Comp",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "EGM",
+   "description": "EGM-Engineering: Science",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "EGN",
+   "description": "EGN-Engineering: General",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "EGS",
+   "description": "EGS-Engineering: Support",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "EME",
+   "description": "EME-Edu: Technology & Media",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "EML",
+   "description": "EML-Engineering: Mechanical",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "ENC",
+   "description": "ENC-English Composition",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "ENG",
+   "description": "ENG-English: General",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "ENL",
+   "description": "ENL-English Literature",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "ENT",
+   "description": "ENT-Entrepreneurship",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "ENV",
+   "description": "ENV - Engineering: Environment",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "ESC",
+   "description": "ESC-Earth Science",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "ESE",
+   "description": "ESE-Education: Secondary",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "ETD",
+   "description": "ETD-Engineer Technol: Drafting",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "EUH",
+   "description": "EUH-European History",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "EVR",
+   "description": "EVR-Environmental Studies",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "EVS",
+   "description": "EVS-Environmental Science",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "EXP",
+   "description": "EXP-Experimental Psychology",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "FIL",
+   "description": "FIL-Film",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "FIN",
+   "description": "FIN-Finance",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "FRE",
+   "description": "FRE-French Language",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "GEA",
+   "description": "GEA-Geography: Regional Areas",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "GEB",
+   "description": "GEB-General Business",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "GEO",
+   "description": "GEO-Geography: Systematic",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "GEY",
+   "description": "GEY-Gerontology",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "GIS",
+   "description": "GIS-Geographic Inform Syst",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "GLY",
+   "description": "GLY-Geology",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "GRA",
+   "description": "GRA-Graphic Design",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "HFT",
+   "description": "HFT-Hospitality Management",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "HIS",
+   "description": "HIS-Gen History & Historiograp",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "HMG",
+   "description": "HMG-Hospitality Mgmt Graduate",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "HSA",
+   "description": "HSA-Health Services Admin",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "HSC",
+   "description": "HSC-Health Science",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "HUM",
+   "description": "HUM-Humanities",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "HUN",
+   "description": "HUN-Human Nutrition",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "IDC",
+   "description": "IDC-Interdisciplinary Prog (TR",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "IDH",
+   "description": "IDH-Interdisciplinary Honors",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "IDS",
+   "description": "IDS-Interdisciplinary Studies",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "INP",
+   "description": "INP-Industrial & Applied Psych",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "INR",
+   "description": "INR-International Relations",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "ISC",
+   "description": "ISC-Interdisciplinary Sciences",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "ISM",
+   "description": "ISM-Information Systems Mgmt",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "uwf",
+   "term_id": "202608",
+   "code": "JOU",
+   "description": "JOU-Journalism",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:12:59.362Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "ACC",
+   "description": "Accounting",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "AFR",
+   "description": "African-American Studies",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "WLA",
+   "description": "American Sign Language",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "ANT",
+   "description": "Anthropology",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "ART",
+   "description": "Art",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "BIO",
+   "description": "Biological Sciences",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "BUS",
+   "description": "Business",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "MBA",
+   "description": "Business Administration",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "BAIS",
+   "description": "Business Analytics and Info Sy",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "CTE",
+   "description": "Career and Technical Education",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "CHM",
+   "description": "Chemistry",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "CERE",
+   "description": "Clean Energy Research and Educ",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "CLS",
+   "description": "Clinical Laboratory Science",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "CDS",
+   "description": "Communication Disorders Sci",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "CMN",
+   "description": "Communication Studies",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "CSM",
+   "description": "Computer Science",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "CIT",
+   "description": "Computer and Info Technology",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "CMG",
+   "description": "Construction Management",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "CHE",
+   "description": "Counseling and Higher Educatn",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "CRM",
+   "description": "Criminology and Criminal Just",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "DGT",
+   "description": "Digital Media Technology",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "EIU",
+   "description": "EIU Senior Sem. Univ. Found.",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "ECN",
+   "description": "Economics",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "EDU",
+   "description": "Education",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "EDF",
+   "description": "Educational Foundations",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "EDL",
+   "description": "Educational Leadership",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "EDP",
+   "description": "Educational Psychology",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "EEN",
+   "description": "Electrical Engineering",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "ELE",
+   "description": "Elementary Education",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "EGT",
+   "description": "Engineering Technology",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "ENG",
+   "description": "English",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "ENT",
+   "description": "Entrepreneurship",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "FMD",
+   "description": "Fashion Merchandising",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "FIN",
+   "description": "Finance",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "WLF",
+   "description": "French",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "GEO",
+   "description": "Geology and Geography",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "WLG",
+   "description": "German",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "HCM",
+   "description": "Health Communication",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "HIS",
+   "description": "History",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "HON",
+   "description": "Honors",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "HTM",
+   "description": "Hospitality and Tourism",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "HSL",
+   "description": "Human Services",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "JOU",
+   "description": "Journalism",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "KSR",
+   "description": "Kinesiology Sport Recreation",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "MGT",
+   "description": "Management",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "MAR",
+   "description": "Marketing",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "MAT",
+   "description": "Mathematics",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "MLE",
+   "description": "Middle Level Education",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "MSC",
+   "description": "Military Science",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "MUS",
+   "description": "Music",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "NEU",
+   "description": "Neuroscience",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "NUR",
+   "description": "Nursing",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "NTR",
+   "description": "Nutrition and Dietetics",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "ODL",
+   "description": "Organizational Development",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "PHI",
+   "description": "Philosophy",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "PHS",
+   "description": "Physical Sciences",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "PHY",
+   "description": "Physics",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "PLS",
+   "description": "Political Science",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "PSY",
+   "description": "Psychology",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "PUBH",
+   "description": "Public Health",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "SED",
+   "description": "Secondary Education",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "SOS",
+   "description": "Social Science",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "SOC",
+   "description": "Sociology",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "WLS",
+   "description": "Spanish",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "SPE",
+   "description": "Special Education",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "STG",
+   "description": "Student Teaching",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "STA",
+   "description": "Study Abroad",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "ATD",
+   "description": "Talent Development",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "TEC",
+   "description": "Technology",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "THA",
+   "description": "Theatre",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  },
+  {
+   "school_id": "eiu",
+   "term_id": "202730",
+   "code": "WGS",
+   "description": "Women's Gender and Sexuality",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "extraction_status": "complete"
+  }
+ ]
+}

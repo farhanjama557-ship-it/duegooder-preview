@@ -11,8 +11,7 @@
 /**
  * Application-level school status.
  *
- * LIVE          only after a successful Phase 3 section collection. Phase 2 can
- *               never produce it - collectionVerified is always false today.
+ * LIVE          only after a successful Phase 3 section collection.
  * SUPPORTED     a platform was confidently detected AND we have a connector
  *               architecture for it. Means "platform supported", NOT "collection verified".
  * DISCOVERING   institution known, platform not confidently classified yet

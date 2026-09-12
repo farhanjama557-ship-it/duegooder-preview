@@ -3,9 +3,11 @@
 Turn any university into structured course data: detect the registration platform a
 school runs, then collect its public course sections into one normalized schema.
 
-**Status: Phase 2 (institution directory + platform detection).** Section collection —
-terms, sections, instructors, meeting times, enrollment, dedupe and refresh — is Phase 3
-and is not implemented. Nothing in this repository collects course sections.
+**Status: Phase 3 (reusable Banner 9 collection).** The frozen Phase 2 institution
+directory and truthful detector feed one shared, session-aware Banner connector. It
+discovers terms and subjects, consumes every section page, normalizes sections and all
+meeting patterns, deduplicates stable identities, persists provenance, and records real
+run metrics.
 
 ## What is real, and what is not
 
@@ -17,7 +19,8 @@ and is not implemented. Nothing in this repository collects course sections.
 | Detection results / runs | Real. Written only by actual detector executions. |
 | Normalized section schema | Real and validated (`lib/schema.js`). |
 | PeopleSoft / Workday / Colleague / Custom detectors | Not implemented. Stubs that never classify anything. |
-| "Collected sections" table on the homepage | **PREVIEW DATA** — labelled as such. Phase 3 replaces it. |
+| Banner terms / subjects / sections / meetings | Real. Written only by `scripts/collect-banner.js`. |
+| "Collected sections" table on the homepage | Real canonical records from `assets/data/sections.json`. |
 
 Pages show an honest empty state when data has not been generated yet. No screen
 invents institutions, detections, runs or metrics.
@@ -49,11 +52,13 @@ institution count from that manifest, so the number on screen is always the meas
 npm test                  # library tests (schema, detector, search, importer) - no network
 npm run import:institutions   # download + normalize the official IPEDS directory
 npm run detect -- appstate.edu udayton.edu uwf.edu     # run the real Banner detector
+npm run collect:banner                    # collect latest public term for verified Banner schools
+npm run collect:banner -- --schools uwf.edu,udayton.edu,eiu.edu --repeat 2
 npm run detect -- --from-directory --limit 25          # detect across the imported directory
 npm run build:web-data    # regenerate schema.json / detectors.json from the code
 npm run build             # import + build:web-data (this is what Vercel runs)
 npm run test:ui           # browser tests; needs `npx playwright install chromium`
-npm run test:live         # opt-in: runs the detector against real universities
+npm run test:live         # opt-in: detector + collector against real universities
 ```
 
 Generated files live in `assets/data/` and are served statically:
@@ -66,11 +71,47 @@ Generated files live in `assets/data/` and are served statically:
 | `runs.json` | `detect.js` | one record per detector execution + computed summary |
 | `schema.json` | `build-web-data.js` | canonical schema, from `lib/schema.js` |
 | `detectors.json` | `build-web-data.js` | detector registry + Banner scoring rules |
+| `terms.json` | `collect-banner.js` | all terms discovered from the public Banner API |
+| `subjects.json` | `collect-banner.js` | subjects for each collected term |
+| `sections.json` | `collect-banner.js` | canonical, validated section records |
+| `meetings.json` | `collect-banner.js` | every published meeting pattern, not only the primary display meeting |
+| `provenance.json` | `collect-banner.js` | exact response URLs, retrieval times, HTTP and extraction status |
+| `collections.json` | `collect-banner.js` | real per-school/run metrics and persistence results |
 
 **Storage is deliberately flat files, not a database** — this is a hackathon project and
 the site is static. `detect.js` merges into the store: a detection younger than 24h is
 reused instead of re-requesting. Committing the generated `detections.json` / `runs.json`
 is how results reach the deployed site; they are always produced by real runs.
+
+## Banner section collection
+
+`lib/collectors/banner.js` is the only Banner parser. University configuration contains
+only the official public registration URL; there are no school-specific parser branches.
+Each run:
+
+1. checks `robots.txt` and structurally verifies the configured Banner 9 page;
+2. keeps an isolated Banner session/cookie jar;
+3. discovers every term and selects `latest` by default (or `--term CODE` / `--term all`);
+4. discovers subjects for the selected term;
+5. follows `totalCount` and `pageOffset` until every section page is consumed;
+6. validates every canonical section and preserves every published meeting separately;
+7. upserts all stores and writes measured metrics.
+
+Section identity is `school_id + term_id + CRN`. If Banner omits a CRN, the documented
+fallback is SHA-256 of `school_id|term_id|subject|course_number|section_number`. Meeting
+identity is the section identity plus a hash of its days, times, location, type and dates.
+An immediate `--repeat 2` pass must create zero sections and zero meetings on pass two;
+the command exits non-zero if any school has no real sections/timed meetings or if the
+repeat creates duplicates.
+
+The canonical 20-field section row exposes its first scheduled meeting for the existing
+flat UI/schema. `meetings.json` is the lossless one-to-many store for all published
+meeting patterns. Every section and meeting carries its source URL, retrieval timestamp
+and extraction status; response-level provenance is also retained.
+
+Verified connector configurations currently include University of West Florida,
+University of Dayton and Eastern Illinois University. Appalachian State is intentionally
+absent: its frozen `no_match` is never promoted or forced by Phase 3.
 
 ## Banner detection
 
@@ -139,7 +180,7 @@ budget, so it stays `no_match` until a generic improvement finds one.
 
 | Status | Meaning |
 | --- | --- |
-| `live` | a real Phase 3 section collection succeeded. **Unreachable in Phase 2.** |
+| `live` | a real Phase 3 section collection succeeded with sections and timed meetings. |
 | `supported` | platform confidently detected and a connector architecture exists. Means *platform supported*, not *collection verified*. |
 | `discovering` | institution known, platform not classified yet — including every detection error. |
 | `manual_review` | probed, no supported platform found: likely custom. |
@@ -153,11 +194,23 @@ imports the official directory from NCES and regenerates the schema data. The im
 never fails the build: if the source is unreachable it writes a manifest with
 `status: "not_imported"` and the UI says so rather than showing invented data.
 
+If `.edu` access is blocked in an automation environment, offline tests still exercise
+fixtures for sessions, two kinds of pagination, normalization, canonical validation and
+repeat-run dedupe. Run the exact live command on a network-enabled machine before calling
+Phase 3 complete:
+
+```bash
+git checkout codex/phase3-banner-collector
+git pull --ff-only origin codex/phase3-banner-collector
+npm test
+npm run collect:banner -- --schools uwf.edu,udayton.edu,eiu.edu --repeat 2 --timeout 30000
+```
+
 ## Layout
 
 ```
-lib/            schema, detectors, HTTP layer, run recorder, CSV/ZIP readers
-scripts/        importer, detector CLI, web-data generator
+lib/            schema, detectors, Banner collector, persistence, run recorders
+scripts/        importer, detector CLI, Banner collector CLI, web-data generator
 assets/         stylesheet, browser modules, generated data
 test/           node:test suites (no network) and test/ui/ browser suites
 ```
