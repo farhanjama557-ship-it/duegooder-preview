@@ -35,13 +35,13 @@
     <div class="dhead">
       <span class="ic-lg"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5d6a63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg></span>
       <div>
-        <div class="row"><h1>Banner Connector</h1><span class="tag tag-green">Detector available</span></div>
-        <p>Detection only. Section collection is not implemented yet.</p>
+        <div class="row"><h1>Banner Connector</h1><span class="tag tag-green">Collector live</span></div>
+        <p>Reusable Banner 9 detection and public section collection.</p>
       </div>
       <div class="card cov">
-        <span class="cap">Detector coverage<br><span class="badge" style="margin:4px 0 0">Preview data</span></span>
+        <span class="cap">Detector coverage<br><span class="badge" style="margin:4px 0 0">Real data</span></span>
         <div class="t"><b id="covDetected">&mdash;</b><small>detected</small></div>
-        <div class="t"><b id="covTotal">&mdash;</b><small>in preview list</small></div>
+        <div class="t"><b id="covTotal">&mdash;</b><small>probed</small></div>
         <div class="t"><b id="covConf">&mdash;</b><small>confidence (avg)</small></div>
       </div>
     </div>
@@ -52,7 +52,7 @@
         <div class="cn-body">
           <div>
             <h3 class="h-sm">Description</h3>
-            <p>Targets Banner 9 self-service registration (StudentRegistrationSsb). The detector looks for public fingerprints on a university's own registration pages; it does not collect course sections yet.</p>
+            <p>Targets public Banner 9 self-service registration (StudentRegistrationSsb). One session-aware connector discovers terms and subjects, paginates every section result, preserves all meetings, normalizes records and records source provenance.</p>
             <h3 class="h-sm" style="margin-top:16px">Fingerprints the detector looks for</h3>
             <ul class="eplist">
               <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></svg><code>StudentRegistrationSsb</code></li>
@@ -63,16 +63,16 @@
           </div>
           <div>
             <div class="panel-soft">
-              <h3 class="h-sm" style="margin:0">Performance <span class="badge">Not measured</span></h3>
+              <h3 class="h-sm" style="margin:0">Performance <span class="badge">Latest real run</span></h3>
               <div class="perf">
-                <div><b class="muted-val">&mdash;</b><small>success rate</small></div>
-                <div><b class="muted-val">&mdash;</b><small>avg. runtime</small></div>
-                <div><b class="muted-val">&mdash;</b><small>sections</small></div>
+                <div><b id="bcSuccess">&mdash;</b><small>schools complete</small></div>
+                <div><b id="bcRuntime">&mdash;</b><small>runtime</small></div>
+                <div><b id="bcSections">&mdash;</b><small>sections</small></div>
               </div>
             </div>
             <div class="panel-soft" style="margin-top:12px">
               <h3 class="h-sm" style="margin:0 0 6px">Universities using this connector</h3>
-              <p class="empty-soft">None yet. A university counts as using this connector only after a real end-to-end section collection, which is Phase 3. Detection results are on the Supported Universities tab.</p>
+              <p class="empty-soft" id="bcUniversities">No successful collections stored yet.</p>
             </div>
           </div>
         </div>
@@ -81,7 +81,7 @@
       <div class="card" style="padding:16px 18px">
         <h2 class="ctitle">Connector roadmap</h2>
         <div class="roadmap" style="margin-top:15px">
-          <div class="rm done"><span class="dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></svg></span><div><b>Banner</b><small>Detector shell &middot; collection not built</small></div></div>
+          <div class="rm done"><span class="dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></svg></span><div><b>Banner</b><small>Detection + reusable collection live</small></div></div>
           <div class="rm"><span class="dot"></span><div><b>PeopleSoft</b><small>Planned</small></div></div>
           <div class="rm"><span class="dot"></span><div><b>Workday</b><small>Planned</small></div></div>
           <div class="rm"><span class="dot"></span><div><b>Ellucian Colleague</b><small>Planned</small></div></div>

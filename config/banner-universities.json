@@ -1,0 +1,30 @@
+[
+ {
+  "domain": "uwf.edu",
+  "school_id": "uwf",
+  "school_name": "University of West Florida",
+  "registration_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+  "verification": "public Banner 9 endpoint structurally re-verified by every collection run"
+ },
+ {
+  "domain": "udayton.edu",
+  "school_id": "udayton",
+  "school_name": "University of Dayton",
+  "registration_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+  "verification": "Phase 2 detected URL; structurally re-verified by every collection run"
+ },
+ {
+  "domain": "eiu.edu",
+  "school_id": "eiu",
+  "school_name": "Eastern Illinois University",
+  "registration_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+  "verification": "official public Banner 9 endpoint; structurally re-verified by every collection run"
+ },
+ {
+  "domain": "ung.edu",
+  "school_id": "ung",
+  "school_name": "University of North Georgia",
+  "registration_url": "https://ssb.ungprod.ung.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+  "verification": "official public Banner 9 course-search target; structurally re-verified by every collection run"
+ }
+]

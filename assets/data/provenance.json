@@ -1,0 +1,419 @@
+{
+ "generated_at": "2026-09-12T15:17:28.836Z",
+ "sources": [
+  {
+   "school_id": "udayton",
+   "kind": "robots",
+   "source_url": "https://banner.udayton.edu/robots.txt",
+   "retrieved_at": "2026-09-12T15:16:46.225Z",
+   "http_status": 404,
+   "extraction_status": "failed",
+   "error": "HTTP 404"
+  },
+  {
+   "school_id": "udayton",
+   "kind": "banner_verification",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+   "retrieved_at": "2026-09-12T15:16:46.281Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "udayton",
+   "kind": "terms",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/getTerms?searchTerm=&offset=1&max=100",
+   "retrieved_at": "2026-09-12T15:16:46.404Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "udayton",
+   "kind": "term_selection",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/term/search?mode=search",
+   "retrieved_at": "2026-09-12T15:16:46.430Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "udayton",
+   "kind": "subjects",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202680&offset=1&max=100",
+   "retrieved_at": "2026-09-12T15:16:46.460Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "udayton",
+   "kind": "sections",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202680&pageOffset=0&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:16:46.487Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "udayton",
+   "kind": "sections",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202680&pageOffset=500&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:16:51.450Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "udayton",
+   "kind": "sections",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202680&pageOffset=1000&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:16:55.789Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "udayton",
+   "kind": "sections",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202680&pageOffset=1500&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:17:00.223Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "udayton",
+   "kind": "sections",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202680&pageOffset=2000&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:17:05.829Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "udayton",
+   "kind": "sections",
+   "source_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202680&pageOffset=2500&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:17:10.458Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "uwf",
+   "kind": "robots",
+   "source_url": "https://apps.banner.uwf.edu/robots.txt",
+   "retrieved_at": "2026-09-12T15:16:32.420Z",
+   "http_status": 404,
+   "extraction_status": "failed",
+   "error": "HTTP 404"
+  },
+  {
+   "school_id": "uwf",
+   "kind": "banner_verification",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+   "retrieved_at": "2026-09-12T15:16:32.542Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "uwf",
+   "kind": "terms",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/getTerms?searchTerm=&offset=1&max=100",
+   "retrieved_at": "2026-09-12T15:16:32.635Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "uwf",
+   "kind": "term_selection",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/term/search?mode=search",
+   "retrieved_at": "2026-09-12T15:16:32.677Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "uwf",
+   "kind": "subjects",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T15:16:32.824Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "uwf",
+   "kind": "subjects",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=101&max=100",
+   "retrieved_at": "2026-09-12T15:16:32.874Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "uwf",
+   "kind": "sections",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202608&pageOffset=0&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:16:32.920Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "uwf",
+   "kind": "sections",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202608&pageOffset=500&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:16:35.373Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "uwf",
+   "kind": "sections",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202608&pageOffset=1000&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:16:38.402Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "uwf",
+   "kind": "sections",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202608&pageOffset=1500&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:16:40.989Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "uwf",
+   "kind": "sections",
+   "source_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202608&pageOffset=2000&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:16:43.765Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "eiu",
+   "kind": "robots",
+   "source_url": "https://banner.eiu.edu/robots.txt",
+   "retrieved_at": "2026-09-12T15:05:14.092Z",
+   "http_status": null,
+   "extraction_status": "failed",
+   "error": "fetch failed"
+  },
+  {
+   "school_id": "eiu",
+   "kind": "banner_verification",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+   "retrieved_at": "2026-09-12T02:14:23.301Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "eiu",
+   "kind": "terms",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/getTerms?searchTerm=&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:32.218Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "eiu",
+   "kind": "term_selection",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/term/search?mode=search",
+   "retrieved_at": "2026-09-12T02:14:40.617Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "eiu",
+   "kind": "subjects",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202730&offset=1&max=100",
+   "retrieved_at": "2026-09-12T02:14:45.987Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "eiu",
+   "kind": "sections",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202730&pageOffset=0&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T02:14:51.999Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "eiu",
+   "kind": "sections",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202730&pageOffset=500&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T02:14:59.045Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "eiu",
+   "kind": "sections",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202730&pageOffset=1000&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T02:15:07.835Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "eiu",
+   "kind": "sections",
+   "source_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202730&pageOffset=1500&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T02:15:17.034Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "ung",
+   "kind": "robots",
+   "source_url": "https://ssb.ungprod.ung.edu/robots.txt",
+   "retrieved_at": "2026-09-12T15:17:13.301Z",
+   "http_status": 404,
+   "extraction_status": "failed",
+   "error": "HTTP 404"
+  },
+  {
+   "school_id": "ung",
+   "kind": "banner_verification",
+   "source_url": "https://ssb.ungprod.ung.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+   "retrieved_at": "2026-09-12T15:17:13.399Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "ung",
+   "kind": "terms",
+   "source_url": "https://ssb.ungprod.ung.edu/StudentRegistrationSsb/ssb/classSearch/getTerms?searchTerm=&offset=1&max=100",
+   "retrieved_at": "2026-09-12T15:17:13.559Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "ung",
+   "kind": "term_selection",
+   "source_url": "https://ssb.ungprod.ung.edu/StudentRegistrationSsb/ssb/term/search?mode=search",
+   "retrieved_at": "2026-09-12T15:17:13.683Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "ung",
+   "kind": "subjects",
+   "source_url": "https://ssb.ungprod.ung.edu/StudentRegistrationSsb/ssb/classSearch/get_subject?searchTerm=&term=202608&offset=1&max=100",
+   "retrieved_at": "2026-09-12T15:17:13.764Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "ung",
+   "kind": "sections",
+   "source_url": "https://ssb.ungprod.ung.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202608&pageOffset=0&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:17:13.852Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "ung",
+   "kind": "sections",
+   "source_url": "https://ssb.ungprod.ung.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202608&pageOffset=500&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:17:15.334Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "ung",
+   "kind": "sections",
+   "source_url": "https://ssb.ungprod.ung.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202608&pageOffset=1000&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:17:16.935Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "ung",
+   "kind": "sections",
+   "source_url": "https://ssb.ungprod.ung.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202608&pageOffset=1500&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:17:18.910Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "ung",
+   "kind": "sections",
+   "source_url": "https://ssb.ungprod.ung.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202608&pageOffset=2000&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:17:20.294Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "ung",
+   "kind": "sections",
+   "source_url": "https://ssb.ungprod.ung.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202608&pageOffset=2500&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:17:21.726Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "ung",
+   "kind": "sections",
+   "source_url": "https://ssb.ungprod.ung.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202608&pageOffset=3000&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:17:23.214Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "ung",
+   "kind": "sections",
+   "source_url": "https://ssb.ungprod.ung.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202608&pageOffset=3500&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:17:24.726Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "ung",
+   "kind": "sections",
+   "source_url": "https://ssb.ungprod.ung.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202608&pageOffset=4000&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:17:26.335Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  },
+  {
+   "school_id": "ung",
+   "kind": "sections",
+   "source_url": "https://ssb.ungprod.ung.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202608&pageOffset=4500&pageMaxSize=500&sortColumn=subjectDescription&sortDirection=asc",
+   "retrieved_at": "2026-09-12T15:17:27.766Z",
+   "http_status": 200,
+   "extraction_status": "complete",
+   "error": null
+  }
+ ]
+}

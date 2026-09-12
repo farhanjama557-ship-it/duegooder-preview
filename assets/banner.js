@@ -1,5 +1,5 @@
 /**
- * Banner connector pages, rendered from REAL detector output.
+ * Banner connector pages, rendered from real detector and collection output.
  *
  * Sources: assets/data/detections.json and assets/data/runs.json, both written
  * only by scripts/detect.js executing the detector in lib/detectors/banner.js.
@@ -90,6 +90,20 @@
       : '—';
   }
 
+  function initCollectionOverview(collections) {
+    if (!$('bcSections')) return;
+    var latest = collections && collections.latest;
+    if (!latest) return;
+    var m = latest.metrics || {}, schools = latest.schools || [];
+    $('bcSuccess').textContent = Number(m.schools_complete || 0) + '/' + Number(m.schools_processed || 0);
+    $('bcRuntime').textContent = Number(m.runtime_ms || 0) >= 60000
+      ? (Number(m.runtime_ms) / 60000).toFixed(1) + 'm' : (Number(m.runtime_ms || 0) / 1000).toFixed(1) + 's';
+    $('bcSections').textContent = Number(m.sections || 0).toLocaleString('en-US');
+    $('bcUniversities').textContent = schools.filter(function (s) { return s.status === 'complete'; })
+      .map(function (s) { return s.school_name + ' (' + Number(s.sections || 0).toLocaleString('en-US') + ' sections)'; }).join(' · ') ||
+      'No successful collections stored yet.';
+  }
+
   /* ---------- supported universities ---------- */
   function initUniversities(detections) {
     var body = $('suBody'); if (!body) return;
@@ -174,7 +188,7 @@
     render();
   }
 
-  /* ---------- recent runs ---------- */
+  /* ---------- recent collection runs ---------- */
   function initRuns(store) {
     var body = $('rrBody'); if (!body) return;
     var runs = store.runs || [];
@@ -182,66 +196,76 @@
 
     if (!runs.length) {
       $('rrTable').style.display = 'none';
-      $('rrEmptyWrap').innerHTML = D.emptyState('No detection runs recorded yet', NO_DETECTIONS);
+      $('rrEmptyWrap').innerHTML = D.emptyState('No collection runs recorded yet',
+        'Run <code>npm run collect:banner</code>; this page only renders measured collection output.');
       $('rrCount').textContent = '';
       ['rrTotal', 'rrSuccess', 'rrNomatch', 'rrFailed'].forEach(function (id) { $(id).textContent = '0'; });
       ['bdSuccess', 'bdNomatch', 'bdFailed'].forEach(function (id) { $(id).style.width = '0'; $(id + 'Pct').textContent = '—'; });
       $('rrErrors').innerHTML = '<tr><td colspan="3" style="color:#6d757e">No errors recorded yet.</td></tr>';
       return;
     }
-    var s = store.summary || {};
-    $('rrTotal').textContent = s.total != null ? s.total : runs.length;
-    $('rrSuccess').textContent = s.detected != null ? s.detected : '—';
-    $('rrNomatch').textContent = s.no_match != null ? s.no_match : '—';
-    $('rrFailed').textContent = s.failed != null ? s.failed : '—';
-    if (s.pct) {
-      [['bdSuccess', s.pct.detected], ['bdNomatch', s.pct.no_match], ['bdFailed', s.pct.failed]].forEach(function (p) {
+    var complete = runs.filter(function (r) { return r.status === 'complete'; }).length;
+    var partial = runs.filter(function (r) { return r.status !== 'complete' && r.status !== 'failed'; }).length;
+    var failed = runs.length - complete - partial;
+    var pcts = [complete, partial, failed].map(function (n) { return runs.length ? Math.floor(n / runs.length * 100) : 0; });
+    pcts[0] += 100 - pcts[0] - pcts[1] - pcts[2];
+    $('rrTotal').textContent = runs.length;
+    $('rrSuccess').textContent = complete;
+    $('rrNomatch').textContent = partial;
+    $('rrFailed').textContent = failed;
+    {
+      [['bdSuccess', pcts[0]], ['bdNomatch', pcts[1]], ['bdFailed', pcts[2]]].forEach(function (p) {
         $(p[0]).style.width = p[1] + '%';
         $(p[0] + 'Pct').textContent = p[1] + '%';
       });
     }
-    var errs = runs.filter(function (r) { return r.error; }).slice(0, 5);
-    $('rrErrors').innerHTML = errs.length ? errs.map(function (r) {
-      return '<tr><td>' + esc(fmtDateTime(r.started_at)) + '</td><td>' + esc(r.school_name || r.domain) + '</td><td>' + esc(r.error) + '</td></tr>';
+    var errs = [];
+    runs.forEach(function (r) { (r.schools || []).forEach(function (s) { if (s.error) errs.push({ at: r.started_at, school: s.school_name || s.domain, error: s.error }); }); });
+    $('rrErrors').innerHTML = errs.length ? errs.slice(0, 5).map(function (r) {
+      return '<tr><td>' + esc(fmtDateTime(r.at)) + '</td><td>' + esc(r.school) + '</td><td>' + esc(r.error) + '</td></tr>';
     }).join('') : '<tr><td colspan="3" style="color:#6d757e">No errors recorded.</td></tr>';
 
     function render() {
       var pages = Math.ceil(runs.length / PER_PAGE) || 1;
       body.innerHTML = runs.slice((page - 1) * PER_PAGE, page * PER_PAGE).map(function (r) {
         var i = runs.indexOf(r);
-        var cls = RESULT_CLASS[r.status] || 'failed';
+        var cls = r.status === 'complete' ? 'success' : (r.status === 'failed' ? 'failed' : 'nomatch');
+        var m = r.metrics || {}, names = (r.schools || []).map(function (s) { return s.school_name; }).join(', ');
         return '<tr>' +
           '<td class="mono-cell">' + esc(r.run_id) + '</td>' +
-          '<td>' + esc(r.school_name || r.domain) + '</td>' +
-          '<td><span class="lnk">' + esc(r.domain) + '</span></td>' +
-          '<td><span class="pill-status ' + cls + '"><span class="sdot ' + cls + '"><i></i></span>' + esc(RESULT_LABEL[r.status] || r.status) + '</span></td>' +
-          '<td>' + (r.confidence != null ? D.pct(r.confidence) : '<span class="muted-val">—</span>') + '</td>' +
-          '<td>' + (r.duration_ms / 1000).toFixed(1) + 's</td>' +
+          '<td>' + esc(names || '—') + '</td>' +
+          '<td><span class="lnk">Banner</span></td>' +
+          '<td><span class="pill-status ' + cls + '"><span class="sdot ' + cls + '"><i></i></span>' + esc(r.status) + '</span></td>' +
+          '<td>' + Number(m.sections || 0).toLocaleString('en-US') + '</td>' +
+          '<td>' + (Number(m.runtime_ms || 0) / 1000).toFixed(1) + 's</td>' +
           '<td>' + esc(fmtDateTime(r.started_at)) + '</td>' +
           '<td><button class="linkish" data-run="' + i + '">View ' + ARROW + '</button></td>' +
           '</tr>';
       }).join('');
       $('rrCount').textContent = 'Showing ' + ((page - 1) * PER_PAGE + 1) + '–' +
-        Math.min(page * PER_PAGE, runs.length) + ' of ' + runs.length + ' detector runs';
+        Math.min(page * PER_PAGE, runs.length) + ' of ' + runs.length + ' collection runs';
       renderPager($('rrPager'), page, pages, function (p) { page = p; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
       Array.prototype.forEach.call(body.querySelectorAll('button[data-run]'), function (b) {
         b.addEventListener('click', function () { showRun(runs[parseInt(b.getAttribute('data-run'), 10)]); });
       });
     }
     function showRun(r) {
-      var cls = RESULT_CLASS[r.status] || 'failed';
-      window.DGUI.open(r.run_id, (r.school_name || r.domain) + ' · detector run', kv([
+      var cls = r.status === 'complete' ? 'success' : 'failed', m = r.metrics || {};
+      window.DGUI.open(r.run_id, 'Banner collection run', kv([
         ['Run ID', '<span class="mono-cell">' + esc(r.run_id) + '</span>'],
-        ['University', esc(r.school_name || '—')],
-        ['Domain', esc(r.domain)],
-        ['Status', '<span class="pill-status ' + cls + '"><span class="sdot ' + cls + '"><i></i></span>' + esc(RESULT_LABEL[r.status] || r.status) + '</span>'],
-        ['Confidence', r.confidence != null ? D.pct(r.confidence) : '<span class="muted-val">—</span>'],
-        ['Duration', (r.duration_ms / 1000).toFixed(1) + 's'],
-        ['HTTP requests', r.requests == null ? '—' : r.requests],
+        ['Schools processed', esc(String(m.schools_processed || 0))],
+        ['Status', '<span class="pill-status ' + cls + '"><span class="sdot ' + cls + '"><i></i></span>' + esc(r.status) + '</span>'],
+        ['Sections', Number(m.sections || 0).toLocaleString('en-US')],
+        ['Meetings', Number(m.meetings || 0).toLocaleString('en-US')],
+        ['Meetings with times', Number(m.meetings_with_times || 0).toLocaleString('en-US')],
+        ['Duration', (Number(m.runtime_ms || 0) / 1000).toFixed(1) + 's'],
+        ['HTTP requests', Number(m.http_requests || 0).toLocaleString('en-US')],
+        ['Failures', Number(m.failures || 0).toLocaleString('en-US')],
+        ['Manual intervention', Number(m.manual_intervention || 0).toLocaleString('en-US')],
+        ['Direct cost', '$' + Number(m.direct_cost_usd || 0).toFixed(2)],
         ['Started', esc(fmtDateTime(r.started_at))],
         ['Finished', esc(fmtDateTime(r.finished_at))],
-        ['Signals', evidenceHtml(r.evidence)],
-        ['Error', r.error ? esc(r.error) : '<span class="muted-val">—</span>']
+        ['Persistence', r.persistence ? esc(JSON.stringify(r.persistence.sections)) : '<span class="muted-val">—</span>']
       ]));
     }
     render();
@@ -292,8 +316,8 @@
   var CLOCK = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7d868e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 1.8"/></svg>';
 
   /* ---------- boot ---------- */
-  Promise.all([D.detections(), D.runs(), D.detectors(), D.institutions()]).then(function (res) {
-    var detections = res[0], runs = res[1], detectors = res[2], institutions = res[3];
+  Promise.all([D.detections(), D.runs(), D.detectors(), D.institutions(), D.collections()]).then(function (res) {
+    var detections = res[0], runs = res[1], detectors = res[2], institutions = res[3], collections = res[4];
     // attach state/name from the directory where the detector did not have it
     var byDomain = {};
     institutions.forEach(function (i) { byDomain[i.domain] = i; });
@@ -306,8 +330,9 @@
       if (inst) r.school_name = r.school_name || inst.name;
     });
     initCoverage(detections);
+    initCollectionOverview(collections);
     initUniversities(detections);
-    initRuns(runs);
+    initRuns(collections);
     initTechnical(detectors, detections);
   });
 })();
