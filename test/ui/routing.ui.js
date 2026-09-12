@@ -2,7 +2,7 @@ const BASE = process.env.DG_BASE || 'http://127.0.0.1:8090';
 const { chromium } = require('playwright');
 const ok=(c,m)=>console.log((c?'PASS ':'FAIL ')+m);
 const B=BASE;
-const routes={'/':'Turn any university into','/connectors':'Integration Connectors','/universities':'U.S. Universities','/data-schema':'Normalized Data Schema','/about':'About DueGooder'};
+const routes={'/':'Turn university course schedules','/connectors':'Integration Connectors','/universities':'U.S. Universities','/data-schema':'Normalized Data Schema','/about':'About DueGooder'};
 (async()=>{
   const b=await chromium.launch(); const p=await b.newPage({viewport:{width:1440,height:900}});
   const errs=[]; p.on('pageerror',e=>errs.push(e.message));
