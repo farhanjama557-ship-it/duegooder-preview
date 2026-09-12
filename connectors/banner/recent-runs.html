@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Recent Runs · Banner Connector</title>
+<link rel="stylesheet" href="/assets/app.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f1418" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z" fill="#0f1418" fill-opacity=".12"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg>
+      DueGooder
+    </a>
+    <nav class="nav-links">
+      <a href="/" data-route="/">Collection Engine</a>
+      <a href="/connectors" data-route="/connectors" class="active">Connectors</a>
+      <a href="/universities" data-route="/universities">Universities</a>
+      <a href="/data-schema" data-route="/data-schema">Data &amp; Schema</a>
+      <a href="/about" data-route="/about">About</a>
+    </nav>
+    <div class="nav-right">
+      <span class="chip-outline">KYX 2026</span>
+      <span class="chip-green">Preview</span>
+      <div class="avatar">F</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="page">
+    <a class="backlink" href="/connectors"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H5"/><path d="m10.5 6.5-5 5.5 5 5.5"/></svg> Back to Connectors</a>
+    <div class="dhead">
+      <span class="ic-lg"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5d6a63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg></span>
+      <div>
+        <div class="row"><h1>Banner Connector</h1><span class="tag tag-green">Detector available</span></div>
+        <p>Detection only. Section collection is not implemented yet.</p>
+      </div>
+      <div class="card cov">
+        <span class="cap">Detector coverage<br><span class="badge" style="margin:4px 0 0">Preview data</span></span>
+        <div class="t"><b id="covDetected">&mdash;</b><small>detected</small></div>
+        <div class="t"><b id="covTotal">&mdash;</b><small>in preview list</small></div>
+        <div class="t"><b id="covConf">&mdash;</b><small>confidence (avg)</small></div>
+      </div>
+    </div>
+    <div class="ptabs" style="margin-top:16px"><a class="ptab" href="/connectors/banner">Overview</a><a class="ptab" href="/connectors/banner/supported-universities">Supported Universities</a><a class="ptab" href="/connectors/banner/technical-details">Technical Details</a><a class="ptab on" href="/connectors/banner/recent-runs">Recent Runs</a></div>
+
+    <div class="rr-grid">
+      <div class="card uni-card">
+        <div class="sections-head" style="padding:16px 20px 8px">
+          <div>
+            <h2 class="ctitle">Detection Runs <span class="badge">Preview data</span></h2>
+            <p class="csub">Example detection attempts across universities. No detection has actually been executed.</p>
+          </div>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>Run ID</th><th>University</th><th>Domain</th><th>Status</th><th>Confidence</th><th>Duration</th><th>Started At</th><th>Details</th></tr></thead>
+            <tbody id="rrBody"></tbody>
+          </table>
+        </div>
+        <div class="tbl-foot"><span class="note" id="rrCount"></span><div class="pager" id="rrPager"></div></div>
+      </div>
+
+      <div>
+        <div class="card" style="padding:15px 17px">
+          <h2 class="ctitle">Run Summary <span class="badge">Preview data</span></h2>
+          <p class="csub">Totals across the preview run list.</p>
+          <div class="sum-grid">
+            <div class="sumtile"><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5d6a63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg></span><div><b id="rrTotal">&mdash;</b><small>total runs</small></div></div>
+            <div class="sumtile g"><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></svg></span><div><b id="rrSuccess">&mdash;</b><small>successful</small></div></div>
+            <div class="sumtile b"><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3d7fd6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.2M12 8h.01"/></svg></span><div><b id="rrNomatch">&mdash;</b><small>no match</small></div></div>
+            <div class="sumtile r"><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d05a4e" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M15 9l-6 6M9 9l6 6"/></svg></span><div><b id="rrFailed">&mdash;</b><small>failed</small></div></div>
+          </div>
+          <h3 class="h-sm" style="margin:16px 0 10px">Status Breakdown</h3>
+          <div class="bd"><span><span class="sdot success"><i></i></span>Success</span><div class="bar"><i class="b-green" id="bdSuccess" style="width:0"></i></div><em id="bdSuccessPct">&mdash;</em></div>
+          <div class="bd"><span><span class="sdot nomatch"><i></i></span>No match</span><div class="bar"><i class="b-blue" id="bdNomatch" style="width:0"></i></div><em id="bdNomatchPct">&mdash;</em></div>
+          <div class="bd"><span><span class="sdot failed"><i></i></span>Failed</span><div class="bar"><i class="b-red" id="bdFailed" style="width:0"></i></div><em id="bdFailedPct">&mdash;</em></div>
+        </div>
+
+        <div class="card uni-card" style="margin-top:12px">
+          <div class="sections-head" style="padding:15px 17px 8px">
+            <div><h2 class="ctitle">Recent Errors <span class="badge">Preview data</span></h2></div>
+          </div>
+          <div class="table-scroll">
+            <table class="err-table"><thead><tr><th style="padding-left:17px">Time</th><th>University</th><th>Error</th></tr></thead><tbody id="rrErrors"></tbody></table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/ui.js"></script>
+<script src="/assets/preview-data.js"></script>
+<script src="/assets/banner.js"></script>
+</body>
+</html>

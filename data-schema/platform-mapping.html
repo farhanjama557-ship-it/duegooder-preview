@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Platform Mapping · Data &amp; Schema</title>
+<link rel="stylesheet" href="/assets/app.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f1418" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z" fill="#0f1418" fill-opacity=".12"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg>
+      DueGooder
+    </a>
+    <nav class="nav-links">
+      <a href="/" data-route="/">Collection Engine</a>
+      <a href="/connectors" data-route="/connectors">Connectors</a>
+      <a href="/universities" data-route="/universities">Universities</a>
+      <a href="/data-schema" data-route="/data-schema" class="active">Data &amp; Schema</a>
+      <a href="/about" data-route="/about">About</a>
+    </nav>
+    <div class="nav-right">
+      <span class="chip-outline">KYX 2026</span>
+      <span class="chip-green">Preview</span>
+      <div class="avatar">F</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="page">
+    <div class="page-head">
+      <div>
+        <h1 class="page-title">Normalized Data Schema</h1>
+        <p class="page-sub">One consistent format for every university, regardless of platform.</p>
+      </div>
+      <div class="right"><span class="badge">Schema example</span></div>
+    </div>
+    <div class="ptabs"><a class="ptab" href="/data-schema">Schema</a><a class="ptab" href="/data-schema/example-record">Example Record</a><a class="ptab on" href="/data-schema/platform-mapping">Platform Mapping</a><a class="ptab" href="/data-schema/field-definitions">Field Definitions</a></div>
+
+    <div class="ds-grid">
+      <div class="card uni-card">
+        <div class="sections-head" style="padding:16px 20px 0">
+          <div>
+            <h2 class="ctitle">Platform Field Mapping <span class="badge">Schema example</span></h2>
+            <p class="csub">How platform-specific fields are intended to map to the DueGooder schema.</p>
+          </div>
+        </div>
+        <div style="padding:0 20px"><div class="plat-btns"><button class="pbtn on" data-plat="Banner">Banner</button><button class="pbtn" data-plat="PeopleSoft">PeopleSoft</button><button class="pbtn" data-plat="Workday">Workday</button><button class="pbtn" data-plat="Ellucian Colleague">Ellucian Colleague</button><button class="pbtn" data-plat="Custom">Custom</button></div></div>
+        <div id="mapBanner">
+          <div class="table-scroll">
+            <table><thead><tr><th style="padding-left:20px">DueGooder Field</th><th>Banner Field / Source</th><th>Notes</th></tr></thead><tbody><tr><td class="mono-cell">school_id</td><td class="mono-cell">N/A</td><td>Derived from institution domain</td></tr><tr><td class="mono-cell">term_id</td><td class="mono-cell">/term_code</td><td>Mapped from term selection</td></tr><tr><td class="mono-cell">department</td><td class="mono-cell">/subject</td><td>Optional, derived from subject</td></tr><tr><td class="mono-cell">subject</td><td class="mono-cell">/subj</td><td>e.g. CS, MATH, ENGL</td></tr><tr><td class="mono-cell">course_number</td><td class="mono-cell">/crse</td><td>e.g. 250</td></tr><tr><td class="mono-cell">course_title</td><td class="mono-cell">/title</td><td>Course title</td></tr><tr><td class="mono-cell">section_number</td><td class="mono-cell">/seq</td><td>Section sequence</td></tr><tr><td class="mono-cell">crn</td><td class="mono-cell">/crn</td><td>Course Reference Number</td></tr><tr><td class="mono-cell">instructor</td><td class="mono-cell">/instructor</td><td>Primary instructor name</td></tr><tr><td class="mono-cell">meeting_days</td><td class="mono-cell">/meetings/meetingdays</td><td>Normalized to ["MO","WE", ...]</td></tr><tr><td class="mono-cell">start_time</td><td class="mono-cell">/meetings/meeting/start</td><td>HH:MM (24h)</td></tr><tr><td class="mono-cell">end_time</td><td class="mono-cell">/meetings/meeting/end</td><td>HH:MM (24h)</td></tr><tr><td class="mono-cell">location</td><td class="mono-cell">/meetings/meeting/location</td><td>e.g. Belk Hall 210</td></tr><tr><td class="mono-cell">enrollment_status</td><td class="mono-cell">/status</td><td>open, closed, waitlist, etc.</td></tr><tr><td class="mono-cell">seats_available</td><td class="mono-cell">/avail</td><td>Number of seats available</td></tr></tbody></table>
+          </div>
+        </div>
+        <div id="mapOther" style="display:none">
+          <div class="noresults" style="padding:40px 20px"><b style="display:block;font-size:13px;color:#2e363d">Mapping not implemented yet</b><span style="display:block;margin-top:6px">No connector exists for <span id="mapPlatName">this platform</span>, so there is no field mapping to show.</span></div>
+        </div>
+      </div>
+
+      <div class="card" style="padding:16px 18px">
+        <h2 class="ctitle">Mapping flow</h2>
+        <div class="flowcol">
+          <div class="fc"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5d6a63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg><div><b id="flowSrc">Banner raw response</b><small>University's registration system (HTML / JSON)</small></div></div>
+          <div class="fc-arrow"><svg width="14" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15"/><path d="m6.5 14 5.5 5.5 5.5-5.5"/></svg></div>
+          <div class="fc on"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2f6fd0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg><div><b id="flowConn">Banner connector</b><small>Parse and extract platform data</small></div></div>
+          <div class="fc-arrow"><svg width="14" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15"/><path d="m6.5 14 5.5 5.5 5.5-5.5"/></svg></div>
+          <div class="fc out"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></svg><div><b>Normalized schema</b><small>Consistent DueGooder format</small></div></div>
+        </div>
+        <div class="note-green">
+          <b>One schema, many platforms.</b>
+          <small>Each platform gets its own mapping file. Fields and rules vary by platform, but the output schema stays the same.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  (function(){
+    var btns=[].slice.call(document.querySelectorAll('.pbtn'));
+    btns.forEach(function(b){
+      b.addEventListener('click',function(){
+        btns.forEach(function(x){x.classList.remove('on');});
+        b.classList.add('on');
+        var p=b.getAttribute('data-plat'), isBanner=p==='Banner';
+        document.getElementById('mapBanner').style.display=isBanner?'':'none';
+        document.getElementById('mapOther').style.display=isBanner?'none':'';
+        document.getElementById('mapPlatName').textContent=p;
+        document.getElementById('flowSrc').textContent=p+' raw response';
+        document.getElementById('flowConn').textContent=isBanner?'Banner connector':(p+' connector (not built)');
+      });
+    });
+  })();
+  </script>
+</main>
+
+</body>
+</html>

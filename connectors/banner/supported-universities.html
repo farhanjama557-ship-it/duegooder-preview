@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Supported Universities · Banner Connector</title>
+<link rel="stylesheet" href="/assets/app.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f1418" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z" fill="#0f1418" fill-opacity=".12"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg>
+      DueGooder
+    </a>
+    <nav class="nav-links">
+      <a href="/" data-route="/">Collection Engine</a>
+      <a href="/connectors" data-route="/connectors" class="active">Connectors</a>
+      <a href="/universities" data-route="/universities">Universities</a>
+      <a href="/data-schema" data-route="/data-schema">Data &amp; Schema</a>
+      <a href="/about" data-route="/about">About</a>
+    </nav>
+    <div class="nav-right">
+      <span class="chip-outline">KYX 2026</span>
+      <span class="chip-green">Preview</span>
+      <div class="avatar">F</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="page">
+    <a class="backlink" href="/connectors"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H5"/><path d="m10.5 6.5-5 5.5 5 5.5"/></svg> Back to Connectors</a>
+    <div class="dhead">
+      <span class="ic-lg"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5d6a63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg></span>
+      <div>
+        <div class="row"><h1>Banner Connector</h1><span class="tag tag-green">Detector available</span></div>
+        <p>Detection only. Section collection is not implemented yet.</p>
+      </div>
+      <div class="card cov">
+        <span class="cap">Detector coverage<br><span class="badge" style="margin:4px 0 0">Preview data</span></span>
+        <div class="t"><b id="covDetected">&mdash;</b><small>detected</small></div>
+        <div class="t"><b id="covTotal">&mdash;</b><small>in preview list</small></div>
+        <div class="t"><b id="covConf">&mdash;</b><small>confidence (avg)</small></div>
+      </div>
+    </div>
+    <div class="ptabs" style="margin-top:16px"><a class="ptab" href="/connectors/banner">Overview</a><a class="ptab on" href="/connectors/banner/supported-universities">Supported Universities</a><a class="ptab" href="/connectors/banner/technical-details">Technical Details</a><a class="ptab" href="/connectors/banner/recent-runs">Recent Runs</a></div>
+
+    <div class="card uni-card">
+      <div class="sections-head" style="padding:16px 20px 0">
+        <div>
+          <h2 class="ctitle">Supported universities <span class="badge">Preview data</span></h2>
+          <p class="csub">Institution names, domains and states are real. Detection statuses, confidences and dates are preview examples.</p>
+        </div>
+      </div>
+      <div class="uni-toolbar">
+        <label class="tsearch"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8d959d" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input id="suSearch" type="text" placeholder="Search universities (name, domain, or state...)" /></label>
+        <div class="sel"><select id="suState"><option value="">All states</option><option>AL</option><option>AR</option><option>AZ</option><option>CA</option><option>CO</option><option>FL</option><option>GA</option><option>IA</option><option>ID</option><option>IN</option><option>KS</option><option>KY</option><option>LA</option><option>MI</option><option>MO</option><option>NC</option><option>NM</option><option>NV</option><option>OH</option><option>OR</option><option>SC</option><option>TN</option><option>TX</option><option>UT</option><option>VA</option></select><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+        <div class="sel"><select id="suStatus"><option value="">All statuses</option><option value="detected_high">Detected (High confidence)</option><option value="detected_med">Detected (Medium confidence)</option><option value="detected_low">Detected (Low confidence)</option><option value="discovering">Discovering</option><option value="manual">Manual review</option></select><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>University</th><th>Domain</th><th>State</th><th>Detection Status</th><th>Confidence</th><th>Last Checked</th><th>Actions</th></tr></thead>
+          <tbody id="suBody"></tbody>
+        </table>
+      </div>
+      <div class="noresults" id="suEmpty" style="display:none">No universities match this filter.</div>
+      <div class="tbl-foot"><span class="note" id="suCount"></span><div class="pager" id="suPager"></div></div>
+    </div>
+  </section>
+</main>
+<script src="/assets/ui.js"></script>
+<script src="/assets/preview-data.js"></script>
+<script src="/assets/banner.js"></script>
+</body>
+</html>
