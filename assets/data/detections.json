@@ -1,5 +1,53 @@
 {
- "generated_at": null,
+ "generated_at": "2026-09-12T01:34:31.376Z",
  "detector": "banner",
- "detections": []
+ "detections": [
+  {
+   "school_id": "appstate",
+   "school_name": "Appalachian State University",
+   "domain": "appstate.edu",
+   "platform": "banner",
+   "confidence": 0,
+   "confidence_band": null,
+   "registration_url": null,
+   "evidence": [],
+   "detected_at": "2026-09-12T01:20:27.328Z",
+   "result": "no_match",
+   "requests": 4,
+   "error": null
+  },
+  {
+   "school_id": "udayton",
+   "school_name": "University of Dayton",
+   "domain": "udayton.edu",
+   "platform": "banner",
+   "confidence": 0.85,
+   "confidence_band": "high",
+   "registration_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+   "evidence": [
+    "Found 'StudentRegistrationSsb'",
+    "Found '/ssb/' in a URL path",
+    "Found Ellucian/Banner HTML markers",
+    "Page wording mentions Banner self-service"
+   ],
+   "detected_at": "2026-09-12T01:20:29.233Z",
+   "result": "detected",
+   "requests": 4,
+   "error": null
+  },
+  {
+   "school_id": "uwf",
+   "school_name": "University of West Florida",
+   "domain": "uwf.edu",
+   "platform": "banner",
+   "confidence": 0,
+   "confidence_band": null,
+   "registration_url": null,
+   "evidence": [],
+   "detected_at": "2026-09-12T01:20:31.545Z",
+   "result": "no_match",
+   "requests": 4,
+   "error": null
+  }
+ ]
 }
