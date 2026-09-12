@@ -38,18 +38,12 @@
       </div>
       <div class="right"><span class="badge">Schema example</span></div>
     </div>
-
-    <div class="ptabs">
-      <button class="ptab on">Schema</button>
-      <button class="ptab">Example Record</button>
-      <button class="ptab">Platform Mapping</button>
-      <button class="ptab">Field Definitions</button>
-    </div>
+    <div class="ptabs"><a class="ptab on" href="/data-schema">Schema</a><a class="ptab" href="/data-schema/example-record">Example Record</a><a class="ptab" href="/data-schema/platform-mapping">Platform Mapping</a><a class="ptab" href="/data-schema/field-definitions">Field Definitions</a></div>
 
     <div class="ds-grid">
       <div>
         <div class="code">
-          <div class="code-head"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#93a5ae" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg><b>Normalized Section (JSON)</b><span class="badge" style="background:#1c252b;color:#9fb3bd">Schema example</span><button class="code-copy" id="copyBtn">Copy</button></div>
+          <div class="code-head"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#93a5ae" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg><b>Normalized Section (JSON)</b><span class="badge" style="background:#1c252b;color:#9fb3bd">Schema example</span><button class="code-copy" data-copy="schemaCode">Copy</button></div>
           <pre id="schemaCode">{
   <span class="k">"school_id"</span>: <span class="s">"appstate"</span>,
   <span class="k">"school_name"</span>: <span class="s">"Appalachian State University"</span>,
@@ -79,7 +73,6 @@
           <span class="node out">Normalized DueGooder schema</span>
         </div>
       </div>
-
       <div class="card" style="padding:16px 18px">
         <h2 class="ctitle">How it works</h2>
         <div class="steps-list">
@@ -90,22 +83,12 @@
         </div>
         <div class="note-green">
           <b>Same schema. Every university.</b>
-          <small>The record above is an illustrative example of the structure, not collected data. Real sections arrive in Phase 3.</small>
+          <small>This is an illustrative schema example, not collected live data. Real sections arrive in Phase 3.</small>
         </div>
       </div>
     </div>
   </section>
-
-  <script>
-  (function(){
-    var b=document.getElementById('copyBtn');
-    b.addEventListener('click',function(){
-      var t=document.getElementById('schemaCode').innerText;
-      if(navigator.clipboard) navigator.clipboard.writeText(t).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy';},1400);});
-    });
-  })();
-  </script>
 </main>
-
+<script src="/assets/ui.js"></script>
 </body>
 </html>

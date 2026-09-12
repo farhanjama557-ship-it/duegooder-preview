@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Example Record · Data &amp; Schema</title>
+<link rel="stylesheet" href="/assets/app.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f1418" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z" fill="#0f1418" fill-opacity=".12"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg>
+      DueGooder
+    </a>
+    <nav class="nav-links">
+      <a href="/" data-route="/">Collection Engine</a>
+      <a href="/connectors" data-route="/connectors">Connectors</a>
+      <a href="/universities" data-route="/universities">Universities</a>
+      <a href="/data-schema" data-route="/data-schema" class="active">Data &amp; Schema</a>
+      <a href="/about" data-route="/about">About</a>
+    </nav>
+    <div class="nav-right">
+      <span class="chip-outline">KYX 2026</span>
+      <span class="chip-green">Preview</span>
+      <div class="avatar">F</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="page">
+    <div class="page-head">
+      <div>
+        <h1 class="page-title">Normalized Data Schema</h1>
+        <p class="page-sub">One consistent format for every university, regardless of platform.</p>
+      </div>
+      <div class="right"><span class="badge">Schema example</span></div>
+    </div>
+    <div class="ptabs"><a class="ptab" href="/data-schema">Schema</a><a class="ptab on" href="/data-schema/example-record">Example Record</a><a class="ptab" href="/data-schema/platform-mapping">Platform Mapping</a><a class="ptab" href="/data-schema/field-definitions">Field Definitions</a></div>
+
+    <div class="ds-grid">
+      <div class="card uni-card">
+        <div class="sections-head" style="padding:16px 20px 12px">
+          <div>
+            <h2 class="ctitle">Example Record <span class="badge">Schema example</span></h2>
+            <p class="csub">A worked example using the normalized schema. This is an illustrative schema example, not collected live data.</p>
+          </div>
+        </div>
+        <div class="table-scroll">
+          <table><thead><tr><th style="padding-left:20px">Field</th><th>Value</th></tr></thead><tbody><tr><td class="mono-cell">school_id</td><td>appstate</td></tr><tr><td class="mono-cell">school_name</td><td>Appalachian State University</td></tr><tr><td class="mono-cell">term_id</td><td>202608</td></tr><tr><td class="mono-cell">term_name</td><td>Fall 2026</td></tr><tr><td class="mono-cell">department</td><td><span class="muted-val">null</span></td></tr><tr><td class="mono-cell">subject</td><td>CS</td></tr><tr><td class="mono-cell">course_number</td><td>250</td></tr><tr><td class="mono-cell">course_title</td><td>Data Structures</td></tr><tr><td class="mono-cell">section_number</td><td>001</td></tr><tr><td class="mono-cell">crn</td><td>41231</td></tr><tr><td class="mono-cell">instructor</td><td>M. Wilson</td></tr><tr><td class="mono-cell">meeting_days</td><td>MO, WE</td></tr><tr><td class="mono-cell">start_time</td><td>10:00</td></tr><tr><td class="mono-cell">end_time</td><td>11:15</td></tr><tr><td class="mono-cell">location</td><td>Belk Hall 210</td></tr><tr><td class="mono-cell">enrollment_status</td><td>open</td></tr><tr><td class="mono-cell">seats_available</td><td><span class="muted-val">null</span></td></tr><tr><td class="mono-cell">source_url</td><td>https://ssb.appstate.edu/ssb/...</td></tr><tr><td class="mono-cell">retrieved_at</td><td>2026-09-11T00:00:00Z</td></tr><tr><td class="mono-cell">extraction_status</td><td>complete</td></tr></tbody></table>
+        </div>
+      </div>
+      <div class="card" style="padding:16px 18px">
+        <h2 class="ctitle">How it works</h2>
+        <div class="steps-list">
+          <div class="stp"><span class="num">1</span><div><b>Collect raw data</b><small>The connector extracts data from a university's public registration system.</small></div></div>
+          <div class="stp"><span class="num">2</span><div><b>Normalize</b><small>Platform-specific fields are mapped to one consistent schema.</small></div></div>
+          <div class="stp"><span class="num">3</span><div><b>Store</b><small>Normalized sections are stored with full provenance: source URL and retrieval time.</small></div></div>
+          <div class="stp"><span class="num">4</span><div><b>Keep it updated</b><small>Re-runs match existing sections, so refreshes update rather than duplicate.</small></div></div>
+        </div>
+        <div class="note-green">
+          <b>Same schema. Every university.</b>
+          <small>This is an illustrative schema example, not collected live data. Real sections arrive in Phase 3.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

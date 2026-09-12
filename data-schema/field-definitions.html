@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Field Definitions · Data &amp; Schema</title>
+<link rel="stylesheet" href="/assets/app.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f1418" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z" fill="#0f1418" fill-opacity=".12"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg>
+      DueGooder
+    </a>
+    <nav class="nav-links">
+      <a href="/" data-route="/">Collection Engine</a>
+      <a href="/connectors" data-route="/connectors">Connectors</a>
+      <a href="/universities" data-route="/universities">Universities</a>
+      <a href="/data-schema" data-route="/data-schema" class="active">Data &amp; Schema</a>
+      <a href="/about" data-route="/about">About</a>
+    </nav>
+    <div class="nav-right">
+      <span class="chip-outline">KYX 2026</span>
+      <span class="chip-green">Preview</span>
+      <div class="avatar">F</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="page">
+    <div class="page-head">
+      <div>
+        <h1 class="page-title">Field Definitions</h1>
+        <p class="page-sub">Description, type, and rules for each field in the normalized schema.</p>
+      </div>
+      <div class="right"><span class="badge">Schema example</span></div>
+    </div>
+    <div class="ptabs"><a class="ptab" href="/data-schema">Schema</a><a class="ptab" href="/data-schema/example-record">Example Record</a><a class="ptab" href="/data-schema/platform-mapping">Platform Mapping</a><a class="ptab on" href="/data-schema/field-definitions">Field Definitions</a></div>
+
+    <div class="card uni-card">
+      <div class="sections-head" style="padding:16px 20px 12px">
+        <div>
+          <h2 class="ctitle">Canonical fields <span class="badge">Schema example</span></h2>
+          <p class="csub">Required fields must always be present. Optional fields stay null when the source does not publish them.</p>
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table><thead><tr><th style="padding-left:20px">Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td class="mono-cell">school_id</td><td>string</td><td><span class="req yes"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span></td><td>Unique identifier for the institution (e.g. domain slug)</td></tr><tr><td class="mono-cell">school_name</td><td>string</td><td><span class="req yes"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span></td><td>Official institution name</td></tr><tr><td class="mono-cell">term_id</td><td>string</td><td><span class="req yes"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span></td><td>Platform term code (e.g. 202608)</td></tr><tr><td class="mono-cell">term_name</td><td>string</td><td><span class="req yes"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span></td><td>Human-readable term name</td></tr><tr><td class="mono-cell">department</td><td>string</td><td><span class="req no"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#9aa1a9" stroke-width="3" stroke-linecap="round"><path d="M6 12h12"/></svg></span></td><td>Academic department (if available)</td></tr><tr><td class="mono-cell">subject</td><td>string</td><td><span class="req yes"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span></td><td>Course subject (e.g. CS, MATH, ENGL)</td></tr><tr><td class="mono-cell">course_number</td><td>string</td><td><span class="req yes"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span></td><td>Course number (e.g. 250)</td></tr><tr><td class="mono-cell">course_title</td><td>string</td><td><span class="req yes"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span></td><td>Course title</td></tr><tr><td class="mono-cell">section_number</td><td>string</td><td><span class="req yes"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span></td><td>Section number (platform-specific)</td></tr><tr><td class="mono-cell">crn</td><td>string</td><td><span class="req no"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#9aa1a9" stroke-width="3" stroke-linecap="round"><path d="M6 12h12"/></svg></span></td><td>Course Reference Number (Banner)</td></tr><tr><td class="mono-cell">instructor</td><td>string</td><td><span class="req no"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#9aa1a9" stroke-width="3" stroke-linecap="round"><path d="M6 12h12"/></svg></span></td><td>Primary instructor name</td></tr><tr><td class="mono-cell">meeting_days</td><td>array</td><td><span class="req yes"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span></td><td>List of meeting days (e.g. ["MO","WE"])</td></tr><tr><td class="mono-cell">start_time</td><td>string</td><td><span class="req no"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#9aa1a9" stroke-width="3" stroke-linecap="round"><path d="M6 12h12"/></svg></span></td><td>Start time (HH:MM, 24h)</td></tr><tr><td class="mono-cell">end_time</td><td>string</td><td><span class="req no"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#9aa1a9" stroke-width="3" stroke-linecap="round"><path d="M6 12h12"/></svg></span></td><td>End time (HH:MM, 24h)</td></tr><tr><td class="mono-cell">location</td><td>string</td><td><span class="req no"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#9aa1a9" stroke-width="3" stroke-linecap="round"><path d="M6 12h12"/></svg></span></td><td>Building and room (e.g. Belk Hall 210)</td></tr><tr><td class="mono-cell">enrollment_status</td><td>string</td><td><span class="req no"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#9aa1a9" stroke-width="3" stroke-linecap="round"><path d="M6 12h12"/></svg></span></td><td>open, closed, waitlist, cancelled, etc.</td></tr><tr><td class="mono-cell">seats_available</td><td>integer</td><td><span class="req no"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#9aa1a9" stroke-width="3" stroke-linecap="round"><path d="M6 12h12"/></svg></span></td><td>Number of seats available</td></tr><tr><td class="mono-cell">source_url</td><td>string</td><td><span class="req yes"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span></td><td>URL of the source page</td></tr><tr><td class="mono-cell">retrieved_at</td><td>string</td><td><span class="req yes"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span></td><td>ISO timestamp of retrieval</td></tr><tr><td class="mono-cell">extraction_status</td><td>string</td><td><span class="req yes"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span></td><td>complete, partial_source_missing, partial_extraction_failure, failed</td></tr></tbody></table>
+      </div>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

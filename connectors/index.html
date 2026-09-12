@@ -48,7 +48,7 @@
           <div><b class="muted-val">&mdash;</b><small>sections</small></div>
           <div><b class="muted-val">&mdash;</b><small>success rate</small></div>
         </div>
-        <button class="btn-ghost cn-act">View detector &rarr;</button>
+        <a class="btn-ghost cn-act" href="/connectors/banner">View detector &rarr;</a>
       </div>
       <div class="card cn-card">
         <div class="cn-top"><span class="cn-logo"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5d6a63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg></span><span class="cn-name">PeopleSoft</span><span class="tag tag-gray">Planned</span></div>
@@ -78,7 +78,7 @@
           <div><b class="muted-val">&mdash;</b><small>sections</small></div>
           <div><b class="muted-val">&mdash;</b><small>success rate</small></div>
         </div>
-        <button class="btn-ghost cn-act">Request support</button>
+        <button class="btn-ghost cn-act" data-notwired-title="Request support" data-notwired="Custom registration systems are handled by manual review. There is no request form yet — this is a UI shell, and requests will be wired up once the backend exists.">Request support</button>
       </div>
     </div>
 
@@ -89,10 +89,10 @@
         </div>
         <p class="csub">Detection only. Section collection is not implemented yet.</p>
         <div class="ptabs">
-          <button class="ptab on">Overview</button>
-          <button class="ptab">Supported Universities</button>
-          <button class="ptab">Technical Details</button>
-          <button class="ptab">Recent Runs</button>
+          <a class="ptab on" href="/connectors/banner">Overview</a>
+          <a class="ptab" href="/connectors/banner/supported-universities">Supported Universities</a>
+          <a class="ptab" href="/connectors/banner/technical-details">Technical Details</a>
+          <a class="ptab" href="/connectors/banner/recent-runs">Recent Runs</a>
         </div>
         <div class="cn-body">
           <div>
@@ -135,12 +135,12 @@
         <div class="panel-soft" style="margin-top:16px">
           <b style="display:block;font-size:12.5px">Want to see a specific system?</b>
           <p class="empty-soft" style="margin-top:4px">Let us know and we'll prioritize it.</p>
-          <button class="btn-ghost" style="width:100%;justify-content:center;margin-top:10px">Request a connector</button>
+          <button class="btn-ghost" style="width:100%;justify-content:center;margin-top:10px" data-notwired-title="Request a connector" data-notwired="No request form is wired up yet. Connector priorities are tracked in the roadmap above; this button will submit a request once the backend exists.">Request a connector</button>
         </div>
       </div>
     </div>
   </section>
 </main>
-
+<script src="/assets/ui.js"></script>
 </body>
 </html>
