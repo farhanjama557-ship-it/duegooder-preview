@@ -6,7 +6,7 @@ const assert = (c,m)=>console.log((c?'PASS ':'FAIL ')+m);
   const p = await b.newPage({ viewport:{ width:1512, height:1000 } });
   const errs=[]; p.on('pageerror',e=>errs.push(e.message)); p.on('console',m=>{if(m.type()==='error')errs.push(m.text())});
   await p.goto(BASE+'/');
-  await p.waitForFunction(()=>document.querySelectorAll('#tbody tr').length>0,{timeout:10000}).catch(()=>{});
+  await p.waitForFunction(()=>document.documentElement.getAttribute('data-dg-sections-ready')==='1',{timeout:30000}).catch(()=>{});
 
   assert(await p.locator('#usmap circle').count() > 300, 'map dots rendered: '+await p.locator('#usmap circle').count());
   assert(await p.locator('#tbody tr').count() > 0, 'real section rows rendered');
@@ -29,11 +29,15 @@ const assert = (c,m)=>console.log((c?'PASS ':'FAIL ')+m);
   await p.fill('#tableSearch','');
   // university filter
   const university=await p.locator('#filterUni option').nth(1).getAttribute('value');
+  const universityName=(await p.locator('#filterUni option').nth(1).textContent()).trim();
   await p.selectOption('#filterUni',university);
-  assert(await p.locator('#tbody tr').count() > 0, 'university filter returns real rows');
-  const term=await p.locator('#filterTerm option').nth(1).getAttribute('value');
+  await p.waitForTimeout(200);
+  const uniRows=(await p.locator('#tbody tr td:nth-child(1)').allTextContents()).map(t=>t.trim());
+  assert(uniRows.length > 0 && uniRows.every(n=>n.includes(universityName)), 'university filter returns only that university');
+  const term=await p.locator('#filterTerm optgroup[label="COLLECTED"] option').first().getAttribute('value');
   await p.selectOption('#filterTerm',term);
-  assert(await p.locator('#tbody tr').count() >= 0, 'university + term filter executes');
+  await p.waitForTimeout(200);
+  assert(await p.locator('#tbody tr').count() > 0, 'university + collected term returns real rows');
   await p.fill('#tableSearch','course-that-does-not-exist-zzzz');
   assert(await p.isVisible('#noresults'), 'empty state shows');
   await p.fill('#tableSearch','');
@@ -56,7 +60,6 @@ const assert = (c,m)=>console.log((c?'PASS ':'FAIL ')+m);
     await p.setViewportSize({width:w,height:900}); await p.waitForTimeout(250);
     const o = await p.evaluate(()=>document.documentElement.scrollWidth - document.documentElement.clientWidth);
     assert(o <= 0, `no h-overflow at ${w}px (overflow=${o})`);
-    await p.screenshot({path:`resp-${w}.png`, fullPage: w>=1024 ? false : false});
   }
   console.log('console errors:', errs.length ? errs : 'none');
   await b.close();

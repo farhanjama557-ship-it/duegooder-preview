@@ -18,7 +18,7 @@
   function instRow(inst, detMap, collectionMap) {
     var collection = collectionMap[inst.domain] || null;
     var status = D.statusFor(inst, detMap, collectionMap);
-    var platform = D.platformFor(inst, detMap);
+    var platform = D.platformFor(inst, detMap, collectionMap);
     return '<tr>' +
       '<td><span class="uni"><span class="mono-logo" style="background:' + D.color(inst.domain) + '">' + esc(D.mono(inst.name)) + '</span>' + esc(inst.name) + '</span></td>' +
       '<td>' + esc(inst.domain) + '</td>' +
@@ -39,7 +39,7 @@
       ['State', esc(inst.state)],
       ['Website', '<span class="mono-cell">' + esc(inst.website || inst.domain) + '</span>'],
       ['Domain', esc(inst.domain)],
-      ['Platform', det && det.result === 'detected' ? esc(det.platform) : '<span class="muted-val">Not classified</span>'],
+      ['Platform', D.platformFor(inst, detMap, collectionMap) || '<span class="muted-val">Not classified</span>'],
       ['Status', statusPill(S.statusFor(det, { collectionVerified: !!collection && collection.status === 'complete' }))],
       ['Last collection', collection ? esc(collection.finished_at || '—') + ' · ' +
         esc(collection.sections) + ' sections · ' + esc(collection.meetings) + ' meetings' : '<span class="muted-val">—</span>']
@@ -325,7 +325,7 @@
       var institutions = r[0], detMap = r[1], manifest = r[2], detectors = r[3], detections = r[4], runs = r[5], schema = r[6], collections = r[7];
       var collectionMap = {};
       (collections.latest && collections.latest.schools || []).forEach(function (s) {
-        collectionMap[s.domain] = Object.assign({ finished_at: collections.latest.finished_at }, s);
+        collectionMap[s.domain] = Object.assign({ finished_at: collections.latest.finished_at, connector: collections.latest.connector }, s);
       });
       initHome(institutions, detMap, manifest, collectionMap);
       initUniversitiesPage(institutions, detMap, manifest, collectionMap);
