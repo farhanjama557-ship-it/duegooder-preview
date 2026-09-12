@@ -63,7 +63,7 @@ h1{margin:10px 0 0;font-size:39px;line-height:1.07;letter-spacing:-.03em;font-we
 .thesis{margin-top:14px;display:inline-flex;align-items:center;gap:11px;background:var(--green-bg-2);border:1px solid #d9ecdf;border-radius:11px;padding:8px 15px 8px 9px}
 .thesis .ic{width:30px;height:30px;border-radius:9px;background:var(--green);display:grid;place-items:center;flex:none}
 .thesis span{font-size:14px;font-weight:600;color:#16332a;letter-spacing:-.005em}
-.hero-map{display:flex;justify-content:center;padding-top:6px}
+.hero-map{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:6px}
 .usmap{display:block;width:100%;max-width:310px;height:auto}
 .usmap .d-base circle{fill:#e4e9ed}
 .usmap .d-accent circle{fill:#9ac5b1}
@@ -524,3 +524,21 @@ a.ptab{display:inline-block;text-decoration:none}
 #tbody td:nth-child(4),#tbody td:nth-child(6){max-width:126px;overflow:hidden;text-overflow:ellipsis}
 #tbody td:nth-child(5){max-width:126px;overflow:hidden;text-overflow:ellipsis}
 #tbody td:last-child{white-space:nowrap}
+
+/* ---------- hero map: verified schools in the latest run ---------- */
+.usmap-wrap{position:relative;flex:0 0 auto;width:310px;max-width:100%}
+.map-pins{position:absolute;inset:0;pointer-events:none}
+.map-note{margin:8px 0 0;font-size:11px;color:var(--muted);text-align:center;line-height:1.4}
+.pin{position:absolute;transform:translate(-50%,-50%);pointer-events:auto;transition:opacity .18s}
+.pin-dot{display:block;width:8px;height:8px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 0 2px #fff,0 0 0 5px rgba(31,157,92,.16);transition:box-shadow .18s,transform .18s}
+.pin-label{position:absolute;top:50%;display:block;white-space:nowrap;
+  background:#fff;border:1px solid var(--line);border-radius:7px;padding:2px 7px;
+  box-shadow:0 2px 6px rgba(15,20,24,.06);transition:border-color .18s,box-shadow .18s}
+.pin-label b{display:block;font-size:10.5px;font-weight:600;letter-spacing:-.01em;line-height:1.25;color:var(--ink)}
+.pin-label small{display:block;font-size:9.5px;color:var(--muted);line-height:1.3}
+.pin.side-left .pin-label{right:13px}
+.pin.side-right .pin-label{left:13px}
+.pin:hover .pin-dot,.pin.sel .pin-dot{transform:scale(1.15);box-shadow:0 0 0 2px #fff,0 0 0 6px rgba(31,157,92,.26)}
+.pin:hover .pin-label,.pin.sel .pin-label{border-color:#cfe6d9;box-shadow:0 3px 10px rgba(15,20,24,.10)}
+.pin.dim{opacity:.32}

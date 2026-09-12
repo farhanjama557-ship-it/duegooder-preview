@@ -16,6 +16,21 @@
   var ARROW = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg>';
   var PAGE = 100;
 
+  /**
+   * Hero map pins. The schools themselves come from collections.latest (only
+   * status "complete" ones are drawn); this table just holds where their campus
+   * city sits on the existing dotted map. x/y are in the map's own 340x196
+   * viewBox, projected with the same Albers parameters the map was generated
+   * with, so a pin lands on the real city. A school with no entry gets no pin
+   * rather than an invented position.
+   */
+  var CAMPUS = {
+    uwf:     { short: 'UWF',    place: 'Pensacola, FL',  x: 235.8, y: 159.0, side: 'left', dy: 8 },
+    udayton: { short: 'Dayton', place: 'Dayton, OH',     x: 247.6, y: 85.5,  side: 'left', dy: -8 },
+    ung:     { short: 'UNG',    place: 'Dahlonega, GA',  x: 254.3, y: 125.3, side: 'left', dy: 0 }
+  };
+  var MAP_W = 340, MAP_H = 196;
+
   Array.prototype.forEach.call(document.querySelectorAll('.tab'), function (btn) {
     btn.addEventListener('click', function () {
       Array.prototype.forEach.call(document.querySelectorAll('.tab'), function (b) { b.classList.remove('on'); });
@@ -158,6 +173,48 @@
     setQuality('qualityInstructor', pct(sections.filter(function (s) { return !!s.instructor; }).length, sections.length));
     setQuality('qualityLocation', pct(sections.filter(function (s) { return !!s.location; }).length, sections.length));
     setQuality('qualitySource', pct(sections.filter(function (s) { return !!s.source_url; }).length, sections.length));
+
+    /* ---- hero map: pin the verified schools of the latest run ---- */
+    var pinBox = $('mapPins'), mapNote = $('mapNote');
+    var pinned = activeSchools.filter(function (s) { return CAMPUS[s.school_id]; });
+    function renderPins() {
+      if (!pinBox) return;
+      pinBox.innerHTML = pinned.map(function (s) {
+        var c = CAMPUS[s.school_id];
+        return '<span class="pin side-' + c.side + '" data-pin="' + esc(s.school_id) + '"' +
+          ' style="left:' + (c.x / MAP_W * 100).toFixed(2) + '%;top:' + (c.y / MAP_H * 100).toFixed(2) + '%"' +
+          ' title="' + esc(s.school_name) + ' · ' + esc(c.place) + '">' +
+          '<span class="pin-dot"></span>' +
+          '<span class="pin-label" style="transform:translateY(calc(-50% + ' + (c.dy || 0) + 'px))">' +
+          '<b>' + esc(c.short) + '</b><small>' + esc(c.place) + '</small></span>' +
+          '</span>';
+      }).join('');
+      Array.prototype.forEach.call(pinBox.querySelectorAll('[data-pin]'), function (pin) {
+        pin.addEventListener('click', function () {
+          var id = pin.getAttribute('data-pin');
+          uniSelect.value = uniSelect.value === id ? '' : id;
+          uniSelect.dispatchEvent(new Event('change'));
+        });
+      });
+    }
+    function syncPins() {
+      if (!pinBox) return;
+      var selected = uniSelect.value;
+      Array.prototype.forEach.call(pinBox.querySelectorAll('[data-pin]'), function (pin) {
+        var isSel = selected && pin.getAttribute('data-pin') === selected;
+        pin.classList.toggle('sel', !!isSel);
+        pin.classList.toggle('dim', !!selected && !isSel);
+      });
+      if (!mapNote) return;
+      if (selected) {
+        var school = pinned.filter(function (s) { return s.school_id === selected; })[0];
+        mapNote.textContent = school
+          ? school.school_name + ' · 1 of ' + pinned.length + ' verified schools in latest run'
+          : pinned.length + ' verified schools in latest run';
+      } else {
+        mapNote.textContent = pinned.length + ' verified ' + (pinned.length === 1 ? 'school' : 'schools') + ' in latest run';
+      }
+    }
 
     /* ---- university filter: exactly the active schools ---- */
     var uniSelect = $('filterUni'), termSelect = $('filterTerm');
@@ -335,10 +392,12 @@
     }
 
     $('tableSearch').addEventListener('input', renderTable);
-    uniSelect.addEventListener('change', function () { buildTermOptions(uniSelect.value); renderTable(); });
+    uniSelect.addEventListener('change', function () { buildTermOptions(uniSelect.value); renderTable(); syncPins(); });
     termSelect.addEventListener('change', renderTable);
 
     buildTermOptions('');
+    renderPins();
+    syncPins();
     renderTable();
     document.documentElement.setAttribute('data-dg-sections-ready', '1');
   });
