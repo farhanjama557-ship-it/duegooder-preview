@@ -1,0 +1,115 @@
+{
+ "generated_at": "2026-09-12T01:35:32.496Z",
+ "generated_from": "lib/detectors/",
+ "registry": [
+  {
+   "platform": "banner",
+   "label": "Ellucian Banner 9 Self-Service",
+   "implemented": true,
+   "status": "detector_available"
+  },
+  {
+   "platform": "peoplesoft",
+   "label": "PeopleSoft (Oracle Campus Solutions)",
+   "implemented": false,
+   "status": "planned"
+  },
+  {
+   "platform": "workday",
+   "label": "Workday Student",
+   "implemented": false,
+   "status": "planned"
+  },
+  {
+   "platform": "colleague",
+   "label": "Ellucian Colleague",
+   "implemented": false,
+   "status": "planned"
+  },
+  {
+   "platform": "custom",
+   "label": "Custom / unsupported registration systems",
+   "implemented": false,
+   "status": "manual_review"
+  }
+ ],
+ "banner": {
+  "signals": [
+   {
+    "key": "STUDENT_REGISTRATION_SSB",
+    "weight": 0.45,
+    "structural": true,
+    "label": "Found 'StudentRegistrationSsb'"
+   },
+   {
+    "key": "BANNER_ROUTE",
+    "weight": 0.35,
+    "structural": true,
+    "label": "Found a known Banner 9 SSB route"
+   },
+   {
+    "key": "SSB_PATH",
+    "weight": 0.2,
+    "structural": true,
+    "label": "Found '/ssb/' in a URL path"
+   },
+   {
+    "key": "ELLUCIAN_MARKER",
+    "weight": 0.15,
+    "structural": false,
+    "label": "Found Ellucian/Banner HTML markers"
+   },
+   {
+    "key": "SSB_HOSTNAME",
+    "weight": 0.1,
+    "structural": false,
+    "label": "Registration host looks like Banner (ssb./banner.)"
+   },
+   {
+    "key": "BANNER_WORDING",
+    "weight": 0.05,
+    "structural": false,
+    "label": "Page wording mentions Banner self-service"
+   }
+  ],
+  "routes": [
+   "/ssb/term/termselection",
+   "/ssb/classsearch/classsearch",
+   "/ssb/searchresults",
+   "/ssb/sectiondetail",
+   "/ssb/registration"
+  ],
+  "bands": {
+   "HIGH": 0.8,
+   "MEDIUM": 0.55,
+   "MIN": 0.35
+  },
+  "well_known_hosts": [
+   "ssb",
+   "banner",
+   "apps.banner",
+   "bannerweb"
+  ],
+  "candidate_path": "/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+  "max_requests_per_school": 8,
+  "hub_keywords": [
+   "class search",
+   "course search",
+   "class schedule",
+   "schedule of classes",
+   "registration",
+   "register for classes",
+   "registrar",
+   "self service",
+   "self-service",
+   "student self service",
+   "course catalog"
+  ],
+  "max_hub_pages": 2,
+  "timeout_ms": 10000,
+  "user_agent": "DueGooderBot/0.2 (+https://github.com/farhanjama557-ship-it/duegooder-preview; public course data research)",
+  "cache_ttl_hours": 24,
+  "concurrency": 2,
+  "delay_ms": 750
+ }
+}

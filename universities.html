@@ -37,127 +37,44 @@
         <p class="page-sub">Search and explore postsecondary institutions across the United States.</p>
       </div>
       <div class="card uni-stats">
-        <div class="st"><div><b class="muted-val">&mdash;</b><small>institutions</small></div></div>
+        <div class="st"><div><b id="uStatInst">&mdash;</b><small>institutions</small></div></div>
         <span class="sep"></span>
-        <div class="st"><div><b class="muted-val">&mdash;</b><small>states &amp; territories</small></div></div>
+        <div class="st"><div><b id="uStatStates">&mdash;</b><small>states &amp; territories</small></div></div>
         <span class="sep"></span>
         <div class="st"><div><b>4</b><small>status categories</small></div></div>
       </div>
     </div>
 
     <div class="card uni-card">
-      <div class="sections-head">
+      <div class="sections-head" style="padding:16px 20px 0">
         <div>
-          <h2 class="ctitle">Institutions <span class="badge">Preview data</span></h2>
-          <p class="csub">Sample rows only. The real institution directory arrives in Phase 2.</p>
+          <h2 class="ctitle">Institutions</h2>
+          <p class="csub">Official U.S. Department of Education directory data. Last collection stays empty until Phase 3 runs a real section collection.</p>
         </div>
       </div>
-      <div class="uni-toolbar">
-        <label class="tsearch">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8d959d" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
-          <input id="uniSearch" type="text" placeholder="Search by name, state, or domain (e.g. appstate.edu)" />
-        </label>
-        <div class="sel">
-          <select id="uniState"><option value="">All states</option><option>AL</option><option>CA</option><option>FL</option><option>MI</option><option>NC</option><option>OH</option><option>TX</option></select>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-        </div>
-        <div class="sel">
-          <select id="uniStatus"><option value="">All statuses</option><option>Live</option><option>Supported</option><option>Discovering</option><option>Manual review</option></select>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-        </div>
+      <div class="src-note" id="uSource">Loading directory&hellip;</div>
+      <div class="uni-toolbar" id="uToolbar">
+        <label class="tsearch"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8d959d" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input id="uSearch" type="text" placeholder="Search by name, city, state, or domain (e.g. appstate.edu)" /></label>
+        <div class="sel"><select id="uState"><option value="">All states</option></select><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+        <div class="sel"><select id="uPlatform"><option value="">All platforms</option><option value="banner">Banner</option><option value="unknown">Unknown</option></select><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+        <div class="sel"><select id="uStatus"><option value="">All statuses</option><option value="live">Live</option><option value="supported">Supported</option><option value="discovering">Discovering</option><option value="manual_review">Manual review</option></select><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
       </div>
-      <div class="table-scroll">
+      <div class="table-scroll" id="uTable">
         <table>
           <thead><tr><th>Institution</th><th>Domain</th><th>State</th><th>Platform</th><th>Status</th><th>Last collection</th><th></th></tr></thead>
-          <tbody id="uniBody">
-            <tr>
-              <td><span class="uni"><span class="mono-logo" style="background:#1c1c1c">AS</span>Appalachian State University</span></td>
-              <td>appstate.edu</td><td>NC</td>
-              <td class="muted-val">Unknown</td>
-              <td><span class="tag tag-gray">Discovering</span></td>
-              <td class="muted-val">&mdash;</td>
-              <td><a class="view" href="/universities">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg></a></td>
-            </tr>
-            <tr>
-              <td><span class="uni"><span class="mono-logo" style="background:#b8242c">UD</span>University of Dayton</span></td>
-              <td>udayton.edu</td><td>OH</td>
-              <td class="muted-val">Unknown</td>
-              <td><span class="tag tag-gray">Discovering</span></td>
-              <td class="muted-val">&mdash;</td>
-              <td><a class="view" href="/universities">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg></a></td>
-            </tr>
-            <tr>
-              <td><span class="uni"><span class="mono-logo" style="background:#1f4f9c">WF</span>University of West Florida</span></td>
-              <td>uwf.edu</td><td>FL</td>
-              <td class="muted-val">Unknown</td>
-              <td><span class="tag tag-gray">Discovering</span></td>
-              <td class="muted-val">&mdash;</td>
-              <td><a class="view" href="/universities">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg></a></td>
-            </tr>
-            <tr>
-              <td><span class="uni"><span class="mono-logo" style="background:#8a1538">UA</span>University of Alabama</span></td>
-              <td>ua.edu</td><td>AL</td>
-              <td class="muted-val">Unknown</td>
-              <td><span class="tag tag-gray">Discovering</span></td>
-              <td class="muted-val">&mdash;</td>
-              <td><a class="view" href="/universities">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg></a></td>
-            </tr>
-            <tr>
-              <td><span class="uni"><span class="mono-logo" style="background:#4a1010">TA</span>Texas A&amp;M University</span></td>
-              <td>tamu.edu</td><td>TX</td>
-              <td class="muted-val">Unknown</td>
-              <td><span class="tag tag-gray">Discovering</span></td>
-              <td class="muted-val">&mdash;</td>
-              <td><a class="view" href="/universities">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg></a></td>
-            </tr>
-            <tr>
-              <td><span class="uni"><span class="mono-logo" style="background:#1b3d6d">UM</span>University of Michigan</span></td>
-              <td>umich.edu</td><td>MI</td>
-              <td class="muted-val">Unknown</td>
-              <td><span class="tag tag-gray">Discovering</span></td>
-              <td class="muted-val">&mdash;</td>
-              <td><a class="view" href="/universities">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg></a></td>
-            </tr>
-            <tr>
-              <td><span class="uni"><span class="mono-logo" style="background:#6d1f3f">FS</span>Florida State University</span></td>
-              <td>fsu.edu</td><td>FL</td>
-              <td class="muted-val">Unknown</td>
-              <td><span class="tag tag-gray">Discovering</span></td>
-              <td class="muted-val">&mdash;</td>
-              <td><a class="view" href="/universities">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg></a></td>
-            </tr>
-            <tr>
-              <td><span class="uni"><span class="mono-logo" style="background:#8c1515">ST</span>Stanford University</span></td>
-              <td>stanford.edu</td><td>CA</td>
-              <td class="muted-val">Unknown</td>
-              <td><span class="tag tag-gray">Discovering</span></td>
-              <td class="muted-val">&mdash;</td>
-              <td><a class="view" href="/universities">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg></a></td>
-            </tr>
-          </tbody>
+          <tbody id="uBody"></tbody>
         </table>
       </div>
-      <div class="noresults" id="uniEmpty" style="display:none">No institutions match this filter.</div>
+      <div class="noresults" id="uEmpty" style="display:none"></div>
+      <div class="tbl-foot"><span class="note" id="uCount"></span><div class="pager" id="uPager"></div></div>
     </div>
   </section>
-
-  <script>
-  (function(){
-    var q=document.getElementById('uniSearch'), st=document.getElementById('uniState'), su=document.getElementById('uniStatus');
-    var rows=[].slice.call(document.querySelectorAll('#uniBody tr'));
-    function apply(){
-      var t=(q.value||'').trim().toLowerCase(), s=st.value, u=su.value.toLowerCase(), shown=0;
-      rows.forEach(function(r){
-        var c=r.children, text=(c[0].textContent+' '+c[1].textContent+' '+c[2].textContent).toLowerCase();
-        var ok=(!t||text.indexOf(t)>-1)&&(!s||c[2].textContent.trim()===s)&&(!u||c[4].textContent.trim().toLowerCase()===u);
-        r.style.display=ok?'':'none'; if(ok) shown++;
-      });
-      document.getElementById('uniEmpty').style.display=shown?'none':'block';
-    }
-    q.addEventListener('input',apply); st.addEventListener('change',apply); su.addEventListener('change',apply);
-  })();
-  </script>
 </main>
+<script src="/assets/dg-status.js"></script>
+<script src="/assets/dg-search.js"></script>
+<script src="/assets/dg-data.js"></script>
+<script src="/assets/ui.js"></script>
+<script src="/assets/dg-pages.js"></script>
 
 </body>
 </html>

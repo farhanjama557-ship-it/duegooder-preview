@@ -1,31 +1,64 @@
-/* Banner connector shells: filtering, pagination and detail modals.
-   All values come from assets/preview-data.js and are preview examples. */
+/**
+ * Banner connector pages, rendered from REAL detector output.
+ *
+ * Sources: assets/data/detections.json and assets/data/runs.json, both written
+ * only by scripts/detect.js executing the detector in lib/detectors/banner.js.
+ * If those files are absent or empty the pages say so; nothing is invented.
+ */
 (function () {
   'use strict';
-  var D = window.DG_PREVIEW || { universities: [], runs: [] };
+  var D = window.DGData, S = window.DGStatus;
   var $ = function (id) { return document.getElementById(id); };
-  var esc = function (s) {
-    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
-      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c];
-    });
-  };
+  var esc = D.escape;
   var ARROW = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg>';
   var PER_PAGE = 10;
 
-  /* ---------- modal (shared helper from assets/ui.js) ---------- */
-  function openModal(title, sub, bodyHtml) { window.DGUI.open(title, sub, bodyHtml); }
+  var RESULT_LABEL = {
+    detected: 'Detected', no_match: 'No match', timeout: 'Timeout',
+    request_failed: 'Request failed', blocked: 'Blocked', parse_failure: 'Parse failure'
+  };
+  var RESULT_CLASS = {
+    detected: 'success', no_match: 'nomatch', timeout: 'failed',
+    request_failed: 'failed', blocked: 'failed', parse_failure: 'failed'
+  };
 
+  function detectionLabel(d) {
+    if (!d) return 'Not probed yet';
+    if (d.result !== 'detected') return RESULT_LABEL[d.result] || d.result;
+    var band = d.confidence_band ? d.confidence_band.charAt(0).toUpperCase() + d.confidence_band.slice(1) : '';
+    return 'Detected (' + band + ' confidence)';
+  }
+  function detectionClass(d) {
+    if (!d) return 'discovering';
+    if (d.result === 'detected') return d.confidence_band === 'high' ? 'high' : (d.confidence_band === 'medium' ? 'med' : 'low');
+    if (d.result === 'no_match') return 'manual';
+    return 'failed';
+  }
+  function fmtDate(iso) {
+    if (!iso) return '—';
+    var d = new Date(iso);
+    if (isNaN(d)) return '—';
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+  function fmtDateTime(iso) {
+    if (!iso) return '—';
+    var d = new Date(iso);
+    if (isNaN(d)) return '—';
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' ' +
+      d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
+  }
   function kv(rows) {
     return '<table class="kv"><tbody>' + rows.map(function (r) {
       return '<tr><th>' + esc(r[0]) + '</th><td>' + r[1] + '</td></tr>';
     }).join('') + '</tbody></table>';
   }
-  function badge() { return '<span class="badge">Preview data</span>'; }
-  function pct(c) { return c == null ? '<span class="muted-val">&mdash;</span>' : Math.round(c * 100) + '%'; }
-
-  /* ---------- pagination control ---------- */
+  function evidenceHtml(list) {
+    if (!list || !list.length) return '<span class="muted-val">No signals matched</span>';
+    return '<div class="sig-list">' + list.map(function (s) { return '<span class="sig">' + esc(s) + '</span>'; }).join('') + '</div>';
+  }
   function renderPager(el, page, pages, onGo) {
     if (!el) return;
+    if (pages <= 1) { el.innerHTML = ''; return; }
     var out = '<button class="pg" data-go="' + (page - 1) + '"' + (page === 1 ? ' disabled' : '') + ' aria-label="Previous page">&lsaquo;</button>';
     var list = [];
     for (var i = 1; i <= pages; i++) {
@@ -36,69 +69,104 @@
       out += i === '…' ? '<span class="pg dots">…</span>'
         : '<button class="pg' + (i === page ? ' on' : '') + '" data-go="' + i + '">' + i + '</button>';
     });
-    out += '<button class="pg" data-go="' + (page + 1) + '"' + (page === pages || pages === 0 ? ' disabled' : '') + ' aria-label="Next page">&rsaquo;</button>';
+    out += '<button class="pg" data-go="' + (page + 1) + '"' + (page === pages ? ' disabled' : '') + ' aria-label="Next page">&rsaquo;</button>';
     el.innerHTML = out;
     Array.prototype.forEach.call(el.querySelectorAll('button[data-go]'), function (b) {
       b.addEventListener('click', function () { onGo(parseInt(b.getAttribute('data-go'), 10)); });
     });
   }
+  var NO_DETECTIONS = 'No detector executions are stored yet. Run <code>npm run detect -- appstate.edu udayton.edu uwf.edu</code> ' +
+    'from a machine with network access; this page renders whatever real results that produces.';
+
+  /* ---------- coverage header ---------- */
+  function initCoverage(detections) {
+    if (!$('covDetected')) return;
+    var detected = detections.filter(function (d) { return d.result === 'detected'; });
+    var confs = detected.map(function (d) { return d.confidence; });
+    $('covDetected').textContent = detected.length;
+    $('covTotal').textContent = detections.length;
+    $('covConf').textContent = confs.length
+      ? Math.round(confs.reduce(function (a, b) { return a + b; }, 0) / confs.length * 100) + '%'
+      : '—';
+  }
 
   /* ---------- supported universities ---------- */
-  function initUniversities() {
+  function initUniversities(detections) {
     var body = $('suBody'); if (!body) return;
     var page = 1;
+
+    if (!detections.length) {
+      $('suTable').style.display = 'none';
+      $('suToolbar').style.display = 'none';
+      $('suEmpty').innerHTML = D.emptyState('No detection results yet', NO_DETECTIONS);
+      $('suEmpty').style.display = 'block';
+      $('suCount').textContent = '';
+      return;
+    }
+    // state filter options come from the data we actually have
+    var states = {};
+    detections.forEach(function (d) { if (d.state) states[d.state] = 1; });
+    var stateSel = $('suState');
+    Object.keys(states).sort().forEach(function (s) {
+      var o = document.createElement('option'); o.textContent = s; stateSel.appendChild(o);
+    });
+
     function filtered() {
       var q = ($('suSearch').value || '').trim().toLowerCase();
-      var st = $('suState').value, sc = $('suStatus').value;
-      return D.universities.filter(function (u) {
-        if (st && u.state !== st) return false;
-        if (sc && u.status !== sc) return false;
+      var st = stateSel.value, sc = $('suStatus').value;
+      return detections.filter(function (d) {
+        if (st && d.state !== st) return false;
+        if (sc) {
+          if (sc === 'detected_high' || sc === 'detected_med' || sc === 'detected_low') {
+            var want = { detected_high: 'high', detected_med: 'medium', detected_low: 'low' }[sc];
+            if (!(d.result === 'detected' && d.confidence_band === want)) return false;
+          } else if (d.result !== sc) return false;
+        }
         if (!q) return true;
-        return (u.name + ' ' + u.domain + ' ' + u.state).toLowerCase().indexOf(q) > -1;
+        return ((d.school_name || '') + ' ' + d.domain + ' ' + (d.state || '')).toLowerCase().indexOf(q) > -1;
       });
     }
     function render() {
       var rows = filtered();
-      var pages = Math.ceil(rows.length / PER_PAGE);
-      if (page > pages) page = pages || 1;
-      var slice = rows.slice((page - 1) * PER_PAGE, page * PER_PAGE);
-      body.innerHTML = slice.map(function (u, i) {
-        var idx = D.universities.indexOf(u);
+      var pages = Math.ceil(rows.length / PER_PAGE) || 1;
+      if (page > pages) page = pages;
+      body.innerHTML = rows.slice((page - 1) * PER_PAGE, page * PER_PAGE).map(function (d) {
+        var i = detections.indexOf(d);
+        var name = d.school_name || d.domain;
         return '<tr>' +
-          '<td><span class="uni"><span class="mono-logo" style="background:' + u.color + '">' + esc(u.mono) + '</span>' + esc(u.name) + '</span></td>' +
-          '<td><span class="lnk">' + esc(u.domain) + '</span></td>' +
-          '<td>' + esc(u.state) + '</td>' +
-          '<td><span class="sdot ' + u.statusClass + '"><i></i>' + esc(u.statusLabel) + '</span></td>' +
-          '<td>' + pct(u.confidence) + '</td>' +
-          '<td>' + esc(u.lastChecked) + '</td>' +
-          '<td><button class="linkish" data-uni="' + idx + '">View details ' + ARROW + '</button></td>' +
+          '<td><span class="uni"><span class="mono-logo" style="background:' + D.color(d.domain) + '">' + esc(D.mono(name)) + '</span>' + esc(name) + '</span></td>' +
+          '<td><span class="lnk">' + esc(d.domain) + '</span></td>' +
+          '<td>' + esc(d.state || '—') + '</td>' +
+          '<td><span class="sdot ' + detectionClass(d) + '"><i></i>' + esc(detectionLabel(d)) + '</span></td>' +
+          '<td>' + (d.result === 'detected' ? D.pct(d.confidence) : '<span class="muted-val">—</span>') + '</td>' +
+          '<td>' + esc(fmtDate(d.detected_at)) + '</td>' +
+          '<td><button class="linkish" data-uni="' + i + '">View details ' + ARROW + '</button></td>' +
           '</tr>';
       }).join('');
       $('suEmpty').style.display = rows.length ? 'none' : 'block';
+      if (!rows.length) $('suEmpty').textContent = 'No universities match this filter.';
       var from = rows.length ? (page - 1) * PER_PAGE + 1 : 0;
       $('suCount').textContent = 'Showing ' + from + '–' + Math.min(page * PER_PAGE, rows.length) +
-        ' of ' + rows.length + ' universities (preview)';
+        ' of ' + rows.length + ' detector results';
       renderPager($('suPager'), page, pages, function (p) { page = p; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
       Array.prototype.forEach.call(body.querySelectorAll('button[data-uni]'), function (b) {
-        b.addEventListener('click', function () { showUni(D.universities[parseInt(b.getAttribute('data-uni'), 10)]); });
+        b.addEventListener('click', function () { showDetection(detections[parseInt(b.getAttribute('data-uni'), 10)]); });
       });
     }
-    function showUni(u) {
-      openModal(u.name, u.domain + ' · preview detection record', badge() +
-        '<div style="height:10px"></div>' +
-        kv([
-          ['University', esc(u.name)],
-          ['Domain', esc(u.domain)],
-          ['State', esc(u.state)],
-          ['Detection status', '<span class="sdot ' + u.statusClass + '"><i></i>' + esc(u.statusLabel) + '</span>'],
-          ['Confidence', pct(u.confidence)],
-          ['Detected signals', u.signals.length
-            ? '<div class="sig-list">' + u.signals.map(function (s) { return '<span class="sig">' + esc(s) + '</span>'; }).join('') + '</div>'
-            : '<span class="muted-val">None matched</span>'],
-          ['Registration URL', u.registrationUrl ? '<span class="mono-cell">' + esc(u.registrationUrl) + '</span>' : '<span class="muted-val">&mdash;</span>'],
-          ['Last checked', esc(u.lastChecked)]
-        ]) +
-        '<p class="empty-soft" style="margin-top:12px">Example record. No live request has been made to this institution.</p>');
+    function showDetection(d) {
+      window.DGUI.open(d.school_name || d.domain, d.domain + ' · detector result', kv([
+        ['University', esc(d.school_name || '—')],
+        ['Domain', esc(d.domain)],
+        ['State', esc(d.state || '—')],
+        ['Detection status', '<span class="sdot ' + detectionClass(d) + '"><i></i>' + esc(detectionLabel(d)) + '</span>'],
+        ['Confidence', d.result === 'detected' ? D.pct(d.confidence) + ' (' + esc(d.confidence_band) + ')' : '<span class="muted-val">—</span>'],
+        ['School status', esc(D.statusLabel(S.statusFor(d)))],
+        ['Detected signals', evidenceHtml(d.evidence)],
+        ['Registration URL', d.registration_url ? '<span class="mono-cell">' + esc(d.registration_url) + '</span>' : '<span class="muted-val">—</span>'],
+        ['Requests made', d.requests == null ? '—' : d.requests],
+        ['Last checked', esc(fmtDateTime(d.detected_at))],
+        ['Error', d.error ? esc(d.error) : '<span class="muted-val">—</span>']
+      ]) + '<p class="empty-soft" style="margin-top:12px">Produced by lib/detectors/banner.js against public pages.</p>');
     }
     ['suSearch', 'suState', 'suStatus'].forEach(function (id) {
       $(id).addEventListener(id === 'suSearch' ? 'input' : 'change', function () { page = 1; render(); });
@@ -107,87 +175,139 @@
   }
 
   /* ---------- recent runs ---------- */
-  function initRuns() {
+  function initRuns(store) {
     var body = $('rrBody'); if (!body) return;
+    var runs = store.runs || [];
     var page = 1;
+
+    if (!runs.length) {
+      $('rrTable').style.display = 'none';
+      $('rrEmptyWrap').innerHTML = D.emptyState('No detection runs recorded yet', NO_DETECTIONS);
+      $('rrCount').textContent = '';
+      ['rrTotal', 'rrSuccess', 'rrNomatch', 'rrFailed'].forEach(function (id) { $(id).textContent = '0'; });
+      ['bdSuccess', 'bdNomatch', 'bdFailed'].forEach(function (id) { $(id).style.width = '0'; $(id + 'Pct').textContent = '—'; });
+      $('rrErrors').innerHTML = '<tr><td colspan="3" style="color:#6d757e">No errors recorded yet.</td></tr>';
+      return;
+    }
+    var s = store.summary || {};
+    $('rrTotal').textContent = s.total != null ? s.total : runs.length;
+    $('rrSuccess').textContent = s.detected != null ? s.detected : '—';
+    $('rrNomatch').textContent = s.no_match != null ? s.no_match : '—';
+    $('rrFailed').textContent = s.failed != null ? s.failed : '—';
+    if (s.pct) {
+      [['bdSuccess', s.pct.detected], ['bdNomatch', s.pct.no_match], ['bdFailed', s.pct.failed]].forEach(function (p) {
+        $(p[0]).style.width = p[1] + '%';
+        $(p[0] + 'Pct').textContent = p[1] + '%';
+      });
+    }
+    var errs = runs.filter(function (r) { return r.error; }).slice(0, 5);
+    $('rrErrors').innerHTML = errs.length ? errs.map(function (r) {
+      return '<tr><td>' + esc(fmtDateTime(r.started_at)) + '</td><td>' + esc(r.school_name || r.domain) + '</td><td>' + esc(r.error) + '</td></tr>';
+    }).join('') : '<tr><td colspan="3" style="color:#6d757e">No errors recorded.</td></tr>';
+
     function render() {
-      var rows = D.runs;
-      var pages = Math.ceil(rows.length / PER_PAGE);
-      var slice = rows.slice((page - 1) * PER_PAGE, page * PER_PAGE);
-      body.innerHTML = slice.map(function (r) {
-        var idx = D.runs.indexOf(r);
-        var label = { success: 'Success', no_match: 'No match', failed: 'Failed' }[r.status];
-        var cls = { success: 'success', no_match: 'nomatch', failed: 'failed' }[r.status];
+      var pages = Math.ceil(runs.length / PER_PAGE) || 1;
+      body.innerHTML = runs.slice((page - 1) * PER_PAGE, page * PER_PAGE).map(function (r) {
+        var i = runs.indexOf(r);
+        var cls = RESULT_CLASS[r.status] || 'failed';
         return '<tr>' +
-          '<td class="mono-cell">' + esc(r.id) + '</td>' +
-          '<td>' + esc(r.name) + '</td>' +
+          '<td class="mono-cell">' + esc(r.run_id) + '</td>' +
+          '<td>' + esc(r.school_name || r.domain) + '</td>' +
           '<td><span class="lnk">' + esc(r.domain) + '</span></td>' +
-          '<td><span class="pill-status ' + cls + '"><span class="sdot ' + cls + '"><i></i></span>' + label + '</span></td>' +
-          '<td>' + pct(r.confidence) + '</td>' +
-          '<td>' + r.duration + 's</td>' +
-          '<td>' + esc(r.startedAt) + '</td>' +
-          '<td><button class="linkish" data-run="' + idx + '">View ' + ARROW + '</button></td>' +
+          '<td><span class="pill-status ' + cls + '"><span class="sdot ' + cls + '"><i></i></span>' + esc(RESULT_LABEL[r.status] || r.status) + '</span></td>' +
+          '<td>' + (r.confidence != null ? D.pct(r.confidence) : '<span class="muted-val">—</span>') + '</td>' +
+          '<td>' + (r.duration_ms / 1000).toFixed(1) + 's</td>' +
+          '<td>' + esc(fmtDateTime(r.started_at)) + '</td>' +
+          '<td><button class="linkish" data-run="' + i + '">View ' + ARROW + '</button></td>' +
           '</tr>';
       }).join('');
       $('rrCount').textContent = 'Showing ' + ((page - 1) * PER_PAGE + 1) + '–' +
-        Math.min(page * PER_PAGE, rows.length) + ' of ' + rows.length + ' preview runs';
+        Math.min(page * PER_PAGE, runs.length) + ' of ' + runs.length + ' detector runs';
       renderPager($('rrPager'), page, pages, function (p) { page = p; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
       Array.prototype.forEach.call(body.querySelectorAll('button[data-run]'), function (b) {
-        b.addEventListener('click', function () { showRun(D.runs[parseInt(b.getAttribute('data-run'), 10)]); });
+        b.addEventListener('click', function () { showRun(runs[parseInt(b.getAttribute('data-run'), 10)]); });
       });
     }
     function showRun(r) {
-      var label = { success: 'Success', no_match: 'No match', failed: 'Failed' }[r.status];
-      var cls = { success: 'success', no_match: 'nomatch', failed: 'failed' }[r.status];
-      openModal(r.id, r.name + ' · preview detection run', badge() +
-        '<div style="height:10px"></div>' +
-        kv([
-          ['Run ID', '<span class="mono-cell">' + esc(r.id) + '</span>'],
-          ['University', esc(r.name)],
-          ['Domain', esc(r.domain)],
-          ['Status', '<span class="pill-status ' + cls + '"><span class="sdot ' + cls + '"><i></i></span>' + label + '</span>'],
-          ['Confidence', pct(r.confidence)],
-          ['Duration', r.duration + 's'],
-          ['Started at', esc(r.startedAt)],
-          ['Signals', r.signals.length
-            ? '<div class="sig-list">' + r.signals.map(function (s) { return '<span class="sig">' + esc(s) + '</span>'; }).join('') + '</div>'
-            : '<span class="muted-val">None matched</span>'],
-          ['Result', esc(r.result)],
-          ['Error', r.error ? esc(r.error) : '<span class="muted-val">&mdash;</span>']
-        ]) +
-        '<p class="empty-soft" style="margin-top:12px">Example run. No live detection has been executed.</p>');
-    }
-    // summary + breakdown, computed from the preview run list
-    var total = D.runs.length;
-    var by = { success: 0, no_match: 0, failed: 0 };
-    D.runs.forEach(function (r) { by[r.status]++; });
-    if ($('rrTotal')) {
-      $('rrTotal').textContent = total;
-      $('rrSuccess').textContent = by.success;
-      $('rrNomatch').textContent = by.no_match;
-      $('rrFailed').textContent = by.failed;
-      [['bdSuccess', by.success], ['bdNomatch', by.no_match], ['bdFailed', by.failed]].forEach(function (p) {
-        var v = Math.round(p[1] / total * 100);
-        $(p[0]).style.width = v + '%';
-        $(p[0] + 'Pct').textContent = v + '%';
-      });
-      var errs = D.runs.filter(function (r) { return r.error; }).slice(0, 4);
-      $('rrErrors').innerHTML = errs.map(function (r) {
-        return '<tr><td>' + esc(r.startedAt.replace(', 2026', '')) + '</td><td>' + esc(r.name) + '</td><td>' + esc(r.error) + '</td></tr>';
-      }).join('');
+      var cls = RESULT_CLASS[r.status] || 'failed';
+      window.DGUI.open(r.run_id, (r.school_name || r.domain) + ' · detector run', kv([
+        ['Run ID', '<span class="mono-cell">' + esc(r.run_id) + '</span>'],
+        ['University', esc(r.school_name || '—')],
+        ['Domain', esc(r.domain)],
+        ['Status', '<span class="pill-status ' + cls + '"><span class="sdot ' + cls + '"><i></i></span>' + esc(RESULT_LABEL[r.status] || r.status) + '</span>'],
+        ['Confidence', r.confidence != null ? D.pct(r.confidence) : '<span class="muted-val">—</span>'],
+        ['Duration', (r.duration_ms / 1000).toFixed(1) + 's'],
+        ['HTTP requests', r.requests == null ? '—' : r.requests],
+        ['Started', esc(fmtDateTime(r.started_at))],
+        ['Finished', esc(fmtDateTime(r.finished_at))],
+        ['Signals', evidenceHtml(r.evidence)],
+        ['Error', r.error ? esc(r.error) : '<span class="muted-val">—</span>']
+      ]));
     }
     render();
   }
 
-  /* ---------- coverage header (computed from the preview list) ---------- */
-  function initCoverage() {
-    if (!$('covDetected')) return;
-    var det = D.universities.filter(function (u) { return u.confidence != null; });
-    var avg = det.reduce(function (a, u) { return a + u.confidence; }, 0) / (det.length || 1);
-    $('covDetected').textContent = det.length;
-    $('covTotal').textContent = D.universities.length;
-    $('covConf').textContent = Math.round(avg * 100) + '%';
+  /* ---------- technical details ---------- */
+  function initTechnical(detectors, detections) {
+    if (!$('tdSignals')) return;
+    var b = detectors && detectors.banner;
+    if (b) {
+      $('tdSignals').innerHTML = b.signals.map(function (s) {
+        return '<li>' + CHECK + '<span>' + esc(s.label) + ' <span class="muted-val">(weight ' + s.weight +
+          (s.structural ? ', structural' : '') + ')</span></span></li>';
+      }).join('');
+      $('tdRoutes').innerHTML = b.routes.map(function (r) {
+        return '<div class="ep"><code>/StudentRegistrationSsb' + esc(r) + '</code></div>';
+      }).join('') + b.well_known_hosts.map(function (h) {
+        return '<div class="ep"><code>' + esc(h) + '.&lt;domain&gt;</code><small>well-known Banner host pattern</small></div>';
+      }).join('');
+      $('tdLimits').innerHTML = [
+        ['Timeout', b.timeout_ms + 'ms per request'],
+        ['Concurrency', b.concurrency + ' institutions in parallel'],
+        ['Delay', b.delay_ms + 'ms between institutions'],
+        ['Requests', 'at most ' + b.max_requests_per_school + ' per institution (incl. robots.txt)'],
+        ['Discovery', 'homepage, then up to ' + (b.max_hub_pages || 2) + ' registrar / class-search pages, then ' + b.well_known_hosts.length + ' well-known hosts'],
+        ['Cache', 'results reused for ' + b.cache_ttl_hours + 'h'],
+        ['robots.txt', 'checked before probing']
+      ].map(function (r) { return '<div>' + CLOCK + '<span>' + esc(r[0]) + ': ' + esc(r[1]) + '</span></div>'; }).join('');
+      $('tdBands').innerHTML = ['high ≥ ' + b.bands.HIGH, 'medium ≥ ' + b.bands.MEDIUM, 'low ≥ ' + b.bands.MIN,
+        'below ' + b.bands.MIN + ' → no match'].map(function (t) { return '<div>' + esc(t) + '</div>'; }).join('');
+      $('tdUa').textContent = b.user_agent;
+    }
+    // Example detection: a real stored result if we have one.
+    var real = detections.filter(function (d) { return d.result === 'detected'; })[0] || detections[0] || null;
+    if (real) {
+      $('tdExample').textContent = JSON.stringify(real, null, 2);
+      $('tdExampleBadge').textContent = 'Detection result';
+      $('tdExampleNote').textContent = 'Real output from lib/detectors/banner.js for ' + real.domain + ', stored in assets/data/detections.json.';
+    } else {
+      $('tdExample').textContent = '// No detection has been executed yet.\n' +
+        '// Run: npm run detect -- appstate.edu udayton.edu uwf.edu\n' +
+        '// This panel shows the real stored result once one exists.';
+      $('tdExampleBadge').textContent = 'No result yet';
+      $('tdExampleNote').textContent = 'Nothing is shown here until the detector has actually run.';
+    }
   }
+  var CHECK = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></svg>';
+  var CLOCK = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7d868e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 1.8"/></svg>';
 
-  initCoverage(); initUniversities(); initRuns();
+  /* ---------- boot ---------- */
+  Promise.all([D.detections(), D.runs(), D.detectors(), D.institutions()]).then(function (res) {
+    var detections = res[0], runs = res[1], detectors = res[2], institutions = res[3];
+    // attach state/name from the directory where the detector did not have it
+    var byDomain = {};
+    institutions.forEach(function (i) { byDomain[i.domain] = i; });
+    detections.forEach(function (d) {
+      var inst = byDomain[d.domain];
+      if (inst) { d.state = d.state || inst.state; d.school_name = d.school_name || inst.name; }
+    });
+    (runs.runs || []).forEach(function (r) {
+      var inst = byDomain[r.domain];
+      if (inst) r.school_name = r.school_name || inst.name;
+    });
+    initCoverage(detections);
+    initUniversities(detections);
+    initRuns(runs);
+    initTechnical(detectors, detections);
+  });
 })();

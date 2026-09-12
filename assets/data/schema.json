@@ -1,0 +1,215 @@
+{
+ "generated_at": "2026-09-12T01:35:32.494Z",
+ "generated_from": "lib/schema.js",
+ "fields": [
+  {
+   "field": "school_id",
+   "type": "string",
+   "required": true,
+   "nullable": false,
+   "description": "Unique identifier for the institution (domain slug).",
+   "example": "appstate"
+  },
+  {
+   "field": "school_name",
+   "type": "string",
+   "required": true,
+   "nullable": false,
+   "description": "Official institution name.",
+   "example": "Appalachian State University"
+  },
+  {
+   "field": "term_id",
+   "type": "string",
+   "required": true,
+   "nullable": false,
+   "description": "Platform term code (e.g. 202608).",
+   "example": "202608"
+  },
+  {
+   "field": "term_name",
+   "type": "string",
+   "required": true,
+   "nullable": false,
+   "description": "Human-readable term name.",
+   "example": "Fall 2026"
+  },
+  {
+   "field": "department",
+   "type": "string",
+   "required": false,
+   "nullable": true,
+   "description": "Academic department, when the source publishes one.",
+   "example": null
+  },
+  {
+   "field": "subject",
+   "type": "string",
+   "required": true,
+   "nullable": false,
+   "description": "Course subject code (e.g. CS, MATH, ENGL).",
+   "example": "CS"
+  },
+  {
+   "field": "course_number",
+   "type": "string",
+   "required": true,
+   "nullable": false,
+   "description": "Course number (e.g. 250).",
+   "example": "250"
+  },
+  {
+   "field": "course_title",
+   "type": "string",
+   "required": true,
+   "nullable": false,
+   "description": "Course title.",
+   "example": "Data Structures"
+  },
+  {
+   "field": "section_number",
+   "type": "string",
+   "required": true,
+   "nullable": false,
+   "description": "Section number as published by the platform.",
+   "example": "001"
+  },
+  {
+   "field": "crn",
+   "type": "string",
+   "required": false,
+   "nullable": true,
+   "description": "Course Reference Number (Banner and similar platforms).",
+   "example": "41231"
+  },
+  {
+   "field": "instructor",
+   "type": "string",
+   "required": false,
+   "nullable": true,
+   "description": "Primary instructor name.",
+   "example": "M. Wilson"
+  },
+  {
+   "field": "meeting_days",
+   "type": "array",
+   "required": true,
+   "nullable": false,
+   "description": "Meeting days normalized to two-letter codes: MO TU WE TH FR SA SU. Empty array when the section has no scheduled meetings.",
+   "example": [
+    "MO",
+    "WE"
+   ]
+  },
+  {
+   "field": "start_time",
+   "type": "string",
+   "required": false,
+   "nullable": true,
+   "description": "Start time, 24h HH:MM.",
+   "example": "10:00"
+  },
+  {
+   "field": "end_time",
+   "type": "string",
+   "required": false,
+   "nullable": true,
+   "description": "End time, 24h HH:MM.",
+   "example": "11:15"
+  },
+  {
+   "field": "location",
+   "type": "string",
+   "required": false,
+   "nullable": true,
+   "description": "Building and room.",
+   "example": "Belk Hall 210"
+  },
+  {
+   "field": "enrollment_status",
+   "type": "string",
+   "required": false,
+   "nullable": true,
+   "description": "One of: open, closed, waitlist, cancelled.",
+   "example": "open"
+  },
+  {
+   "field": "seats_available",
+   "type": "integer",
+   "required": false,
+   "nullable": true,
+   "description": "Seats available, when published.",
+   "example": null
+  },
+  {
+   "field": "source_url",
+   "type": "string",
+   "required": true,
+   "nullable": false,
+   "description": "URL of the public page the record was extracted from.",
+   "example": "https://ssb.appstate.edu/StudentRegistrationSsb/ssb/searchResults"
+  },
+  {
+   "field": "retrieved_at",
+   "type": "string",
+   "required": true,
+   "nullable": false,
+   "description": "ISO-8601 UTC timestamp of retrieval.",
+   "example": "2026-09-11T00:00:00Z"
+  },
+  {
+   "field": "extraction_status",
+   "type": "string",
+   "required": true,
+   "nullable": false,
+   "description": "One of: complete, partial_source_missing, partial_extraction_failure, failed.",
+   "example": "complete"
+  }
+ ],
+ "extraction_status": [
+  "complete",
+  "partial_source_missing",
+  "partial_extraction_failure",
+  "failed"
+ ],
+ "enrollment_status": [
+  "open",
+  "closed",
+  "waitlist",
+  "cancelled"
+ ],
+ "meeting_days": [
+  "MO",
+  "TU",
+  "WE",
+  "TH",
+  "FR",
+  "SA",
+  "SU"
+ ],
+ "example": {
+  "school_id": "appstate",
+  "school_name": "Appalachian State University",
+  "term_id": "202608",
+  "term_name": "Fall 2026",
+  "department": null,
+  "subject": "CS",
+  "course_number": "250",
+  "course_title": "Data Structures",
+  "section_number": "001",
+  "crn": "41231",
+  "instructor": "M. Wilson",
+  "meeting_days": [
+   "MO",
+   "WE"
+  ],
+  "start_time": "10:00",
+  "end_time": "11:15",
+  "location": "Belk Hall 210",
+  "enrollment_status": "open",
+  "seats_available": null,
+  "source_url": "https://ssb.appstate.edu/StudentRegistrationSsb/ssb/searchResults",
+  "retrieved_at": "2026-09-11T00:00:00Z",
+  "extraction_status": "complete"
+ }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "duegooder-preview",
+  "version": "0.2.0",
+  "private": true,
+  "description": "DueGooder - public university course data. Phase 2: institution directory + platform detection.",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "import:institutions": "node scripts/import-institutions.js",
+    "detect": "node scripts/detect.js",
+    "build:web-data": "node scripts/build-web-data.js",
+    "data": "npm run import:institutions && npm run build:web-data",
+    "build": "node scripts/import-institutions.js && node scripts/build-web-data.js",
+    "test:ui": "node test/ui/run-ui-tests.js",
+    "test:live": "DG_LIVE=1 node --test test/live.test.js"
+  }
+}

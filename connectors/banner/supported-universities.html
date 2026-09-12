@@ -50,28 +50,30 @@
     <div class="card uni-card">
       <div class="sections-head" style="padding:16px 20px 0">
         <div>
-          <h2 class="ctitle">Supported universities <span class="badge">Preview data</span></h2>
-          <p class="csub">Institution names, domains and states are real. Detection statuses, confidences and dates are preview examples.</p>
+          <h2 class="ctitle">Detection results</h2>
+          <p class="csub">Real output from the Banner detector. Every row is an actual execution against public pages.</p>
         </div>
       </div>
-      <div class="uni-toolbar">
+      <div class="uni-toolbar" id="suToolbar">
         <label class="tsearch"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8d959d" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input id="suSearch" type="text" placeholder="Search universities (name, domain, or state...)" /></label>
-        <div class="sel"><select id="suState"><option value="">All states</option><option>AL</option><option>AR</option><option>AZ</option><option>CA</option><option>CO</option><option>FL</option><option>GA</option><option>IA</option><option>ID</option><option>IN</option><option>KS</option><option>KY</option><option>LA</option><option>MI</option><option>MO</option><option>NC</option><option>NM</option><option>NV</option><option>OH</option><option>OR</option><option>SC</option><option>TN</option><option>TX</option><option>UT</option><option>VA</option></select><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
-        <div class="sel"><select id="suStatus"><option value="">All statuses</option><option value="detected_high">Detected (High confidence)</option><option value="detected_med">Detected (Medium confidence)</option><option value="detected_low">Detected (Low confidence)</option><option value="discovering">Discovering</option><option value="manual">Manual review</option></select><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+        <div class="sel"><select id="suState"><option value="">All states</option></select><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+        <div class="sel"><select id="suStatus"><option value="">All results</option><option value="detected_high">Detected (High confidence)</option><option value="detected_med">Detected (Medium confidence)</option><option value="detected_low">Detected (Low confidence)</option><option value="no_match">No match</option><option value="timeout">Timeout</option><option value="request_failed">Request failed</option><option value="blocked">Blocked</option><option value="parse_failure">Parse failure</option></select><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
       </div>
-      <div class="table-scroll">
+      <div class="table-scroll" id="suTable">
         <table>
           <thead><tr><th>University</th><th>Domain</th><th>State</th><th>Detection Status</th><th>Confidence</th><th>Last Checked</th><th>Actions</th></tr></thead>
           <tbody id="suBody"></tbody>
         </table>
       </div>
-      <div class="noresults" id="suEmpty" style="display:none">No universities match this filter.</div>
+      <div class="noresults" id="suEmpty" style="display:none"></div>
       <div class="tbl-foot"><span class="note" id="suCount"></span><div class="pager" id="suPager"></div></div>
     </div>
   </section>
 </main>
+<script src="/assets/dg-status.js"></script>
+<script src="/assets/dg-search.js"></script>
+<script src="/assets/dg-data.js"></script>
 <script src="/assets/ui.js"></script>
-<script src="/assets/preview-data.js"></script>
 <script src="/assets/banner.js"></script>
 </body>
 </html>

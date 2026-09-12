@@ -49,9 +49,9 @@
       <div class="hcard">
         <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8.5 12 4 2 8.5l10 4.5 10-4.5Z"/><path d="M6 11v5c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-5"/></svg></span>
         <div>
-          <b>6,000+</b>
+          <b id="dgInstCount">&mdash;</b>
           <small>U.S. institutions</small>
-          <small>From NCES / IPEDS</small>
+          <small id="dgInstSource">Loading directory&hellip;</small>
         </div>
       </div>
       <div class="hcard">
@@ -92,10 +92,10 @@
 
     <div id="panel-search">
       <div class="searchrow">
-        <label class="field">
+        <div class="field-wrap"><label class="field">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8d959d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9.5 12 5l8.5 4.5"/><path d="M5.5 10.5v7M9.5 10.5v7M14.5 10.5v7M18.5 10.5v7"/><path d="M3.5 19.5h17"/></svg>
-          <input id="uniInput" type="text" placeholder="Enter university name or website (e.g. appstate.edu)" autocomplete="off" />
-        </label>
+          <input id="uniInput" type="text" placeholder="Enter university name or website (e.g. appstate.edu)" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="dgResults" />
+        </label><div class="dgres" id="dgResults" role="listbox"></div></div>
         <button class="btn-dark" id="discoverBtn">Discover university
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m13.5 6.5 6 5.5-6 5.5"/></svg>
         </button>
@@ -128,7 +128,7 @@
         </div>
       </div>
 
-      <div class="runline" id="runline"><span class="badge">Preview data</span><span id="runlineText"></span></div>
+      <div class="runline" id="runline"><span class="badge" id="runlineBadge">IPEDS record</span><span id="runlineText"></span></div>
     </div>
 
     <div id="panel-recent" class="recent">
@@ -274,125 +274,11 @@
   </section>
 
 </main>
-<script>
-(function(){
-  'use strict';
-  var $ = function(id){ return document.getElementById(id); };
-
-  /* ---------- preview sections (simulated data — labelled PREVIEW DATA in the UI) ---------- */
-  var LOGOS = {
-    'Appalachian State':      { mono:'AS', color:'#1c1c1c' },
-    'Univ. of Dayton':        { mono:'UD', color:'#b8242c' },
-    'Univ. of West Florida':  { mono:'WF', color:'#1f4f9c' }
-  };
-  var SECTIONS = [
-    { uni:'Appalachian State',     course:'CS 250',   sec:'001', instr:'Dr. M. Wilson',  sched:'Mon/Wed 10:00 AM',      loc:'Belk 210',    enr:'Open',     term:'Fall 2026' },
-    { uni:'Appalachian State',     course:'MATH 112', sec:'002', instr:'Prof. R. Carter',sched:'Tue/Thu 11:00 AM',      loc:'Peacock 101', enr:'Open',     term:'Fall 2026' },
-    { uni:'Univ. of Dayton',       course:'ECO 201',  sec:'001', instr:'Dr. L. Nguyen',  sched:'Mon/Wed 1:00 PM',       loc:'Alumni 308',  enr:'Waitlist', term:'Fall 2026' },
-    { uni:'Univ. of Dayton',       course:'CIS 110',  sec:'004', instr:'Prof. K. Patel', sched:'Tue/Thu 9:30 AM',       loc:'Kettering 120', enr:'Open',   term:'Spring 2026' },
-    { uni:'Univ. of West Florida', course:'BIO 105',  sec:'001', instr:'Dr. S. Ahmed',   sched:'Mon/Wed/Fri 11:00 AM',  loc:'Science 220', enr:'Open',     term:'Spring 2026' }
-  ];
-  var esc = function(s){
-    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
-      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c];
-    });
-  };
-  var ARROW = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg>';
-
-  function enrClass(v){ return v === 'Waitlist' ? ' wait' : (v === 'Closed' ? ' closed' : ''); }
-
-  function renderTable(){
-    var q = ($('tableSearch').value || '').trim().toLowerCase();
-    var uni = $('filterUni').value;
-    var term = $('filterTerm').value;
-    var rows = SECTIONS.filter(function(s){
-      if (uni && s.uni !== uni) return false;
-      if (term && s.term !== term) return false;
-      if (!q) return true;
-      return (s.course + ' ' + s.instr + ' ' + s.uni + ' ' + s.loc + ' ' + s.sec).toLowerCase().indexOf(q) > -1;
-    });
-    $('tbody').innerHTML = rows.map(function(s){
-      var lg = LOGOS[s.uni] || { mono:'U', color:'#5c646d' };
-      return '<tr>' +
-        '<td><span class="uni"><span class="mono-logo" style="background:' + lg.color + '">' + lg.mono + '</span>' + esc(s.uni) + '</span></td>' +
-        '<td>' + esc(s.course) + '</td>' +
-        '<td>' + esc(s.sec) + '</td>' +
-        '<td>' + esc(s.instr) + '</td>' +
-        '<td>' + esc(s.sched) + '</td>' +
-        '<td>' + esc(s.loc) + '</td>' +
-        '<td><span class="enr' + enrClass(s.enr) + '"><i></i>' + esc(s.enr) + '</span></td>' +
-        '<td><a class="view" href="#sections">View ' + ARROW + '</a></td>' +
-      '</tr>';
-    }).join('');
-    $('noresults').style.display = rows.length ? 'none' : 'block';
-  }
-  $('tableSearch').addEventListener('input', renderTable);
-  $('filterUni').addEventListener('change', renderTable);
-  $('filterTerm').addEventListener('change', renderTable);
-  renderTable();
-
-  /* ---------- tabs ---------- */
-  Array.prototype.forEach.call(document.querySelectorAll('.tab'), function(btn){
-    btn.addEventListener('click', function(){
-      Array.prototype.forEach.call(document.querySelectorAll('.tab'), function(b){ b.classList.remove('on'); });
-      btn.classList.add('on');
-      var recent = btn.getAttribute('data-tab') === 'recent';
-      $('panel-search').style.display = recent ? 'none' : 'block';
-      $('panel-recent').classList.toggle('show', recent);
-    });
-  });
-  Array.prototype.forEach.call(document.querySelectorAll('.recent-item'), function(item){
-    item.addEventListener('click', function(){
-      document.querySelector('.tab[data-tab="search"]').click();
-      $('uniInput').value = item.getAttribute('data-domain');
-      $('discoverBtn').click();
-    });
-  });
-
-  /* ---------- example chips ---------- */
-  Array.prototype.forEach.call(document.querySelectorAll('.ex'), function(chip){
-    chip.addEventListener('click', function(){
-      $('uniInput').value = chip.textContent.trim();
-      $('uniInput').focus();
-    });
-  });
-
-  /* ---------- discovery walkthrough (UI preview only, no backend calls) ---------- */
-  var stages = document.querySelectorAll('.stage');
-  var timers = [];
-  function resetStages(){
-    timers.forEach(clearTimeout); timers = [];
-    Array.prototype.forEach.call(stages, function(s){ s.classList.remove('act','done'); });
-  }
-  $('discoverBtn').addEventListener('click', function(){
-    var value = ($('uniInput').value || '').trim();
-    if (!value) { $('uniInput').focus(); return; }
-    resetStages();
-    var btn = this;
-    btn.disabled = true;
-    $('runline').classList.add('show');
-    $('runlineText').textContent = 'Simulating discovery for ' + value + ' — no live university requests are made in preview mode.';
-    stages[0].classList.add('act');
-    for (var i = 0; i < stages.length; i++) {
-      (function(i){
-        timers.push(setTimeout(function(){
-          if (i > 0) { stages[i-1].classList.remove('act'); stages[i-1].classList.add('done'); }
-          stages[i].classList.add('act');
-          if (i === stages.length - 1) {
-            timers.push(setTimeout(function(){
-              stages[i].classList.remove('act'); stages[i].classList.add('done');
-              btn.disabled = false;
-              $('runlineText').textContent = value + ' → Banner detected · newest public term found · 5 preview sections normalized.';
-            }, 520));
-          }
-        }, 520 * i));
-      })(i);
-    }
-  });
-  $('uniInput').addEventListener('keydown', function(e){
-    if (e.key === 'Enter') { e.preventDefault(); $('discoverBtn').click(); }
-  });
-})();
-</script>
+<script src="/assets/dg-status.js"></script>
+<script src="/assets/dg-search.js"></script>
+<script src="/assets/dg-data.js"></script>
+<script src="/assets/ui.js"></script>
+<script src="/assets/dg-pages.js"></script>
+<script src="/assets/home.js"></script>
 </body>
 </html>

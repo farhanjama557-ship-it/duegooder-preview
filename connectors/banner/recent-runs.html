@@ -51,23 +51,24 @@
       <div class="card uni-card">
         <div class="sections-head" style="padding:16px 20px 8px">
           <div>
-            <h2 class="ctitle">Detection Runs <span class="badge">Preview data</span></h2>
-            <p class="csub">Example detection attempts across universities. No detection has actually been executed.</p>
+            <h2 class="ctitle">Detection Runs</h2>
+            <p class="csub">One record per detector execution, written by scripts/detect.js.</p>
           </div>
         </div>
-        <div class="table-scroll">
+        <div class="table-scroll" id="rrTable">
           <table>
             <thead><tr><th>Run ID</th><th>University</th><th>Domain</th><th>Status</th><th>Confidence</th><th>Duration</th><th>Started At</th><th>Details</th></tr></thead>
             <tbody id="rrBody"></tbody>
           </table>
         </div>
+        <div id="rrEmptyWrap"></div>
         <div class="tbl-foot"><span class="note" id="rrCount"></span><div class="pager" id="rrPager"></div></div>
       </div>
 
       <div>
         <div class="card" style="padding:15px 17px">
-          <h2 class="ctitle">Run Summary <span class="badge">Preview data</span></h2>
-          <p class="csub">Totals across the preview run list.</p>
+          <h2 class="ctitle">Run Summary</h2>
+          <p class="csub">Computed from the stored detector runs.</p>
           <div class="sum-grid">
             <div class="sumtile"><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5d6a63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z"/><path d="M2.5 12 12 16.5 21.5 12"/><path d="M2.5 16.5 12 21l9.5-4.5"/></svg></span><div><b id="rrTotal">&mdash;</b><small>total runs</small></div></div>
             <div class="sumtile g"><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1f9d5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></svg></span><div><b id="rrSuccess">&mdash;</b><small>successful</small></div></div>
@@ -82,7 +83,7 @@
 
         <div class="card uni-card" style="margin-top:12px">
           <div class="sections-head" style="padding:15px 17px 8px">
-            <div><h2 class="ctitle">Recent Errors <span class="badge">Preview data</span></h2></div>
+            <div><h2 class="ctitle">Recent Errors</h2></div>
           </div>
           <div class="table-scroll">
             <table class="err-table"><thead><tr><th style="padding-left:17px">Time</th><th>University</th><th>Error</th></tr></thead><tbody id="rrErrors"></tbody></table>
@@ -92,8 +93,10 @@
     </div>
   </section>
 </main>
+<script src="/assets/dg-status.js"></script>
+<script src="/assets/dg-search.js"></script>
+<script src="/assets/dg-data.js"></script>
 <script src="/assets/ui.js"></script>
-<script src="/assets/preview-data.js"></script>
 <script src="/assets/banner.js"></script>
 </body>
 </html>

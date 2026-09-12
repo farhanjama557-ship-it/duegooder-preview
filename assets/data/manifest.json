@@ -1,0 +1,26 @@
+{
+ "status": "imported",
+ "source": "NCES IPEDS Directory information (HD)",
+ "source_url": "https://nces.ed.gov/ipeds/datacenter/data/HD2024.zip",
+ "survey_year": "2024",
+ "retrieved_at": "2026-09-12T01:20:25.859Z",
+ "institution_count": 4961,
+ "file_bytes": 733288,
+ "fields": [
+  "unitid",
+  "name",
+  "city",
+  "state",
+  "website",
+  "domain"
+ ],
+ "row_stats": {
+  "input": 6072,
+  "dropped_no_website": 6,
+  "dropped_inactive": 78,
+  "dropped_duplicate_domain": 1027,
+  "dropped_no_name": 0,
+  "output": 4961
+ },
+ "generated_at": "2026-09-12T01:20:25.859Z"
+}
