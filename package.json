@@ -10,6 +10,7 @@
     "build:web-data": "node scripts/build-web-data.js",
     "data": "npm run import:institutions && npm run build:web-data",
     "build": "node scripts/import-institutions.js && node scripts/build-web-data.js",
-    "test:ui": "node test/ui/run-ui-tests.js"
+    "test:ui": "node test/ui/run-ui-tests.js",
+    "test:live": "DG_LIVE=1 node --test test/live.test.js"
   }
 }

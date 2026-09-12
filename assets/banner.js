@@ -258,12 +258,15 @@
       }).join('');
       $('tdRoutes').innerHTML = b.routes.map(function (r) {
         return '<div class="ep"><code>/StudentRegistrationSsb' + esc(r) + '</code></div>';
+      }).join('') + b.well_known_hosts.map(function (h) {
+        return '<div class="ep"><code>' + esc(h) + '.&lt;domain&gt;</code><small>well-known Banner host pattern</small></div>';
       }).join('');
       $('tdLimits').innerHTML = [
         ['Timeout', b.timeout_ms + 'ms per request'],
         ['Concurrency', b.concurrency + ' institutions in parallel'],
         ['Delay', b.delay_ms + 'ms between institutions'],
-        ['Requests', 'at most ' + b.max_requests_per_school + ' per institution'],
+        ['Requests', 'at most ' + b.max_requests_per_school + ' per institution (incl. robots.txt)'],
+        ['Discovery', 'homepage, then up to ' + (b.max_hub_pages || 2) + ' registrar / class-search pages, then ' + b.well_known_hosts.length + ' well-known hosts'],
         ['Cache', 'results reused for ' + b.cache_ttl_hours + 'h'],
         ['robots.txt', 'checked before probing']
       ].map(function (r) { return '<div>' + CLOCK + '<span>' + esc(r[0]) + ': ' + esc(r[1]) + '</span></div>'; }).join('');

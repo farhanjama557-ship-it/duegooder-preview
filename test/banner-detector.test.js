@@ -249,3 +249,122 @@ test('unimplemented detectors never classify anything', async () => {
     assert.strictEqual(res.confidence, 0);
   }
 });
+
+/* ================= generic discovery (Phase 2 repair) =================
+   These prove the detector finds common public Banner layouts WITHOUT any
+   school-specific rules, and that the anti-false-positive rules still hold. */
+
+const REGISTRAR_HUB = `<!doctype html><html><body>
+  <h1>Office of the Registrar</h1>
+  <ul>
+    <li><a href="/registrar/transcripts">Transcripts</a></li>
+    <li><a href="https://apps.banner.example-uni.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search">Class Search</a></li>
+  </ul></body></html>`;
+
+const HOMEPAGE_WITH_REGISTRAR = `<!doctype html><html><body>
+  <h1>Example University</h1>
+  <nav>
+    <a href="/admissions">Admissions</a>
+    <a href="/academics/registrar/">Registrar</a>
+    <a href="/athletics">Athletics</a>
+  </nav></body></html>`;
+
+const BANNER_TERM_PAGE = `<!doctype html><html><head><title>Select a Term</title>
+  <link rel="stylesheet" href="/StudentRegistrationSsb/css/registration.css"></head>
+  <body><div id="termSelection">Select a Term</div>
+  <footer>&copy; 2026 Ellucian Company L.P.</footer></body></html>`;
+
+test('discovers apps.banner.<domain> generically through a registrar page', async () => {
+  const seen = [];
+  const res = await banner.detect({ domain: 'example-uni.edu', school_name: 'Example University' }, {
+    respectRobots: false,
+    fetchImpl: async (url) => {
+      seen.push(url);
+      if (url === 'https://example-uni.edu/') return { status: 200, url, text: async () => HOMEPAGE_WITH_REGISTRAR };
+      if (url.includes('/academics/registrar/')) return { status: 200, url, text: async () => REGISTRAR_HUB };
+      if (url.includes('apps.banner.example-uni.edu')) return { status: 200, url, text: async () => BANNER_TERM_PAGE };
+      return { status: 404, url, text: async () => 'not found' };
+    }
+  });
+  assert.strictEqual(res.result, 'detected', `evidence: ${JSON.stringify(res.evidence)} urls: ${JSON.stringify(seen)}`);
+  assert.ok(res.confidence >= banner.BAND.MEDIUM, `confidence ${res.confidence}`);
+  assert.ok(res.registration_url.includes('apps.banner.example-uni.edu'), res.registration_url);
+  assert.ok(seen.some(u => u.includes('/academics/registrar/')), 'followed the registrar hub page');
+  assert.ok(res.requests <= banner.MAX_REQUESTS, `stayed within budget: ${res.requests} <= ${banner.MAX_REQUESTS}`);
+});
+
+test('hub discovery stays on the institution and stays small', () => {
+  const html = `<a href="/registrar/">Registrar</a>
+    <a href="https://twitter.com/example">Class Search on Twitter</a>
+    <a href="https://catalog.example-uni.edu/course-search/">Course Search</a>
+    <a href="/athletics">Athletics</a>
+    <a href="/library">Library</a>`;
+  const hubs = banner.hubLinksFrom(html, 'https://example-uni.edu/', 'example-uni.edu');
+  assert.ok(hubs.every(u => new URL(u).hostname.endsWith('example-uni.edu')), 'never leaves the institution: ' + hubs);
+  assert.ok(hubs.some(u => u.includes('/registrar/')));
+  assert.ok(hubs.some(u => u.includes('catalog.example-uni.edu')), 'subdomains of the institution are allowed');
+  assert.ok(!hubs.some(u => u.includes('twitter.com')));
+  assert.ok(!hubs.some(u => u.includes('/athletics')));
+});
+
+test('a guessed host answering every path with a catch-all 200 still does not classify', async () => {
+  // Every constructed host pattern replies 200 with a generic page.
+  for (const body of ['<html><body>Welcome to Example College</body></html>', NON_BANNER_HOMEPAGE]) {
+    const res = await banner.detect({ domain: 'catchall.edu' }, {
+      respectRobots: false,
+      fetchImpl: async (url) => ({ status: 200, url, text: async () => body })
+    });
+    assert.strictEqual(res.result, 'no_match', `got ${res.result} with evidence ${JSON.stringify(res.evidence)}`);
+    assert.strictEqual(res.registration_url, null);
+  }
+});
+
+test('the word "banner" on registrar and homepage still does not classify', async () => {
+  const wordy = `<!doctype html><html><body>
+    <img src="/images/banner.jpg" alt="campus banner">
+    <h1>Banner Day at Example College</h1>
+    <a href="/registrar/">Registrar</a>
+    <p>Our new banner is up over the registration tent.</p></body></html>`;
+  const res = await banner.detect({ domain: 'wordy.edu' }, {
+    respectRobots: false,
+    fetchImpl: async (url) => ({ status: 200, url, text: async () => wordy })
+  });
+  assert.strictEqual(res.result, 'no_match', JSON.stringify(res.evidence));
+  assert.ok(res.confidence < banner.BAND.MIN, `confidence ${res.confidence} must stay below ${banner.BAND.MIN}`);
+});
+
+test('a redirect the server chose IS evidence, unlike the URL we constructed', async () => {
+  const res = await banner.detect({ domain: 'redirects.edu' }, {
+    respectRobots: false,
+    fetchImpl: async (url) => {
+      if (url === 'https://redirects.edu/') return { status: 200, url, text: async () => '<html><body>Redirects University</body></html>' };
+      // the server sends every well-known-host probe to its real Banner install
+      return { status: 200, url: 'https://apps.banner.redirects.edu/StudentRegistrationSsb/ssb/term/termSelection', text: async () => BANNER_TERM_PAGE };
+    }
+  });
+  assert.strictEqual(res.result, 'detected', JSON.stringify(res.evidence));
+  assert.ok(res.evidence.length >= 2);
+});
+
+test('discovery never exceeds the request budget, even when nothing responds usefully', async () => {
+  let requests = 0;
+  const res = await banner.detect({ domain: 'quiet.edu' }, {
+    respectRobots: true,
+    fetchImpl: async (url) => {
+      requests++;
+      return { status: 200, url, text: async () => '<html><body><a href="/registrar/">Registrar</a><a href="/class-search/">Class Search</a></body></html>' };
+    }
+  });
+  assert.ok(requests <= banner.MAX_REQUESTS, `made ${requests} requests, budget is ${banner.MAX_REQUESTS}`);
+  assert.strictEqual(res.result, 'no_match');
+  assert.strictEqual(res.requests, requests);
+});
+
+test('isBannerHost recognises the common host shapes and nothing else', () => {
+  for (const h of ['ssb.uwf.edu', 'banner.example.edu', 'apps.banner.example.edu', 'bannerweb.example.edu']) {
+    assert.strictEqual(banner.isBannerHost(h), true, h);
+  }
+  for (const h of ['www.example.edu', 'bannerhead.example.edu', 'my.example.edu', 'catalog.example.edu']) {
+    assert.strictEqual(banner.isBannerHost(h), false, h);
+  }
+});

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-12T00:54:27.614Z",
+ "generated_at": "2026-09-12T01:25:20.337Z",
  "generated_from": "lib/detectors/",
  "registry": [
   {
@@ -87,10 +87,25 @@
   "well_known_hosts": [
    "ssb",
    "banner",
+   "apps.banner",
    "bannerweb"
   ],
   "candidate_path": "/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
-  "max_requests_per_school": 5,
+  "max_requests_per_school": 8,
+  "hub_keywords": [
+   "class search",
+   "course search",
+   "class schedule",
+   "schedule of classes",
+   "registration",
+   "register for classes",
+   "registrar",
+   "self service",
+   "self-service",
+   "student self service",
+   "course catalog"
+  ],
+  "max_hub_pages": 2,
   "timeout_ms": 10000,
   "user_agent": "DueGooderBot/0.2 (+https://github.com/farhanjama557-ship-it/duegooder-preview; public course data research)",
   "cache_ttl_hours": 24,
