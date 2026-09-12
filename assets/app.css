@@ -510,3 +510,17 @@ a.ptab{display:inline-block;text-decoration:none}
 .dgr-empty code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;background:#f3f5f4;padding:1px 4px;border-radius:4px}
 .noresults code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;background:#f3f5f4;padding:1px 5px;border-radius:4px;color:#39414a}
 .src-note{font-size:11px;color:var(--muted);padding:0 20px 12px}
+
+/* ---------- evidence modal (collected sections) ---------- */
+.ev-head{margin:16px 0 6px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#71807a}
+.ev-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.ev-actions .btn-dark.sm{text-decoration:none}
+.ev-note{margin:8px 0 0;font-size:11px;color:var(--muted);line-height:1.45}
+
+/* Collected-sections table: keep every column - including the evidence action -
+   inside the card. Long instructor/location values truncate with a tooltip. */
+#tbody td:nth-child(1){max-width:224px;overflow:hidden}
+#tbody td:nth-child(1) .uni{max-width:100%;overflow:hidden}
+#tbody td:nth-child(4),#tbody td:nth-child(6){max-width:126px;overflow:hidden;text-overflow:ellipsis}
+#tbody td:nth-child(5){max-width:126px;overflow:hidden;text-overflow:ellipsis}
+#tbody td:last-child{white-space:nowrap}

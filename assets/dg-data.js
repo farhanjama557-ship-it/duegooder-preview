@@ -74,9 +74,17 @@
     statusLabel: function (key) { return window.DGStatus.LABEL[key] || key; },
 
     /** Platform column: only a real detection can name a platform. */
-    platformFor: function (institution, detectionMap) {
+    /**
+     * Platform column. A completed collection run is stronger evidence than the
+     * detector store: if a connector actually collected sections from a school,
+     * that school runs that platform even when an earlier detection said no_match.
+     */
+    platformFor: function (institution, detectionMap, collectionMap) {
+      var title = function (p) { return p.charAt(0).toUpperCase() + p.slice(1); };
+      var run = collectionMap ? collectionMap[institution.domain] : null;
+      if (run && run.status === 'complete' && run.connector) return title(run.connector);
       var det = detectionMap ? detectionMap[institution.domain] : null;
-      if (det && det.result === 'detected') return det.platform.charAt(0).toUpperCase() + det.platform.slice(1);
+      if (det && det.result === 'detected') return title(det.platform);
       return null;
     },
 

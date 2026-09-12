@@ -1,5 +1,8 @@
 const BASE = process.env.DG_BASE || 'http://127.0.0.1:8090';
 const { chromium } = require('playwright');
+const fs = require('fs');
+const path = require('path');
+const collections = JSON.parse(fs.readFileSync(path.join(__dirname,'..','..','assets/data/collections.json'),'utf8'));
 const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m); if(!c) process.exitCode=1;};
 const B=BASE;
 (async()=>{
@@ -46,8 +49,20 @@ const B=BASE;
   const totalTxt=await p.textContent('#uCount');
   ok(/of [\d,]+ institutions/.test(totalTxt),'count line from real data: '+totalTxt);
   ok((await p.textContent('#uSource')).includes('IPEDS'),'source line names IPEDS');
+  // The default page is alphabetical, so it holds uncollected schools; a collected
+  // school has to be searched for. Both states must render distinctly.
   const lastCol=await p.locator('#uBody tr td:nth-child(6)').allTextContents();
-  ok(lastCol.some(t=>t.trim()==='—') && lastCol.some(t=>/\d{4}-\d{2}-\d{2}/.test(t)), 'Last collection distinguishes collected and uncollected schools');
+  ok(lastCol.every(t=>t.trim()==='—'), 'uncollected institutions show an empty Last collection');
+  const collectedSchools=(collections.latest&&collections.latest.schools||[]).filter(s=>s.status==='complete');
+  if (collectedSchools.length) {
+    const school=collectedSchools[0];
+    await p.fill('#uSearch',school.domain); await p.waitForTimeout(300);
+    const row=(await p.locator('#uBody tr td:nth-child(6)').allTextContents())[0]||'';
+    ok(/\d{4}-\d{2}-\d{2}/.test(row), `collected school ${school.domain} shows its collection date: ${row.trim()}`);
+    const platform=(await p.locator('#uBody tr td:nth-child(4)').allTextContents())[0]||'';
+    ok(/Banner/i.test(platform), `collected school ${school.domain} shows its detected platform`);
+    await p.fill('#uSearch',''); await p.waitForTimeout(250);
+  }
   await p.fill('#uSearch','appstate'); await p.waitForTimeout(250);
   ok((await p.locator('#uBody tr').count())>=1,'universities search filters');
   await p.fill('#uSearch','');
