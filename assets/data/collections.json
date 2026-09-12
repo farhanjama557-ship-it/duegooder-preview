@@ -1,20 +1,20 @@
 {
- "generated_at": "2026-09-12T02:15:35.930Z",
+ "generated_at": "2026-09-12T15:17:28.836Z",
  "latest": {
-  "run_id": "collection_20260912021246_p2",
+  "run_id": "collection_20260912151632_p2",
   "connector": "banner",
   "status": "complete",
-  "started_at": "2026-09-12T02:12:46.075Z",
-  "finished_at": "2026-09-12T02:15:35.930Z",
+  "started_at": "2026-09-12T15:16:32.420Z",
+  "finished_at": "2026-09-12T15:17:28.834Z",
   "term_selection": "latest",
   "metrics": {
    "schools_processed": 3,
    "schools_complete": 3,
-   "sections": 7304,
-   "meetings": 6639,
-   "meetings_with_times": 4252,
-   "http_requests": 31,
-   "runtime_ms": 169855,
+   "sections": 10214,
+   "meetings": 10976,
+   "meetings_with_times": 6845,
+   "http_requests": 37,
+   "runtime_ms": 56415,
    "failures": 0,
    "manual_intervention": 0,
    "direct_cost_usd": 0
@@ -35,7 +35,7 @@
     "meetings": 2612,
     "meetings_with_times": 1410,
     "http_requests": 11,
-    "runtime_ms": 51681,
+    "runtime_ms": 13805,
     "failures": 0,
     "manual_intervention": 0,
     "direct_cost_usd": 0,
@@ -56,28 +56,28 @@
     "meetings": 3150,
     "meetings_with_times": 2373,
     "http_requests": 11,
-    "runtime_ms": 39903,
+    "runtime_ms": 27076,
     "failures": 0,
     "manual_intervention": 0,
     "direct_cost_usd": 0,
     "error": null
    },
    {
-    "school_id": "eiu",
-    "school_name": "Eastern Illinois University",
-    "domain": "eiu.edu",
-    "registration_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+    "school_id": "ung",
+    "school_name": "University of North Georgia",
+    "domain": "ung.edu",
+    "registration_url": "https://ssb.ungprod.ung.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
     "status": "complete",
     "selected_terms": [
-     "202730"
+     "202608"
     ],
-    "terms_discovered": 59,
-    "subjects": 71,
-    "sections": 1940,
-    "meetings": 877,
-    "meetings_with_times": 469,
-    "http_requests": 9,
-    "runtime_ms": 78270,
+    "terms_discovered": 40,
+    "subjects": 97,
+    "sections": 4850,
+    "meetings": 5214,
+    "meetings_with_times": 3062,
+    "http_requests": 15,
+    "runtime_ms": 15533,
     "failures": 0,
     "manual_intervention": 0,
     "direct_cost_usd": 0,
@@ -88,36 +88,615 @@
    "sections": {
     "created": 0,
     "updated": 0,
-    "unchanged": 7304,
+    "unchanged": 10214,
     "duplicates_prevented": 0
    },
    "meetings": {
     "created": 0,
     "updated": 0,
-    "unchanged": 6639,
+    "unchanged": 10976,
     "duplicates_prevented": 0
    },
    "terms": {
     "created": 0,
     "updated": 0,
-    "unchanged": 128,
+    "unchanged": 109,
     "duplicates_prevented": 0
    },
    "subjects": {
     "created": 0,
     "updated": 0,
-    "unchanged": 269,
+    "unchanged": 295,
     "duplicates_prevented": 0
    },
    "provenance": {
     "created": 0,
     "updated": 0,
-    "unchanged": 31,
+    "unchanged": 37,
     "duplicates_prevented": 0
    }
   }
  },
  "runs": [
+  {
+   "run_id": "collection_20260912151632_p2",
+   "connector": "banner",
+   "status": "complete",
+   "started_at": "2026-09-12T15:16:32.420Z",
+   "finished_at": "2026-09-12T15:17:28.834Z",
+   "term_selection": "latest",
+   "metrics": {
+    "schools_processed": 3,
+    "schools_complete": 3,
+    "sections": 10214,
+    "meetings": 10976,
+    "meetings_with_times": 6845,
+    "http_requests": 37,
+    "runtime_ms": 56415,
+    "failures": 0,
+    "manual_intervention": 0,
+    "direct_cost_usd": 0
+   },
+   "schools": [
+    {
+     "school_id": "uwf",
+     "school_name": "University of West Florida",
+     "domain": "uwf.edu",
+     "registration_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+     "status": "complete",
+     "selected_terms": [
+      "202608"
+     ],
+     "terms_discovered": 37,
+     "subjects": 100,
+     "sections": 2476,
+     "meetings": 2612,
+     "meetings_with_times": 1410,
+     "http_requests": 11,
+     "runtime_ms": 13805,
+     "failures": 0,
+     "manual_intervention": 0,
+     "direct_cost_usd": 0,
+     "error": null
+    },
+    {
+     "school_id": "udayton",
+     "school_name": "University of Dayton",
+     "domain": "udayton.edu",
+     "registration_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+     "status": "complete",
+     "selected_terms": [
+      "202680"
+     ],
+     "terms_discovered": 32,
+     "subjects": 98,
+     "sections": 2888,
+     "meetings": 3150,
+     "meetings_with_times": 2373,
+     "http_requests": 11,
+     "runtime_ms": 27076,
+     "failures": 0,
+     "manual_intervention": 0,
+     "direct_cost_usd": 0,
+     "error": null
+    },
+    {
+     "school_id": "ung",
+     "school_name": "University of North Georgia",
+     "domain": "ung.edu",
+     "registration_url": "https://ssb.ungprod.ung.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+     "status": "complete",
+     "selected_terms": [
+      "202608"
+     ],
+     "terms_discovered": 40,
+     "subjects": 97,
+     "sections": 4850,
+     "meetings": 5214,
+     "meetings_with_times": 3062,
+     "http_requests": 15,
+     "runtime_ms": 15533,
+     "failures": 0,
+     "manual_intervention": 0,
+     "direct_cost_usd": 0,
+     "error": null
+    }
+   ],
+   "persistence": {
+    "sections": {
+     "created": 0,
+     "updated": 0,
+     "unchanged": 10214,
+     "duplicates_prevented": 0
+    },
+    "meetings": {
+     "created": 0,
+     "updated": 0,
+     "unchanged": 10976,
+     "duplicates_prevented": 0
+    },
+    "terms": {
+     "created": 0,
+     "updated": 0,
+     "unchanged": 109,
+     "duplicates_prevented": 0
+    },
+    "subjects": {
+     "created": 0,
+     "updated": 0,
+     "unchanged": 295,
+     "duplicates_prevented": 0
+    },
+    "provenance": {
+     "created": 0,
+     "updated": 0,
+     "unchanged": 37,
+     "duplicates_prevented": 0
+    }
+   }
+  },
+  {
+   "run_id": "collection_20260912151536_p1",
+   "connector": "banner",
+   "status": "complete",
+   "started_at": "2026-09-12T15:15:36.194Z",
+   "finished_at": "2026-09-12T15:16:31.982Z",
+   "term_selection": "latest",
+   "metrics": {
+    "schools_processed": 3,
+    "schools_complete": 3,
+    "sections": 10214,
+    "meetings": 10976,
+    "meetings_with_times": 6845,
+    "http_requests": 37,
+    "runtime_ms": 55789,
+    "failures": 0,
+    "manual_intervention": 0,
+    "direct_cost_usd": 0
+   },
+   "schools": [
+    {
+     "school_id": "uwf",
+     "school_name": "University of West Florida",
+     "domain": "uwf.edu",
+     "registration_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+     "status": "complete",
+     "selected_terms": [
+      "202608"
+     ],
+     "terms_discovered": 37,
+     "subjects": 100,
+     "sections": 2476,
+     "meetings": 2612,
+     "meetings_with_times": 1410,
+     "http_requests": 11,
+     "runtime_ms": 14291,
+     "failures": 0,
+     "manual_intervention": 0,
+     "direct_cost_usd": 0,
+     "error": null
+    },
+    {
+     "school_id": "udayton",
+     "school_name": "University of Dayton",
+     "domain": "udayton.edu",
+     "registration_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+     "status": "complete",
+     "selected_terms": [
+      "202680"
+     ],
+     "terms_discovered": 32,
+     "subjects": 98,
+     "sections": 2888,
+     "meetings": 3150,
+     "meetings_with_times": 2373,
+     "http_requests": 11,
+     "runtime_ms": 25995,
+     "failures": 0,
+     "manual_intervention": 0,
+     "direct_cost_usd": 0,
+     "error": null
+    },
+    {
+     "school_id": "ung",
+     "school_name": "University of North Georgia",
+     "domain": "ung.edu",
+     "registration_url": "https://ssb.ungprod.ung.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+     "status": "complete",
+     "selected_terms": [
+      "202608"
+     ],
+     "terms_discovered": 40,
+     "subjects": 97,
+     "sections": 4850,
+     "meetings": 5214,
+     "meetings_with_times": 3062,
+     "http_requests": 15,
+     "runtime_ms": 15502,
+     "failures": 0,
+     "manual_intervention": 0,
+     "direct_cost_usd": 0,
+     "error": null
+    }
+   ],
+   "persistence": {
+    "sections": {
+     "created": 4850,
+     "updated": 2,
+     "unchanged": 5362,
+     "duplicates_prevented": 0
+    },
+    "meetings": {
+     "created": 5214,
+     "updated": 0,
+     "unchanged": 5762,
+     "duplicates_prevented": 0
+    },
+    "terms": {
+     "created": 40,
+     "updated": 0,
+     "unchanged": 69,
+     "duplicates_prevented": 0
+    },
+    "subjects": {
+     "created": 97,
+     "updated": 0,
+     "unchanged": 198,
+     "duplicates_prevented": 0
+    },
+    "provenance": {
+     "created": 15,
+     "updated": 0,
+     "unchanged": 22,
+     "duplicates_prevented": 0
+    }
+   }
+  },
+  {
+   "run_id": "collection_20260912150427_p2",
+   "connector": "banner",
+   "status": "failed",
+   "started_at": "2026-09-12T15:04:27.250Z",
+   "finished_at": "2026-09-12T15:05:14.355Z",
+   "term_selection": "latest",
+   "metrics": {
+    "schools_processed": 3,
+    "schools_complete": 2,
+    "sections": 5364,
+    "meetings": 5762,
+    "meetings_with_times": 3783,
+    "http_requests": 23,
+    "runtime_ms": 47108,
+    "failures": 1,
+    "manual_intervention": 0,
+    "direct_cost_usd": 0
+   },
+   "schools": [
+    {
+     "school_id": "uwf",
+     "school_name": "University of West Florida",
+     "domain": "uwf.edu",
+     "registration_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+     "status": "complete",
+     "selected_terms": [
+      "202608"
+     ],
+     "terms_discovered": 37,
+     "subjects": 100,
+     "sections": 2476,
+     "meetings": 2612,
+     "meetings_with_times": 1410,
+     "http_requests": 11,
+     "runtime_ms": 20160,
+     "failures": 0,
+     "manual_intervention": 0,
+     "direct_cost_usd": 0,
+     "error": null
+    },
+    {
+     "school_id": "udayton",
+     "school_name": "University of Dayton",
+     "domain": "udayton.edu",
+     "registration_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+     "status": "complete",
+     "selected_terms": [
+      "202680"
+     ],
+     "terms_discovered": 32,
+     "subjects": 98,
+     "sections": 2888,
+     "meetings": 3150,
+     "meetings_with_times": 2373,
+     "http_requests": 11,
+     "runtime_ms": 26682,
+     "failures": 0,
+     "manual_intervention": 0,
+     "direct_cost_usd": 0,
+     "error": null
+    },
+    {
+     "school_id": "eiu",
+     "school_name": "Eastern Illinois University",
+     "domain": "eiu.edu",
+     "registration_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+     "status": "failed",
+     "selected_terms": [],
+     "terms_discovered": 0,
+     "subjects": 0,
+     "sections": 0,
+     "meetings": 0,
+     "meetings_with_times": 0,
+     "http_requests": 1,
+     "runtime_ms": 263,
+     "failures": 1,
+     "manual_intervention": 0,
+     "direct_cost_usd": 0,
+     "error": "request_failed: https://banner.eiu.edu/robots.txt: fetch failed"
+    }
+   ],
+   "persistence": {
+    "sections": {
+     "created": 0,
+     "updated": 0,
+     "unchanged": 5364,
+     "duplicates_prevented": 0
+    },
+    "meetings": {
+     "created": 0,
+     "updated": 0,
+     "unchanged": 5762,
+     "duplicates_prevented": 0
+    },
+    "terms": {
+     "created": 0,
+     "updated": 0,
+     "unchanged": 69,
+     "duplicates_prevented": 0
+    },
+    "subjects": {
+     "created": 0,
+     "updated": 0,
+     "unchanged": 198,
+     "duplicates_prevented": 0
+    },
+    "provenance": {
+     "created": 0,
+     "updated": 0,
+     "unchanged": 23,
+     "duplicates_prevented": 0
+    }
+   }
+  },
+  {
+   "run_id": "collection_20260912150338_p1",
+   "connector": "banner",
+   "status": "failed",
+   "started_at": "2026-09-12T15:03:38.639Z",
+   "finished_at": "2026-09-12T15:04:26.972Z",
+   "term_selection": "latest",
+   "metrics": {
+    "schools_processed": 3,
+    "schools_complete": 2,
+    "sections": 5364,
+    "meetings": 5762,
+    "meetings_with_times": 3783,
+    "http_requests": 23,
+    "runtime_ms": 48333,
+    "failures": 1,
+    "manual_intervention": 0,
+    "direct_cost_usd": 0
+   },
+   "schools": [
+    {
+     "school_id": "uwf",
+     "school_name": "University of West Florida",
+     "domain": "uwf.edu",
+     "registration_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+     "status": "complete",
+     "selected_terms": [
+      "202608"
+     ],
+     "terms_discovered": 37,
+     "subjects": 100,
+     "sections": 2476,
+     "meetings": 2612,
+     "meetings_with_times": 1410,
+     "http_requests": 11,
+     "runtime_ms": 20544,
+     "failures": 0,
+     "manual_intervention": 0,
+     "direct_cost_usd": 0,
+     "error": null
+    },
+    {
+     "school_id": "udayton",
+     "school_name": "University of Dayton",
+     "domain": "udayton.edu",
+     "registration_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+     "status": "complete",
+     "selected_terms": [
+      "202680"
+     ],
+     "terms_discovered": 32,
+     "subjects": 98,
+     "sections": 2888,
+     "meetings": 3150,
+     "meetings_with_times": 2373,
+     "http_requests": 11,
+     "runtime_ms": 27709,
+     "failures": 0,
+     "manual_intervention": 0,
+     "direct_cost_usd": 0,
+     "error": null
+    },
+    {
+     "school_id": "eiu",
+     "school_name": "Eastern Illinois University",
+     "domain": "eiu.edu",
+     "registration_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+     "status": "failed",
+     "selected_terms": [],
+     "terms_discovered": 0,
+     "subjects": 0,
+     "sections": 0,
+     "meetings": 0,
+     "meetings_with_times": 0,
+     "http_requests": 1,
+     "runtime_ms": 78,
+     "failures": 1,
+     "manual_intervention": 0,
+     "direct_cost_usd": 0,
+     "error": "request_failed: https://banner.eiu.edu/robots.txt: fetch failed"
+    }
+   ],
+   "persistence": {
+    "sections": {
+     "created": 0,
+     "updated": 0,
+     "unchanged": 5364,
+     "duplicates_prevented": 0
+    },
+    "meetings": {
+     "created": 0,
+     "updated": 0,
+     "unchanged": 5762,
+     "duplicates_prevented": 0
+    },
+    "terms": {
+     "created": 0,
+     "updated": 0,
+     "unchanged": 69,
+     "duplicates_prevented": 0
+    },
+    "subjects": {
+     "created": 0,
+     "updated": 0,
+     "unchanged": 198,
+     "duplicates_prevented": 0
+    },
+    "provenance": {
+     "created": 0,
+     "updated": 0,
+     "unchanged": 23,
+     "duplicates_prevented": 0
+    }
+   }
+  },
+  {
+   "run_id": "collection_20260912150157_p1",
+   "connector": "banner",
+   "status": "failed",
+   "started_at": "2026-09-12T15:01:57.077Z",
+   "finished_at": "2026-09-12T15:02:34.962Z",
+   "term_selection": "latest",
+   "metrics": {
+    "schools_processed": 3,
+    "schools_complete": 2,
+    "sections": 5364,
+    "meetings": 5762,
+    "meetings_with_times": 3783,
+    "http_requests": 23,
+    "runtime_ms": 37886,
+    "failures": 1,
+    "manual_intervention": 0,
+    "direct_cost_usd": 0
+   },
+   "schools": [
+    {
+     "school_id": "uwf",
+     "school_name": "University of West Florida",
+     "domain": "uwf.edu",
+     "registration_url": "https://apps.banner.uwf.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+     "status": "complete",
+     "selected_terms": [
+      "202608"
+     ],
+     "terms_discovered": 37,
+     "subjects": 100,
+     "sections": 2476,
+     "meetings": 2612,
+     "meetings_with_times": 1410,
+     "http_requests": 11,
+     "runtime_ms": 15777,
+     "failures": 0,
+     "manual_intervention": 0,
+     "direct_cost_usd": 0,
+     "error": null
+    },
+    {
+     "school_id": "udayton",
+     "school_name": "University of Dayton",
+     "domain": "udayton.edu",
+     "registration_url": "https://banner.udayton.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+     "status": "complete",
+     "selected_terms": [
+      "202680"
+     ],
+     "terms_discovered": 32,
+     "subjects": 98,
+     "sections": 2888,
+     "meetings": 3150,
+     "meetings_with_times": 2373,
+     "http_requests": 11,
+     "runtime_ms": 22037,
+     "failures": 0,
+     "manual_intervention": 0,
+     "direct_cost_usd": 0,
+     "error": null
+    },
+    {
+     "school_id": "eiu",
+     "school_name": "Eastern Illinois University",
+     "domain": "eiu.edu",
+     "registration_url": "https://banner.eiu.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search",
+     "status": "failed",
+     "selected_terms": [],
+     "terms_discovered": 0,
+     "subjects": 0,
+     "sections": 0,
+     "meetings": 0,
+     "meetings_with_times": 0,
+     "http_requests": 1,
+     "runtime_ms": 71,
+     "failures": 1,
+     "manual_intervention": 0,
+     "direct_cost_usd": 0,
+     "error": "request_failed: https://banner.eiu.edu/robots.txt: fetch failed"
+    }
+   ],
+   "persistence": {
+    "sections": {
+     "created": 0,
+     "updated": 5,
+     "unchanged": 5359,
+     "duplicates_prevented": 0
+    },
+    "meetings": {
+     "created": 0,
+     "updated": 0,
+     "unchanged": 5762,
+     "duplicates_prevented": 0
+    },
+    "terms": {
+     "created": 0,
+     "updated": 0,
+     "unchanged": 69,
+     "duplicates_prevented": 0
+    },
+    "subjects": {
+     "created": 0,
+     "updated": 0,
+     "unchanged": 198,
+     "duplicates_prevented": 0
+    },
+    "provenance": {
+     "created": 0,
+     "updated": 1,
+     "unchanged": 22,
+     "duplicates_prevented": 0
+    }
+   }
+  },
   {
    "run_id": "collection_20260912021246_p2",
    "connector": "banner",
